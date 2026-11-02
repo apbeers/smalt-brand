@@ -55,9 +55,72 @@ All ratios were computed with the WCAG 2 relative-luminance formula and are reco
 - **Positioning line:** "A fast alternative database for the browser, written in TypeScript." It was first "pure JavaScript", but the source is TypeScript and "pure JavaScript" undersold the first-class types. "No WASM" was rejected as framing against other engines.
 - **"Alternate" became "Alternative".** The tagline is now "Small. Alternative. Fast." and *alt* in the name reads as *alternative*. smaltdb is proposed as an alternative database; "alternative" is the word that audience uses, and it matches the positioning line.
 - **Voice rule added:** describe what smaltdb is, never what it isn't.
-- **Outlined wordmark:** GitHub strips inline styles from Markdown, so the coloured `alt` can only appear in a README as an image. The wordmark and lockup are Martian Mono 600 converted to paths (`scripts/wordmark.py`), switched for light and dark with `<picture>`.
+- **Outlined wordmark:** GitHub strips inline styles from Markdown, so the coloured `alt` can only appear in a README as an image. The wordmark and lockup are Martian Mono 600 converted to paths (now `scripts/brand_assets.py`), switched for light and dark with `<picture>`.
 - **Cover simplified:** an early design-system cover scattered grain-sized squares to suggest powder. It read as noise and was replaced by the oversized mark alone.
 - **Docs site:** smaltdb.dev uses the VitePress theme in `themes/vitepress/`, with the wordmark in the hero.
+
+## The family: smaltui and smaltbi
+
+Two products built on smaltdb needed brands of their own that still read as part of one family.
+
+- **smaltui** is a query workbench for smaltdb, served as a static site: object explorer, tabbed SQL editors, editable data grids, import tools.
+- **smaltbi** is a report designer and viewer: model data, drag fields onto a canvas, publish reports as static sites.
+
+Shared from the start: the Kiln neutrals, Geist and Martian Mono, the `sm`**`alt`**`…` wordmark, and marks built as a smalt body plus a chip. The products could differ in mark shape and, optionally, chip colour. Product colours were drawn from smalt's sibling cobalt pigments: cerulean blue (cobalt stannate), cobalt green, cobalt violet and aureolin (cobalt yellow). Source: [CAMEO, Museum of Fine Arts Boston](https://cameo.mfa.org/wiki/Cobalt_pigments).
+
+### Family round 1
+
+- Taglines: four per product.
+- Marks: three per product.
+  - smaltui: Tabs, Caret, Panes.
+  - smaltbi: Bars, Slice, Trend.
+- Colour: three options.
+  - A1: all smalt.
+  - A2: cerulean and cobalt violet.
+  - A3: cobalt green and aureolin. The aureolin chip is 1.7:1 on white.
+- Badges: three styles (Pill, Flat, Inline) with four verbs.
+
+Feedback:
+
+- Taglines: "Small. Alternative. ___" for both products. smaltbi: "Small. Alternative. Insight." smaltui: not "Workbench".
+- smaltbi positioning: "Business intelligence in the browser, powered by smaltdb."
+- smaltui: the terminal feel of the Caret mark was liked, but it didn't fit the idea.
+- smaltbi: Trend was liked because it looks unlike other BI tools, but it wasn't there yet.
+- Colour: the cobalt blues were close.
+- Badges: Pill and Inline were the best. Use "Powered by" as the verb.
+
+### Family round 2
+
+- smaltui words: five tagline words (Console, Terminal, Interface, Query, Studio) and three positioning lines.
+- smaltui terminal marks: Prompt, Last line, Chevron, Grain cursor.
+- smaltbi trend marks: Breakout, Area, Scatter, Steps.
+- Cobalt blues in three tunings: C1 as before, C2 deeper, C4 teal and violet. A brighter variant was dropped at 2.96:1 on white.
+- "Powered by" in four pill variants (P1–P4) and four inline variants (I1–I4).
+
+Viewed full-size, Prompt and Chevron read instantly as "terminal" but sit close to the generic terminal icon. Breakout and Scatter break into specks at 16 px. The stacked badge variants' label was about 7 px at real size, too small to read.
+
+### Family round 3: the picks
+
+| | **Picked** |
+| --- | --- |
+| smaltui tagline | **"Small. Alternative. Query."** |
+| smaltui positioning | **"A SQL console for smaltdb that runs entirely in the browser."** |
+| smaltui mark | **Chevron:** the prompt, `>` and `_`, as a grain and a chip |
+| smaltbi tagline | **"Small. Alternative. Insight."** |
+| smaltbi positioning | **"Business intelligence in the browser, powered by smaltdb."** |
+| smaltbi mark | **Scatter:** grains along a rising line, the latest point as the chip |
+| Colour | **C2 Deeper:** smaltui `#0E7FAE`, smaltbi `#6E4BC2`; text shades `#0B6A91` and `#6141AE` (light), `#5CBDE8` and `#B8A1F2` (dark) |
+| Badge | **P1 Pill**, "Powered by", 172 × 28 px |
+
+Applied after the picks:
+
+- smaltbi's 16 px mark uses three larger grains instead of five, so it holds at favicon and badge size.
+- Badge colours match the lockups: the suffix takes the product colour (confirmed).
+- Badge text contrast on its surface: at least 6.0:1 in light and 7.4:1 in dark.
+
+## Exploration archive
+
+[`exploration/`](exploration/) keeps all 27 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 

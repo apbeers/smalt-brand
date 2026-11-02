@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Icon style alternatives</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#001F66}
+</style>
+</helmet>
+<div style="width: 1440px; height: 760px; box-sizing: border-box; padding: 56px 64px; background: #F4F6FA; color: #161A23; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.02em">Icon style alternatives</h1>
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #5A6070">same six concepts: query · transaction · WAL · worker · B+tree · fast path</p>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DBE8; border-radius: 16px; padding: 20px 28px; display: flex; align-items: center; gap: 40px; flex-grow: 1">
+<div style="width: 240px; flex-shrink: 0"><p style="margin: 0; font-weight: 600; font-size: 18px">I1 · Outline</p><p style="margin: 4px 0 0; font-size: 14px; color: #5A6070">1.75 px round stroke. Familiar, pairs with any mark.</p></div>
+<div style="display: flex; gap: 44px; align-items: center">
+<sc-for list="{{icons}}" as="i" hint-placeholder-count="6">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" role="img" aria-label="{{i.label}}"><path d="{{i.d}}" stroke="#003399" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</sc-for>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DBE8; border-radius: 16px; padding: 20px 28px; display: flex; align-items: center; gap: 40px; flex-grow: 1">
+<div style="width: 240px; flex-shrink: 0"><p style="margin: 0; font-weight: 600; font-size: 18px">I2 · Duotone</p><p style="margin: 4px 0 0; font-size: 14px; color: #5A6070">Outline over a Flour glass tile. Softer, more "glass".</p></div>
+<div style="display: flex; gap: 44px; align-items: center">
+<sc-for list="{{icons}}" as="i" hint-placeholder-count="6">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" role="img" aria-label="{{i.label}}"><rect x="1" y="1" width="22" height="22" rx="6" fill="#D6E0F3"></rect><path d="{{i.d}}" stroke="#001F66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(2.4 2.4) scale(0.8)"></path></svg>
+</sc-for>
+</div>
+</div>
+
+<div style="background: #0E1430; border-radius: 16px; padding: 20px 28px; display: flex; align-items: center; gap: 40px; flex-grow: 1">
+<div style="width: 240px; flex-shrink: 0"><p style="margin: 0; font-weight: 600; font-size: 18px; color: #E8ECF8">I3 · Pixel grain</p><p style="margin: 4px 0 0; font-size: 14px; color: #A9B1C4">8×8 grid of glass grains. Leans into "small"; pixel-perfect at 16 px.</p></div>
+<div style="display: flex; gap: 44px; align-items: center">
+<sc-for list="{{pixels}}" as="p" hint-placeholder-count="6">
+<div role="img" aria-label="{{p.label}}" style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 1px; width: 48px; height: 48px">
+<sc-for list="{{p.cells}}" as="c" hint-placeholder-count="64">
+<span style="{{c.style}}"></span>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":760}}'>
+class Component extends DCLogic {
+renderVals() {
+const icons = [
+{ label: 'Query', d: 'M4 6h12 M4 11h8 M4 16h5 M14 17a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M19.2 19.2L21 21' },
+{ label: 'Transaction', d: 'M20 12a8 8 0 1 1-2.34-5.66 M20 4v4h-4 M8.5 12.5l2.5 2.5 4.5-5' },
+{ label: 'Write-ahead log', d: 'M6 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M7.5 8h4 M7.5 12h4 M7.5 16h2 M19 7v11 M17 16l2 2 2-2' },
+{ label: 'Web Worker', d: 'M9 7h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z M10 3v4 M14 3v4 M10 17v4 M14 17v4 M3 10h4 M3 14h4 M17 10h4 M17 14h4' },
+{ label: 'B+tree index', d: 'M10 3h4v4h-4z M12 7v3 M6 10h12 M6 10v4 M12 10v4 M18 10v4 M4 14h4v5H4z M10 14h4v5h-4z M16 14h4v5h-4z' },
+{ label: 'Fast path', d: 'M13 2L4 14h7l-1 8 9-12h-7z' }
+];
+const maps = [
+['Query', ['..####..','.#....#.','.#....#.','.#....#.','..####..','.....#..','......#.','.......#']],
+['Transaction', ['########','#......#','#.....##','#....#.#','##..#..#','#.##...#','#..#...#','########']],
+['Write-ahead log', ['######..','#....#..','#.##.#.#','#....#.#','#.##.#.#','#....###','#.#..#.#','######..']],
+['Web Worker', ['..#..#..','.######.','##....##','.#.##.#.','.#.##.#.','##....##','.######.','..#..#..']],
+['B+tree index', ['...##...','...##...','....#...','.######.','.#..#.#.','##.##.##','##.##.##','........']],
+['Fast path', ['....###.','...###..','..###...','.######.','...###..','..###...','.###....','.#......']]
+];
+const on = 'display:block; border-radius:1px; background:#5B83FF';
+const hot = 'display:block; border-radius:1px; background:#4FD8FF';
+const off = 'display:block; border-radius:1px; background:#1A2245';
+const pixels = maps.map(([label, rows], idx) => ({
+label,
+cells: rows.join('').split('').map((ch) => ({ style: ch === '#' ? (idx === 5 ? hot : on) : off }))
+}));
+return { icons, pixels };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>P1 pill with real marks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">round 3 · badge</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">P1 pill: "Powered by", with the chosen marks</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656">Shown at 2× and at real size. The suffix takes the product colour, matching the lockups. At real size each badge uses its product's 16 px mark.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; height: 400px">
+<sc-for list="{{themes}}" as="th" hint-placeholder-count="2">
+<div style="background: {{th.ground}}; border: 1px solid {{th.rule}}; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 18px">
+<sc-for list="{{th.big}}" as="b" hint-placeholder-count="3">
+<span style="{{b.wrap}}"><svg viewBox="0 0 64 64" style="{{b.markStyle}}" aria-hidden="true"><sc-for list="{{b.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg><span style="{{b.lead}}">Powered by</span><span style="{{b.word}}">sm<span style="{{b.alt}}">alt</span><span style="{{b.sfx}}">{{b.suffix}}</span></span></span>
+</sc-for>
+<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding-top: 14px; border-top: 1px dashed {{th.rule}}">
+<span style="font-family: 'Martian Mono', monospace; font-size: 11px; color: {{th.note}}">1×</span>
+<sc-for list="{{th.small}}" as="b" hint-placeholder-count="3">
+<span style="{{b.wrap}}"><svg viewBox="0 0 64 64" style="{{b.markStyle}}" aria-hidden="true"><sc-for list="{{b.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg><span style="{{b.lead}}">Powered by</span><span style="{{b.word}}">sm<span style="{{b.alt}}">alt</span><span style="{{b.sfx}}">{{b.suffix}}</span></span></span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">SIZE AND LAYOUT · 1×</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">Badge <b>172 × 28 px</b> for all three products (Martian Mono is monospaced)<br>Padding 0 10 px · gap 6 px · radius 7 px · border 1 px<br>Mark 16 × 16 px · smaltbi uses its 3-grain 16 px mark<br>Measured from the font files' advance widths</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">TYPE</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">"Powered by": Geist 400, 11 px<br>Wordmark: Martian Mono 600, 12.5 px, tracking −0.06em<br>Final SVGs: all text converted to paths, so no font loading</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">COLOUR · CONTRAST ON THE BADGE SURFACE</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.6"><b>Light</b> (surface #FFFFFF, border #D6DBE4): verb #3F4656 9.5:1 · sm/db #151922 17.6:1 · alt #003399 10.9:1 · ui #0B6A91 6.0:1 · bi #6141AE 7.3:1<br><b>Dark</b> (surface #1B1F29, border #2C3240): verb #B9BEC9 8.8:1 · sm/db #E9EBF0 13.8:1 · alt #9DB4F5 8.1:1 · ui #5CBDE8 7.8:1 · bi #B8A1F2 7.4:1</p>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const SH = {
+  db: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'pale']],
+  ui: [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']],
+  bi: [[rr(8, 44, 10, 10, 3), 'pale'], [rr(22, 42, 7, 7, 2), 'pale'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'pale'], [rr(46, 8, 12, 12, 3), 'bi']],
+  biSmall: [[rr(6, 40, 16, 16, 4), 'pale'], [rr(22, 22, 20, 20, 5), 'body'], [rr(44, 4, 16, 16, 4), 'bi']],
+};
+const C = {
+  light: { body: '#003399', pale: '#7B97D4', ui: '#0E7FAE', bi: '#6E4BC2', sfx: { db: '#151922', ui: '#0B6A91', bi: '#6141AE' }, ink: '#151922', ink2: '#3F4656', alt: '#003399', surf: '#FFFFFF', border: '#D6DBE4' },
+  dark: { body: '#9DB4F5', pale: '#D6E0F3', ui: '#5CBDE8', bi: '#B8A1F2', sfx: { db: '#E9EBF0', ui: '#5CBDE8', bi: '#B8A1F2' }, ink: '#E9EBF0', ink2: '#B9BEC9', alt: '#9DB4F5', surf: '#1B1F29', border: '#2C3240' },
+};
+const pill = (c, k, s) => {
+  const shape = s < 1.5 && k === 'bi' ? 'biSmall' : k;
+  return { suffix: k, alt: `color: ${c.alt}`, sfx: `color: ${c.sfx[k]}`, paths: SH[shape].map(([d, r]) => ({ d, fill: c[r] })),
+    wrap: `display: inline-flex; align-items: center; gap: ${6 * s}px; height: ${28 * s}px; padding: 0 ${10 * s}px; border: 1px solid ${c.border}; border-radius: ${7 * s}px; background: ${c.surf}; box-sizing: border-box; width: fit-content`,
+    markStyle: `width: ${16 * s}px; height: ${16 * s}px`,
+    lead: `font-family: 'Geist', sans-serif; font-size: ${11 * s}px; color: ${c.ink2}`,
+    word: `font-family: 'Martian Mono', monospace; font-weight: 600; letter-spacing: -0.06em; font-size: ${12.5 * s}px; color: ${c.ink}` };
+};
+const ks = ['db', 'ui', 'bi'];
+return {
+themes: [
+  { ground: '#F5F6F8', rule: '#D6DBE4', note: '#5C6375', big: ks.map((k) => pill(C.light, k, 2)), small: ks.map((k) => pill(C.light, k, 1)) },
+  { ground: '#14171F', rule: '#2C3240', note: '#9096A3', big: ks.map((k) => pill(C.dark, k, 2)), small: ks.map((k) => pill(C.dark, k, 1)) },
+]
+};
+}
+}
+</script>
+</body>
+</html>

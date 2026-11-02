@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Type systems</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400;500&amp;family=Martian+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#10162E}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; padding: 56px 64px; background: #F7F8FB; color: #10162E; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Type systems · Geist + Martian Mono</h1>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5A6278">body 17/1.6 · max 70ch · code 15/1.6</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+
+<div style="background: #FFFFFF; border: 1px solid #D3DAE8; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">S1 · MONO-FORWARD — Martian Mono headings · Geist body · Geist Mono code</p>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; font-weight: 500; color: #003399">docs / getting-started</p>
+<h2 style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 38px; font-weight: 600; letter-spacing: -0.05em; line-height: 1.1">Open a database</h2>
+<h3 style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 20px; font-weight: 500; letter-spacing: -0.03em">Run your first query</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3D4560; max-width: 70ch">Call <code style="font-family: 'Geist Mono', monospace; font-size: 15px; background: #F0F3F9; padding: 2px 6px; border-radius: 4px; color: #10162E">open()</code> with a name. The engine starts in a Web Worker and keeps its data in the Origin Private File System, so the page stays responsive while queries run.</p>
+<pre style="margin: 0; padding: 18px 20px; background: #F0F3F9; border-radius: 10px; font-family: 'Geist Mono', monospace; font-size: 15px; line-height: 1.6; color: #10162E; white-space: pre-wrap"><span style="color: #003399">const</span> db = <span style="color: #003399">await</span> <span style="color: #1F5F8B">open</span>(<span style="color: #8A5A12">'app'</span>);
+<span style="color: #003399">const</span> rows = <span style="color: #003399">await</span> db.<span style="color: #1F5F8B">query</span>(<span style="color: #8A5A12">'SELECT id, title FROM todo'</span>);</pre>
+<p style="margin: 0; font-size: 15px; color: #5A6278">Character: unmistakably made for coders. Martian Mono stays on short lines only.</p>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D3DAE8; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">S2 · GEIST-FORWARD — Geist 700 headings · Geist body · Martian Mono labels · Geist Mono code</p>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; font-weight: 500; color: #003399">docs / getting-started</p>
+<h2 style="margin: 0; font-size: 42px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1">Open a database</h2>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em">Run your first query</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3D4560; max-width: 70ch">Call <code style="font-family: 'Geist Mono', monospace; font-size: 15px; background: #F0F3F9; padding: 2px 6px; border-radius: 4px; color: #10162E">open()</code> with a name. The engine starts in a Web Worker and keeps its data in the Origin Private File System, so the page stays responsive while queries run.</p>
+<pre style="margin: 0; padding: 18px 20px; background: #F0F3F9; border-radius: 10px; font-family: 'Geist Mono', monospace; font-size: 15px; line-height: 1.6; color: #10162E; white-space: pre-wrap"><span style="color: #003399">const</span> db = <span style="color: #003399">await</span> <span style="color: #1F5F8B">open</span>(<span style="color: #8A5A12">'app'</span>);
+<span style="color: #003399">const</span> rows = <span style="color: #003399">await</span> db.<span style="color: #1F5F8B">query</span>(<span style="color: #8A5A12">'SELECT id, title FROM todo'</span>);</pre>
+<p style="margin: 0; font-size: 15px; color: #5A6278">Character: calmer, faster to scan; the mono voice lives in the wordmark and labels.</p>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D3DAE8; border-radius: 16px; padding: 28px 32px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">CODE FACE CHECK · same line, same 15 px — judge line length and legibility</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-size: 15px; font-weight: 500">Geist Mono</p><pre style="margin: 0; padding: 16px 18px; background: #0E1430; color: #E6EAF5; border-radius: 10px; font-family: 'Geist Mono', monospace; font-size: 15px; line-height: 1.6; white-space: pre-wrap">await tx.exec('UPDATE todo SET done = 1 WHERE id = ?', [1]);</pre></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-size: 15px; font-weight: 500">Martian Mono</p><pre style="margin: 0; padding: 16px 18px; background: #0E1430; color: #E6EAF5; border-radius: 10px; font-family: 'Martian Mono', monospace; font-size: 15px; line-height: 1.6; white-space: pre-wrap">await tx.exec('UPDATE todo SET done = 1 WHERE id = ?', [1]);</pre></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-top: auto; font-size: 14px; color: #3D4560">
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">display</p><p style="margin: 2px 0 0">56 / 1.05</p></div>
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">h1</p><p style="margin: 2px 0 0">40 / 1.1</p></div>
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">h2</p><p style="margin: 2px 0 0">28 / 1.2</p></div>
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">h3</p><p style="margin: 2px 0 0">21 / 1.3</p></div>
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">body</p><p style="margin: 2px 0 0">17 / 1.6</p></div>
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5A6278">small · label</p><p style="margin: 2px 0 0">14 / 1.5 · 13 mono</p></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

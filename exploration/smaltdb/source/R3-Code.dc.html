@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Code themes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400;500&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#10162E}
+</style>
+</helmet>
+<div style="width: 1440px; height: 980px; box-sizing: border-box; padding: 56px 64px; background: #F7F8FB; color: #10162E; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Code themes per palette</h1>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5A6278">Geist Mono 15/1.6 · every token ≥ 5:1 on its background, comments included</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 20px; flex-grow: 1">
+<sc-for list="{{themes}}" as="t" hint-placeholder-count="6">
+<div style="background: {{t.bg}}; border: 1px solid {{t.border}}; border-radius: 14px; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<span style="font-family: 'Martian Mono', monospace; font-size: 13px; font-weight: 600; color: {{t.plain}}">{{t.name}}</span>
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{t.comment}}">min {{t.min}}:1</span>
+</div>
+<div style="font-family: 'Geist Mono', monospace; font-size: 15px; line-height: 1.6">
+<sc-for list="{{t.lines}}" as="ln" hint-placeholder-count="7">
+<div style="white-space: pre-wrap; min-height: 24px"><sc-for list="{{ln}}" as="s" hint-placeholder-count="4"><span style="{{s.style}}">{{s.text}}</span></sc-for></div>
+</sc-for>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto">
+<sc-for list="{{t.legend}}" as="g" hint-placeholder-count="6">
+<span style="font-family: 'Geist Mono', monospace; font-size: 11px; color: {{g.color}}">{{g.label}} {{g.ratio}}</span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+renderVals() {
+const src = [
+[['c','// engine runs in a worker, data lives in OPFS']],
+[['k','import'],['p',' { open } '],['k','from'],['p',' '],['s',"'smaltdb'"],['p',';']],
+[],
+[['k','const'],['t',' db = '],['k','await'],['t',' '],['f','open'],['p','('],['s',"'app'"],['p',');']],
+[['k','const'],['t',' rows = '],['k','await'],['t',' db.'],['f','query'],['p','(']],
+[['t','  '],['s',"'SELECT id, title FROM todo WHERE done = 0'"]],
+[['p',');']],
+[['k','await'],['t',' tx.'],['f','exec'],['p','('],['s',"'UPDATE todo SET done = 1 WHERE id = ?'"],['p',', ['],['n','1'],['p',']);']]
+];
+const mk = (name, bg, border, c, ratios) => {
+const map = { k: c.kw, s: c.str, n: c.num, f: c.fn, c: c.comment, p: c.punct, t: c.plain };
+const lines = src.map((line) => line.map(([k, text]) => ({ text, style: 'color: ' + map[k] + (k === 'c' ? '; font-style: italic' : '') })));
+const labels = [['kw', 'kw'], ['str', 'str'], ['num', 'num'], ['fn', 'fn'], ['comment', 'comment'], ['punct', 'punct']];
+const legend = labels.map(([key, label]) => ({ label, color: c[key], ratio: ratios[key] }));
+const min = Math.min(...Object.values(ratios));
+return { name, bg, border, plain: c.plain, comment: c.comment, lines, legend, min };
+};
+return {
+themes: [
+mk('P1 · Ground Glass · light', '#F0F3F9', '#D3DAE8', { kw: '#003399', str: '#8A5A12', num: '#6B3FA0', fn: '#1F5F8B', comment: '#5A6278', punct: '#3D4560', plain: '#10162E' }, { kw: 9.77, str: 5.32, num: 6.64, fn: 6.16, comment: 5.47, punct: 8.52 }),
+mk('P2 · Hot Path · light', '#F3F6FB', '#D5DBE7', { kw: '#003399', str: '#006A84', num: '#8A5A12', fn: '#5B3FA8', comment: '#576079', punct: '#394259', plain: '#0C1222' }, { kw: 10.03, str: 5.71, num: 5.46, fn: 7.12, comment: 5.78, punct: 9.24 }),
+mk('P3 · Kiln · light', '#EEF1F6', '#D6DBE4', { kw: '#003399', str: '#A33A12', num: '#5B3FA8', fn: '#1F5F8B', comment: '#5C6375', punct: '#3F4656', plain: '#151922' }, { kw: 9.59, str: 5.85, num: 6.82, fn: 6.05, comment: 5.3, punct: 8.35 }),
+mk('P1 · Ground Glass · dark', '#0E1430', '#28305A', { kw: '#9DB4F5', str: '#F2B356', num: '#D3A6FF', fn: '#7FD1E8', comment: '#8C95B0', punct: '#B4BCD3', plain: '#E6EAF5' }, { kw: 8.85, str: 9.78, num: 9.19, fn: 10.49, comment: 6.06, punct: 9.54 }),
+mk('P2 · Hot Path · dark', '#0B1122', '#232B4A', { kw: '#7FA0FF', str: '#4FD8FF', num: '#F2B356', fn: '#C9A8FF', comment: '#8E97B2', punct: '#B6BDD2', plain: '#E8ECF6' }, { kw: 7.49, str: 11.27, num: 10.16, fn: 9.42, comment: 6.46, punct: 10.02 }),
+mk('P3 · Kiln · dark', '#11141B', '#2C3240', { kw: '#9DB4F5', str: '#FF8A5C', num: '#D3A6FF', fn: '#7FD1E8', comment: '#9096A3', punct: '#B9BEC9', plain: '#E9EBF0' }, { kw: 9.02, str: 7.93, num: 9.36, fn: 10.69, comment: 6.21, punct: 9.89 })
+]
+};
+}
+}
+</script>
+</body>
+</html>

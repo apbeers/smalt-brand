@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Product colour options</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1080px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div>
+<h1 style="margin: 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Product colour: how far apart should the three be?</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 1100px">The body stays smalt in every option, so the family always reads as one. Only the chip, plus optionally the product suffix, changes. A2 and A3 use smalt's real sibling pigments: cerulean blue is cobalt stannate, cobalt violet is cobalt phosphate, aureolin is cobalt yellow. Shown with marks U2 and B1. Ratios are WCAG contrast against the light or dark ground.</p>
+</div>
+<sc-for list="{{options}}" as="o" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; display: grid; grid-template-columns: 300px minmax(0, 1fr) minmax(0, 1fr); overflow: hidden; flex-grow: 1">
+<div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; border-right: 1px solid #D6DBE4">
+<p style="margin: 0; font-weight: 700; font-size: 19px">{{o.id}} · {{o.name}}</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F4656">{{o.desc}}</p>
+<div style="display: flex; flex-direction: column; gap: 6px; margin-top: auto">
+<sc-for list="{{o.swatches}}" as="s" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 8px">
+<span style="width: 22px; height: 22px; border-radius: 5px; background: {{s.hex}}; flex-shrink: 0"></span>
+<span style="font-size: 13px">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="padding: 20px 24px; display: flex; flex-direction: column; justify-content: center; gap: 14px; background: #F5F6F8">
+<sc-for list="{{o.lightRows}}" as="r" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{r.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 24px; font-weight: 600; letter-spacing: -0.06em; color: #151922">sm<span style="color: #003399">alt</span><span style="color: {{r.suffixColor}}">{{r.suffix}}</span></span>
+<span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #5C6375">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+<div style="padding: 20px 24px; display: flex; flex-direction: column; justify-content: center; gap: 14px; background: #14171F">
+<sc-for list="{{o.darkRows}}" as="r" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{r.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 24px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0">sm<span style="color: #9DB4F5">alt</span><span style="color: {{r.suffixColor}}">{{r.suffix}}</span></span>
+<span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #9096A3">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+<p style="margin: 0; font-size: 14px; color: #3F4656">Suffix colour is a separate choice: in A2 and A3 the <span style="font-family: 'Martian Mono', monospace">ui</span> / <span style="font-family: 'Martian Mono', monospace">bi</span> suffix is shown in the product's text shade. It can also stay in the ink colour, like <span style="font-family: 'Martian Mono', monospace">db</span>.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const shapes = {
+  db: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'dbchip']],
+  ui: [[GRAIN, 'body'], [rr(50, 8, 6, 50, 3), 'ui']],
+  bi: [[rr(8, 36, 13, 22, 3), 'pale'], [rr(25, 24, 13, 34, 3), 'body'], [rr(42, 10, 13, 48, 3), 'bi']],
+};
+const rows = (c, ink, suffixColored) => ['db', 'ui', 'bi'].map((k) => ({
+  suffix: k,
+  paths: shapes[k].map(([d, role]) => ({ d, fill: c[role] })),
+  suffixColor: suffixColored && k !== 'db' ? c[k + 'Text'] : ink,
+  note: k === 'db' ? 'engine' : (k === 'ui' ? 'workbench' : 'reports'),
+}));
+const opt = (id, name, desc, light, dark, suffixColored, swatches) => ({
+  id, name, desc, swatches,
+  lightRows: rows(light, '#151922', suffixColored),
+  darkRows: rows(dark, '#E9EBF0', suffixColored),
+});
+const baseL = { body: '#003399', pale: '#7B97D4', dbchip: '#7B97D4' };
+const baseD = { body: '#9DB4F5', pale: '#D6E0F3', dbchip: '#D6E0F3' };
+return {
+options: [
+  opt('A1', 'Monolithic', 'Every product uses smalt alone. The mark shape and the suffix tell them apart. Simplest and most unified; products are harder to tell apart at a glance.',
+    { ...baseL, ui: '#7B97D4', bi: '#7B97D4' }, { ...baseD, ui: '#D6E0F3', bi: '#D6E0F3' }, false,
+    [{ hex: '#003399', label: 'smalt #003399 · all products' }, { hex: '#7B97D4', label: 'chip #7B97D4 / #D6E0F3 on dark' }]),
+  opt('A2', 'Cobalt blues', 'smaltui takes cerulean, smaltbi takes cobalt violet. Both stay cool, close to smalt, and are clearly distinct. Every chip meets 3:1 as a graphic in both themes.',
+    { ...baseL, ui: '#1C8DBF', bi: '#8E4BA8', uiText: '#0F6A92', biText: '#7A3794' }, { ...baseD, ui: '#6CC4EA', bi: '#C99BE0', uiText: '#6CC4EA', biText: '#C99BE0' }, true,
+    [{ hex: '#1C8DBF', label: 'cerulean · chip 3.7:1 · text #0F6A92 5.6:1 / #6CC4EA 9.2:1' }, { hex: '#8E4BA8', label: 'cobalt violet · chip 5.6:1 · text #7A3794 6.9:1 / #C99BE0 7.9:1' }]),
+  opt('A3', 'Cobalt warm', 'smaltui takes cobalt green, smaltbi takes aureolin (cobalt yellow). More contrast between products. Caveat: the aureolin chip is only 1.7:1 on white, so it needs a darker chip on light grounds.',
+    { ...baseL, ui: '#2E9A6B', bi: '#F2C230', uiText: '#1C7350', biText: '#7C5A00' }, { ...baseD, ui: '#6FD3A4', bi: '#F5CD52', uiText: '#6FD3A4', biText: '#F5CD52' }, true,
+    [{ hex: '#2E9A6B', label: 'cobalt green · chip 3.5:1 · text #1C7350 5.4:1 / #6FD3A4 9.8:1' }, { hex: '#F2C230', label: 'aureolin · chip 1.7:1 on white (fails) · text #7C5A00 5.9:1 / #F5CD52 11.7:1' }]),
+]
+};
+}
+}
+</script>
+</body>
+</html>

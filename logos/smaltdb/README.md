@@ -12,6 +12,6 @@ The Grain mark: a ground-glass particle (`smalt-700`, `#003399`) and its chip (`
 
 The `-on-dark` files are transparent with light ink, so they look blank in light-background previews. That's expected.
 
-The wordmark files are Martian Mono 600 (width 112.5) converted to paths, so they need no font. Regenerate them with `scripts/wordmark.py`.
+The wordmark files are Martian Mono 600 (width 112.5) converted to paths, so they need no font. Regenerate them with `scripts/brand_assets.py`.
 
 Don't recolour, rotate, outline or add effects, and keep the light files off dark backgrounds.

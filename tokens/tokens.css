@@ -8,6 +8,10 @@
   --smalt-200: #9DB4F5;
   --smalt-100: #D6E0F3;
   --kiln-500: #E5622F;
+  --product-ui: #0E7FAE;
+  --product-ui-text: #0B6A91;
+  --product-bi: #6E4BC2;
+  --product-bi-text: #6141AE;
   --bg: #F5F6F8;
   --surface: #FFFFFF;
   --code-bg: #EEF1F6;
@@ -32,6 +36,10 @@
 }
 
 [data-theme="dark"] {
+  --product-ui: #5CBDE8;
+  --product-ui-text: #5CBDE8;
+  --product-bi: #B8A1F2;
+  --product-bi-text: #B8A1F2;
   --bg: #14171F;
   --surface: #1B1F29;
   --code-bg: #11141B;
@@ -57,6 +65,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --product-ui: #5CBDE8;
+    --product-ui-text: #5CBDE8;
+    --product-bi: #B8A1F2;
+    --product-bi-text: #B8A1F2;
     --bg: #14171F;
     --surface: #1B1F29;
     --code-bg: #11141B;

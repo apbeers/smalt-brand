@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+"""Generate the smalt family's logo files.
+
+Usage: python3 scripts/brand_assets.py <MartianMono[wdth,wght].ttf>
+
+For every product (smaltdb, smaltui, smaltbi) writes, under logos/<product>/:
+  wordmark.svg, wordmark-on-dark.svg, lockup.svg, lockup-on-dark.svg
+For smaltui and smaltbi it also writes the mark, app icon and favicons:
+  <mark>-mark.svg, <mark>-mark-on-dark.svg, app-icon.svg, favicon-32.svg, favicon-16.svg
+(smaltdb's mark, app icon and favicons were drawn by hand and are left untouched.)
+
+The wordmark is Martian Mono 600 at width 112.5, tracking -0.06em, converted to
+paths: "alt" in smalt, the product suffix in the product's text colour.
+Requires fonttools (pip install fonttools).
+"""
+import sys
+from pathlib import Path
+from fontTools.ttLib import TTFont
+from fontTools.varLib.instancer import instantiateVariableFont
+from fontTools.pens.svgPathPen import SVGPathPen
+from fontTools.pens.transformPen import TransformPen
+from fontTools.pens.boundsPen import BoundsPen
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def rr(x, y, w, h, r):
+    """Rounded rectangle as path data."""
+    def n(v):
+        return f"{v:g}"
+    return (f"M{n(x + r)} {n(y)}h{n(w - 2 * r)}a{n(r)} {n(r)} 0 0 1 {n(r)} {n(r)}v{n(h - 2 * r)}"
+            f"a{n(r)} {n(r)} 0 0 1 -{n(r)} {n(r)}h-{n(w - 2 * r)}a{n(r)} {n(r)} 0 0 1 -{n(r)} -{n(r)}"
+            f"v-{n(h - 2 * r)}a{n(r)} {n(r)} 0 0 1 {n(r)} -{n(r)}z")
+
+
+GRAIN = "M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z"
+
+# Marks on a 64-unit grid: (path, role). Roles map to colours per theme below.
+MARKS = {
+    "db": [(GRAIN, "body"), (rr(38, 8, 16, 16, 3), "chip")],
+    "ui": [("M8 17L15 10L37 32L15 54L8 47L23 32Z", "body"), (rr(38, 46, 20, 8, 3), "accent")],
+    "bi": [(rr(8, 44, 10, 10, 3), "chip"), (rr(22, 42, 7, 7, 2), "chip"), (rr(24, 28, 12, 12, 3), "body"),
+           (rr(40, 30, 7, 7, 2), "chip"), (rr(46, 8, 12, 12, 3), "accent")],
+}
+# smaltbi's 16 px mark: three larger grains, because the full scatter breaks into specks.
+MARK_16 = {"bi": [(rr(6, 40, 16, 16, 4), "chip"), (rr(22, 22, 20, 20, 5), "body"), (rr(44, 4, 16, 16, 4), "accent")]}
+# Horizontal extent of each mark's artwork on the 64 grid, used to space the lockup.
+ART_X = {"db": (8, 54), "ui": (8, 58), "bi": (8, 58)}
+MARK_NAME = {"ui": "chevron", "bi": "scatter"}
+
+COLOURS = {
+    "light": {"ink": "#151922", "alt": "#003399", "body": "#003399", "chip": "#7B97D4",
+              "accent": {"ui": "#0E7FAE", "bi": "#6E4BC2"}, "suffix": {"db": "#151922", "ui": "#0B6A91", "bi": "#6141AE"}},
+    "dark": {"ink": "#E9EBF0", "alt": "#9DB4F5", "body": "#9DB4F5", "chip": "#D6E0F3",
+             "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2"}, "suffix": {"db": "#E9EBF0", "ui": "#5CBDE8", "bi": "#B8A1F2"}},
+    # App icon: the mark knocked out of a smalt tile.
+    "tile": {"body": "#F5F6F8", "chip": "#9DB4F5", "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2"}},
+}
+
+
+def fill(role, palette, product):
+    v = palette[role]
+    return v[product] if isinstance(v, dict) else v
+
+
+def mark_paths(shapes, palette, product):
+    return "".join(f'<path d="{d}" fill="{fill(role, palette, product)}"/>' for d, role in shapes)
+
+
+def write(path, text):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text)
+    print(path.relative_to(ROOT))
+
+
+def build_marks(product):
+    out = ROOT / "logos" / f"smalt{product}"
+    name = MARK_NAME[product]
+    label = f"smalt{product}"
+    for theme, suffix in (("light", ""), ("dark", "-on-dark")):
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="{label}">'
+               + mark_paths(MARKS[product], COLOURS[theme], product) + "</svg>\n")
+        write(out / f"{name}-mark{suffix}.svg", svg)
+    tile = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="{label} app icon">'
+            '<rect width="64" height="64" rx="15" fill="#003399"/><g transform="translate(10.9 10.9) scale(0.66)">'
+            + mark_paths(MARKS[product], COLOURS["tile"], product) + "</g></svg>\n")
+    write(out / "app-icon.svg", tile)
+    for size, shapes in ((32, MARKS[product]), (16, MARK_16.get(product, MARKS[product]))):
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="{size}" height="{size}">'
+               + mark_paths(shapes, COLOURS["light"], product) + "</svg>\n")
+        write(out / f"favicon-{size}.svg", svg)
+
+
+def build_wordmarks(font_path, product):
+    f = instantiateVariableFont(TTFont(font_path), {"wght": 600, "wdth": 112.5})
+    gs = f.getGlyphSet()
+    cmap = f.getBestCmap()
+    upm = f["head"].unitsPerEm
+    cap = f["OS/2"].sCapHeight
+    size = 100.0
+    s = size / upm
+    track = -0.06 * size
+    base = 200.0
+    cap_h = cap * s
+
+    def word(x0):
+        parts, x, bp = [], x0, BoundsPen(gs)
+        for seg, text in (("ink", "sm"), ("alt", "alt"), ("suffix", product)):
+            sp = SVGPathPen(gs)
+            for ch in text:
+                g = cmap[ord(ch)]
+                t = (s, 0, 0, -s, x, base)
+                gs[g].draw(TransformPen(sp, t))
+                gs[g].draw(TransformPen(bp, t))
+                x += gs[g].width * s + track
+            parts.append((seg, sp.getCommands()))
+        return parts, bp.bounds
+
+    out = ROOT / "logos" / f"smalt{product}"
+    left_art, right_art = ART_X[product]
+    for lockup in (False, True):
+        mark_h = 1.6 * cap_h if lockup else 0
+        mark_w = mark_h
+        _, (bx, _, _, _) = word(0)
+        art_r = right_art / 64 * mark_w
+        art_w = (right_art - left_art) / 64 * mark_w
+        x0 = art_r + (art_w / 2 if lockup else 0) - bx
+        parts, (xmin, ymin, xmax, ymax) = word(x0)
+        my = base - cap_h + cap_h / 2 - mark_h / 2
+        top, bot = min(ymin, my), max(ymax, my + mark_h)
+        left = left_art / 64 * mark_w if lockup else xmin
+        pad = 0.12 * size
+        vx, vy, vw, vh = left - pad, top - pad, (xmax - left) + 2 * pad, (bot - top) + 2 * pad
+        for theme, suffix in (("light", ""), ("dark", "-on-dark")):
+            c = COLOURS[theme]
+            seg_colour = {"ink": c["ink"], "alt": c["alt"], "suffix": c["suffix"][product]}
+            svg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx:.2f} {vy:.2f} {vw:.2f} {vh:.2f}" '
+                   f'width="{vw * 1.6:.0f}" height="{vh * 1.6:.0f}" role="img" aria-label="smalt{product}">']
+            if lockup:
+                if product == "db":  # keep smaltdb's original Grain markup, so its files stay byte-identical
+                    inner = (f'<path d="{GRAIN}" fill="{c["body"]}"/>'
+                             f'<rect x="38" y="8" width="16" height="16" rx="3" fill="{c["chip"]}"/>')
+                else:
+                    inner = mark_paths(MARKS[product], c, product)
+                svg.append(f'<g transform="translate(0 {my:.2f}) scale({mark_h / 64:.4f})">' + inner + "</g>")
+            for seg, d in parts:
+                svg.append(f'<path fill="{seg_colour[seg]}" d="{d}"/>')
+            svg.append("</svg>")
+            write(out / f"{'lockup' if lockup else 'wordmark'}{suffix}.svg", "".join(svg))
+
+
+if __name__ == "__main__":
+    font = sys.argv[1]
+    for p in ("ui", "bi"):
+        build_marks(p)
+    for p in ("db", "ui", "bi"):
+        build_wordmarks(font, p)

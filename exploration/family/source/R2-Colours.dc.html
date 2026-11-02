@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cobalt blues refined</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 980px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">round 2 · colour</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Cobalt blues, three tunings</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 1180px">Each row shows the Grain shape with the product's chip, so you're comparing colour, not marks. Every chip is at least 2.9:1 against both backgrounds, and every text shade at least 5.5:1. A fourth "brighter" variant was dropped: its cerulean chip was 2.96:1 on white.</p>
+</div>
+<sc-for list="{{options}}" as="o" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; display: grid; grid-template-columns: 320px minmax(0, 1fr) minmax(0, 1fr); overflow: hidden; flex-grow: 1">
+<div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; border-right: 1px solid #D6DBE4">
+<p style="margin: 0; font-weight: 700; font-size: 19px">{{o.id}} · {{o.name}}</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F4656">{{o.desc}}</p>
+<div style="display: flex; flex-direction: column; gap: 6px; margin-top: auto">
+<sc-for list="{{o.swatches}}" as="s" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 8px">
+<span style="width: 22px; height: 22px; border-radius: 5px; background: {{s.hex}}; flex-shrink: 0"></span>
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #3F4656">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="padding: 20px 24px; display: flex; flex-direction: column; justify-content: center; gap: 14px; background: #F5F6F8">
+<sc-for list="{{o.lightRows}}" as="r" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z" fill="#003399"></path><rect x="38" y="8" width="16" height="16" rx="3" fill="{{r.chip}}"></rect></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 24px; font-weight: 600; letter-spacing: -0.06em; color: #151922">sm<span style="color: #003399">alt</span><span style="color: {{r.suffix}}">{{r.name}}</span></span>
+<span style="margin-left: auto; font-size: 14px; font-weight: 500; color: {{r.suffix}}">{{r.sample}}</span>
+</div>
+</sc-for>
+</div>
+<div style="padding: 20px 24px; display: flex; flex-direction: column; justify-content: center; gap: 14px; background: #14171F">
+<sc-for list="{{o.darkRows}}" as="r" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z" fill="#9DB4F5"></path><rect x="38" y="8" width="16" height="16" rx="3" fill="{{r.chip}}"></rect></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 24px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0">sm<span style="color: #9DB4F5">alt</span><span style="color: {{r.suffix}}">{{r.name}}</span></span>
+<span style="margin-left: auto; font-size: 14px; font-weight: 500; color: {{r.suffix}}">{{r.sample}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+renderVals() {
+const rows = (dbChip, ink, ui, bi, uiText, biText) => [
+  { name: 'db', chip: dbChip, suffix: ink, sample: 'the engine' },
+  { name: 'ui', chip: ui, suffix: uiText, sample: 'Run query' },
+  { name: 'bi', chip: bi, suffix: biText, sample: 'View report' },
+];
+const opt = (id, name, desc, l, d, swatches) => ({ id, name, desc, swatches,
+  lightRows: rows('#7B97D4', '#151922', l[0], l[1], l[2], l[3]),
+  darkRows: rows('#D6E0F3', '#E9EBF0', d[0], d[1], d[0], d[1]) });
+return {
+options: [
+  opt('C1', 'As round 1', 'Cerulean and cobalt violet as shown in round 1.',
+    ['#1C8DBF', '#8E4BA8', '#0F6A92', '#7A3794'], ['#6CC4EA', '#C99BE0'],
+    [{ hex: '#1C8DBF', label: 'ui #1C8DBF · 3.7:1 W · 4.8:1 D · text 5.6:1' }, { hex: '#8E4BA8', label: 'bi #8E4BA8 · 5.6:1 W · 3.2:1 D · text 6.9:1' }]),
+  opt('C2', 'Deeper', 'Both pulled toward smalt: a deeper cerulean, and a violet that leans blue. The most unified of the three, but the two products are closest together.',
+    ['#0E7FAE', '#6E4BC2', '#0B6A91', '#6141AE'], ['#5CBDE8', '#B8A1F2'],
+    [{ hex: '#0E7FAE', label: 'ui #0E7FAE · 4.5:1 W · 4.0:1 D · text 5.6:1' }, { hex: '#6E4BC2', label: 'bi #6E4BC2 · 6.1:1 W · 2.9:1 D · text 6.8:1' }]),
+  opt('C4', 'Teal and violet', 'smaltui moves to teal and smaltbi to a warmer violet. The clearest difference between the two products while staying cool.',
+    ['#13939A', '#8546B4', '#0C6E73', '#723A9C'], ['#5ED0D4', '#C7A0E6'],
+    [{ hex: '#13939A', label: 'ui #13939A · 3.7:1 W · 4.8:1 D · text 5.6:1' }, { hex: '#8546B4', label: 'bi #8546B4 · 5.9:1 W · 3.0:1 D · text 6.9:1' }]),
+]
+};
+}
+}
+</script>
+</body>
+</html>

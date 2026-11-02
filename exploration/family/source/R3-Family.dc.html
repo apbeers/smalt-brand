@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Round 3 picks applied</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 820px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">round 3 · your picks, together</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">smaltdb, smaltui and smaltbi in colour C2</h1>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{products}}" as="p" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 28px 24px 20px">
+<svg width="112" height="112" viewBox="0 0 64 64" role="img" aria-label="{{p.name}} mark"><sc-for list="{{p.light}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 40px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span><span style="color: {{p.suffixLight}}">{{p.suffix}}</span></span>
+</div>
+<div style="padding: 0 24px 20px; display: flex; flex-direction: column; gap: 6px; min-height: 92px">
+<p style="margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">{{p.tagline}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4656">{{p.positioning}}</p>
+</div>
+<div style="padding: 14px 24px; border-top: 1px solid #D6DBE4; display: flex; align-items: flex-end; gap: 16px">
+<svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{p.light}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+<svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{p.light}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{p.smallLight}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+<span style="margin-left: auto; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5C6375">{{p.sizeNote}}</span>
+</div>
+<div style="background: #14171F; padding: 18px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{p.dark}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 24px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0">sm<span style="color: #9DB4F5">alt</span><span style="color: {{p.suffixDark}}">{{p.suffix}}</span></span>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 16px">
+<svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{p.dark}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+<svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{p.dark}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{p.smallDark}}" as="s" hint-placeholder-count="3"><path d="{{s.d}}" fill="{{s.fill}}"></path></sc-for></svg>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 14px; color: #3F4656">smaltbi's 16 px version uses three larger grains instead of five; at that size the full scatter breaks into specks. Every other mark is the same drawing at every size.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const SH = {
+  db: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'pale']],
+  ui: [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']],
+  bi: [[rr(8, 44, 10, 10, 3), 'pale'], [rr(22, 42, 7, 7, 2), 'pale'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'pale'], [rr(46, 8, 12, 12, 3), 'bi']],
+  biSmall: [[rr(6, 40, 16, 16, 4), 'pale'], [rr(22, 22, 20, 20, 5), 'body'], [rr(44, 4, 16, 16, 4), 'bi']],
+};
+const L = { body: '#003399', pale: '#7B97D4', ui: '#0E7FAE', bi: '#6E4BC2' };
+const D = { body: '#9DB4F5', pale: '#D6E0F3', ui: '#5CBDE8', bi: '#B8A1F2' };
+const paint = (k, pal) => SH[k].map(([d, r]) => ({ d, fill: pal[r] }));
+const prod = (k, small, suffixLight, suffixDark, tagline, positioning, sizeNote) => ({
+  name: 'smalt' + k, suffix: k, suffixLight, suffixDark, tagline, positioning, sizeNote,
+  light: paint(k, L), dark: paint(k, D), smallLight: paint(small, L), smallDark: paint(small, D) });
+return {
+products: [
+  prod('db', 'db', '#151922', '#E9EBF0', 'Small. Alternative. Fast.', 'A fast alternative database for the browser, written in TypeScript.', 'Grain · 64 / 32 / 16'),
+  prod('ui', 'ui', '#0B6A91', '#5CBDE8', 'Small. Alternative. Query.', 'A SQL console for smaltdb that runs entirely in the browser.', 'Chevron · 64 / 32 / 16'),
+  prod('bi', 'biSmall', '#6141AE', '#B8A1F2', 'Small. Alternative. Insight.', 'Business intelligence in the browser, powered by smaltdb.', 'Scatter · 64 / 32 / 16*'),
+]
+};
+}
+}
+</script>
+</body>
+</html>

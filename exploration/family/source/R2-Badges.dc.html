@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Powered by badge variants</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1500px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 14px">
+<div style="margin-bottom: 8px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">round 2 · badges</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">"Powered by": four pills and four inline credits</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656">Each is shown at 1.25× and at real size, on light and dark. P1 and I1 are round 1's S1 and S3, for comparison. The marks are placeholders until the smaltui and smaltbi marks are chosen.</p>
+</div>
+<sc-for list="{{variants}}" as="v" hint-placeholder-count="8">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 250px minmax(0, 1fr) minmax(0, 1fr)">
+<div style="padding: 12px 18px; border-right: 1px solid #D6DBE4; display: flex; flex-direction: column; justify-content: center; gap: 4px">
+<p style="margin: 0; font-weight: 700; font-size: 16px">{{v.id}} · {{v.name}}</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.4; color: #3F4656">{{v.desc}}</p>
+</div>
+<sc-for list="{{v.themes}}" as="th" hint-placeholder-count="2">
+<div style="background: {{th.ground}}; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; gap: 12px">
+<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+<sc-for list="{{th.big}}" as="b" hint-placeholder-count="3">
+<span style="{{b.wrap}}"><svg viewBox="0 0 64 64" style="{{b.markStyle}}" aria-hidden="true"><sc-for list="{{b.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg><span style="{{b.lead}}">{{b.verb}}</span><span style="{{b.word}}">sm<span style="{{b.alt}}">alt</span>{{b.suffix}}</span><span style="{{b.arrowStyle}}">↗</span></span>
+</sc-for>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap">
+<span style="font-family: 'Martian Mono', monospace; font-size: 11px; color: {{th.note}}">1×</span>
+<sc-for list="{{th.small}}" as="b" hint-placeholder-count="3">
+<span style="{{b.wrap}}"><svg viewBox="0 0 64 64" style="{{b.markStyle}}" aria-hidden="true"><sc-for list="{{b.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg><span style="{{b.lead}}">{{b.verb}}</span><span style="{{b.word}}">sm<span style="{{b.alt}}">alt</span>{{b.suffix}}</span><span style="{{b.arrowStyle}}">↗</span></span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const SH = {
+  db: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'pale']],
+  ui: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'ui']],
+  bi: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'bi']],
+};
+const C = {
+  light: { body: '#003399', pale: '#7B97D4', ui: '#1C8DBF', bi: '#8E4BA8', ink: '#151922', ink2: '#3F4656', ink3: '#5C6375', alt: '#003399', surf: '#FFFFFF', border: '#D6DBE4',
+    tint: { db: '#E6ECF8', ui: '#E2F2F9', bi: '#F1E8F6' } },
+  dark: { body: '#9DB4F5', pale: '#D6E0F3', ui: '#6CC4EA', bi: '#C99BE0', ink: '#E9EBF0', ink2: '#B9BEC9', ink3: '#9096A3', alt: '#9DB4F5', surf: '#1B1F29', border: '#2C3240',
+    tint: { db: '#1F2A45', ui: '#16303D', bi: '#2C2238' } },
+};
+const prods = ['db', 'ui', 'bi'];
+const brand = "font-family: 'Martian Mono', monospace; font-weight: 600; letter-spacing: -0.06em";
+const geist = "font-family: 'Geist', sans-serif";
+const mono = "font-family: 'Martian Mono', monospace";
+const hidden = 'display: none';
+const base = (c, k) => ({ suffix: k, alt: `color: ${c.alt}`, paths: SH[k].map(([d, r]) => ({ d, fill: c[r] })), arrowStyle: hidden });
+
+const V = {
+  P1: (c, k, s) => ({ ...base(c, k), verb: 'Powered by',
+    wrap: `display: inline-flex; align-items: center; gap: ${6 * s}px; height: ${28 * s}px; padding: 0 ${10 * s}px; border: 1px solid ${c.border}; border-radius: ${7 * s}px; background: ${c.surf}; box-sizing: border-box`,
+    markStyle: `width: ${16 * s}px; height: ${16 * s}px`, lead: `${geist}; font-size: ${11 * s}px; color: ${c.ink2}`, word: `${brand}; font-size: ${12.5 * s}px; color: ${c.ink}` }),
+  P2: (c, k, s) => ({ ...base(c, k), verb: 'POWERED BY',
+    wrap: `display: inline-grid; grid-template-columns: auto auto; column-gap: ${8 * s}px; align-items: center; height: ${36 * s}px; padding: 0 ${12 * s}px 0 ${10 * s}px; border: 1px solid ${c.border}; border-radius: ${8 * s}px; background: ${c.surf}; box-sizing: border-box`,
+    markStyle: `width: ${22 * s}px; height: ${22 * s}px; grid-row: 1 / 3`, lead: `${mono}; font-size: ${7.5 * s}px; letter-spacing: 0.08em; color: ${c.ink3}; grid-column: 2; align-self: end; line-height: 1.2`, word: `${brand}; font-size: ${14 * s}px; color: ${c.ink}; grid-column: 2; align-self: start; line-height: 1.1` }),
+  P3: (c, k, s) => ({ ...base(c, k), verb: 'Powered by',
+    wrap: `display: inline-flex; align-items: center; gap: ${6 * s}px; height: ${28 * s}px; padding: 0 ${10 * s}px; border-radius: ${7 * s}px; background: ${c.tint[k]}; box-sizing: border-box`,
+    markStyle: `width: ${16 * s}px; height: ${16 * s}px`, lead: `${geist}; font-size: ${11 * s}px; color: ${c.ink2}`, word: `${brand}; font-size: ${12.5 * s}px; color: ${c.ink}` }),
+  P4: (c, k, s) => ({ ...base(c, k), verb: 'powered by',
+    wrap: `display: inline-flex; align-items: center; gap: ${5 * s}px; height: ${24 * s}px; padding: 0 ${10 * s}px 0 ${6 * s}px; border: 1px solid ${c.border}; border-radius: 999px; background: ${c.surf}; box-sizing: border-box`,
+    markStyle: `width: ${14 * s}px; height: ${14 * s}px`, lead: `${geist}; font-size: ${10.5 * s}px; color: ${c.ink3}`, word: `${brand}; font-size: ${12 * s}px; color: ${c.ink}` }),
+  I1: (c, k, s) => ({ ...base(c, k), verb: 'Powered by',
+    wrap: `display: inline-flex; align-items: center; gap: ${5 * s}px`,
+    markStyle: `width: ${14 * s}px; height: ${14 * s}px`, lead: `${geist}; font-size: ${12 * s}px; color: ${c.ink2}`, word: `${brand}; font-size: ${12.5 * s}px; color: ${c.ink}` }),
+  I2: (c, k, s) => ({ ...base(c, k), verb: 'powered by',
+    wrap: `display: inline-flex; align-items: center; gap: ${6 * s}px`,
+    markStyle: `width: ${14 * s}px; height: ${14 * s}px`, lead: `${mono}; font-size: ${10.5 * s}px; color: ${c.ink3}`, word: `${brand}; font-size: ${12.5 * s}px; color: ${c.ink}` }),
+  I3: (c, k, s) => ({ ...base(c, k), verb: 'Powered by',
+    wrap: `display: inline-flex; align-items: center; gap: ${5 * s}px; padding-left: ${8 * s}px; border-left: 1px solid ${c.border}`,
+    markStyle: `width: ${14 * s}px; height: ${14 * s}px`, lead: `${geist}; font-size: ${12 * s}px; color: ${c.ink2}`, word: `${brand}; font-size: ${12.5 * s}px; color: ${c.ink}`,
+    arrowStyle: `${geist}; font-size: ${11 * s}px; color: ${c.alt}` }),
+  I4: (c, k, s) => ({ ...base(c, k), verb: 'POWERED BY',
+    wrap: `display: inline-grid; grid-template-columns: auto auto; column-gap: ${6 * s}px; align-items: center`,
+    markStyle: `width: ${20 * s}px; height: ${20 * s}px; grid-row: 1 / 3`, lead: `${mono}; font-size: ${7 * s}px; letter-spacing: 0.08em; color: ${c.ink3}; grid-column: 2; align-self: end; line-height: 1.2`, word: `${brand}; font-size: ${13 * s}px; color: ${c.ink}; grid-column: 2; align-self: start; line-height: 1.1` }),
+};
+const themes = (fn) => [
+  { ground: '#F5F6F8', note: '#5C6375', big: prods.map((k) => fn(C.light, k, 1.25)), small: prods.map((k) => fn(C.light, k, 1)) },
+  { ground: '#14171F', note: '#9096A3', big: prods.map((k) => fn(C.dark, k, 1.25)), small: prods.map((k) => fn(C.dark, k, 1)) },
+];
+const meta = [
+  ['P1', 'Pill', 'Round 1 S1: bordered, one line.'],
+  ['P2', 'Stacked pill', 'Small mono label above a larger wordmark.'],
+  ['P3', 'Tinted pill', 'No border; a tint of the product colour.'],
+  ['P4', 'Round pill', 'Fully rounded and compact, with a lowercase verb.'],
+  ['I1', 'Inline', 'Round 1 S3: mark and a line of text.'],
+  ['I2', 'Mono inline', 'The verb set in Martian Mono, lowercase.'],
+  ['I3', 'Inline link', 'A divider before it and ↗ after, so it reads as a link.'],
+  ['I4', 'Stacked inline', 'P2 without the box, for footers.'],
+];
+return { variants: meta.map(([id, name, desc]) => ({ id, name, desc, themes: themes(V[id]) })) };
+}
+}
+</script>
+</body>
+</html>

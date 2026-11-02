@@ -5,7 +5,7 @@
   </picture>
 </h1>
 
-**Small. Alternate. Fast.**
+**Small. Alternative. Fast.**
 
 Brand assets and design tokens for the smalt projects, starting with [smaltdb](https://github.com/stenhoor/smaltdb), a fast alternative database for the browser, written in TypeScript. Docs: [smaltdb.dev](https://smaltdb.dev).
 

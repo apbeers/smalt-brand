@@ -95,3 +95,32 @@ The icon style is not chosen yet. Components here use a 24px-grid outline style 
 ## Docs theme
 
 `themes/vitepress/` is the VitePress theme used by smaltdb.dev: the Kiln palette mapped onto VitePress's variables, the type rules, and Shiki code themes built from the `syn-*` tokens.
+
+## The smalt family
+
+smaltdb is the engine. Two products are built on it, and each shares smaltdb's brand: the Kiln neutrals, Geist and Martian Mono, the `sm`**`alt`**`…` wordmark, and marks drawn as a smalt body plus a chip. Each product gets its own mark and one product colour (smalt's sibling cobalt pigments).
+
+| | smaltdb | smaltui | smaltbi |
+| --- | --- | --- | --- |
+| What it is | The engine | The SQL console | The reports |
+| Tagline | Small. Alternative. Fast. | Small. Alternative. Query. | Small. Alternative. Insight. |
+| Positioning | A fast alternative database for the browser, written in TypeScript. | A SQL console for smaltdb that runs entirely in the browser. | Business intelligence in the browser, powered by smaltdb. |
+| Mark | Grain | Chevron (`>` and `_`) | Scatter |
+| Product colour | smalt `#003399` | `product-ui`: deep cerulean `#0E7FAE` | `product-bi`: blue-leaning violet `#6E4BC2` |
+| Suffix colour | ink | `product-ui-text` `#0B6A91` / `#5CBDE8` dark | `product-bi-text` `#6141AE` / `#B8A1F2` dark |
+| Logos | `logos/smaltdb/` | `logos/smaltui/` | `logos/smaltbi/` |
+
+Rules:
+
+- `alt` is always smalt (`primary`), in every product's wordmark. The suffix (`db`, `ui`, `bi`) takes the product's text colour; smaltdb's stays ink.
+- The mark body is always smalt; only the chip takes the product colour. That keeps the three reading as one family.
+- smaltbi's 16 px mark is a simplified three-grain version; every other mark is the same drawing at every size.
+- Product colours are for the product's own mark, wordmark and accents, not for status or links.
+
+## "Powered by" badges
+
+`badges/` has a badge for each product, light and dark: 172 × 28 px, with all text converted to paths. Sites and projects that use a smalt product show the matching badge and link it to the project. `badges/README.md` has the HTML and Markdown snippets.
+
+- Wording is always "Powered by", for every product.
+- Badge colours match the lockups: `alt` in smalt, the suffix in the product colour.
+- Every text colour on the badge is at least 6:1 against its surface in both themes.

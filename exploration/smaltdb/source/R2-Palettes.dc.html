@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Color scheme alternatives</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#001F66}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1100px; box-sizing: border-box; padding: 56px 64px; background: #F4F6FA; color: #161A23; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.02em">Color scheme alternatives</h1>
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #5A6070">all keep smalt #003399 as primary · ratios are WCAG contrast against the ground shown</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; flex-grow: 1">
+<sc-for list="{{palettes}}" as="p" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div>
+<p style="margin: 0; font-weight: 600; font-size: 20px">{{p.name}}</p>
+<p style="margin: 4px 0 0; font-size: 14px; color: #5A6070">{{p.note}}</p>
+</div>
+<div style="background: {{p.lg}}; border: 1px solid #D5DBE8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; height: 190px; box-sizing: border-box">
+<p style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: {{p.li}}">The small alternate database.</p>
+<div style="display: flex; gap: 8px; align-items: center; margin-top: auto; flex-wrap: wrap">
+<span style="height: 36px; padding: 0 14px; border-radius: 8px; background: #003399; color: #FFFFFF; font-size: 14px; font-weight: 500; display: flex; align-items: center">Get started</span>
+<span style="height: 28px; padding: 0 10px; border-radius: 999px; background: {{p.lchipBg}}; color: {{p.lchipFg}}; font-size: 13px; font-weight: 500; display: flex; align-items: center">{{p.chip}}</span>
+</div>
+</div>
+<div style="background: {{p.dg}}; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; height: 190px; box-sizing: border-box">
+<p style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: {{p.dt}}">SQL without the WASM.</p>
+<div style="display: flex; gap: 8px; align-items: center; margin-top: auto; flex-wrap: wrap">
+<span style="height: 36px; padding: 0 14px; border-radius: 8px; background: {{p.dp}}; color: {{p.dg}}; font-size: 14px; font-weight: 500; display: flex; align-items: center">Get started</span>
+<span style="font-size: 14px; font-weight: 500; color: {{p.da}}">{{p.chip}}</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<sc-for list="{{p.swatches}}" as="s" hint-placeholder-count="7">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 36px; height: 36px; border-radius: 8px; background: {{s.hex}}; border: 1px solid #D5DBE8; flex-shrink: 0"></span>
+<div style="display: flex; flex-direction: column; min-width: 0">
+<span style="font-size: 14px; font-weight: 500">{{s.role}}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5A6070">{{s.hex}} · {{s.ratio}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+palettes: [
+{ name: 'P1 · Monochrome Smalt', note: 'Only the grind grades. Calmest, most "pigment".',
+  lg: '#F3F5F9', li: '#0E1430', lchipBg: '#D6E0F3', lchipFg: '#001F66', chip: 'WAL committed',
+  dg: '#0A1028', dt: '#D6E0F3', dp: '#7B97D4', da: '#7B97D4',
+  swatches: [
+    { hex: '#001F66', role: 'Royal', ratio: 'deep fill' },
+    { hex: '#003399', role: 'Smalt · primary', ratio: '9.9:1 on ground' },
+    { hex: '#2F5BB7', role: 'Medium', ratio: '5.8:1 on ground' },
+    { hex: '#7B97D4', role: 'Fine · dark accent', ratio: '6.5:1 on dark' },
+    { hex: '#D6E0F3', role: 'Flour · dark text', ratio: '14.2:1 on dark' },
+    { hex: '#F3F5F9', role: 'Ground light', ratio: '—' },
+    { hex: '#0A1028', role: 'Ground dark', ratio: '—' }
+  ] },
+{ name: 'P2 · Smalt + Alt Amber', note: 'Amber marks "alt": the alternate path, and stale state.',
+  lg: '#FFFFFF', li: '#0E1430', lchipBg: '#F2A93B', lchipFg: '#0E1430', chip: 'alt path',
+  dg: '#0E1430', dt: '#E8ECF8', dp: '#5B83FF', da: '#F2A93B',
+  swatches: [
+    { hex: '#003399', role: 'Smalt · primary', ratio: '10.9:1 on white' },
+    { hex: '#5B83FF', role: 'Smalt Lit · dark primary', ratio: '5.3:1 on dark' },
+    { hex: '#F2A93B', role: 'Amber · fill / dark text', ratio: '2.0:1 white — fill only · 9.1:1 on dark' },
+    { hex: '#8A5F1E', role: 'Amber · light text', ratio: '5.6:1 on white' },
+    { hex: '#0E1430', role: 'Ink', ratio: '9.1:1 on amber' },
+    { hex: '#FFFFFF', role: 'Ground light', ratio: '—' },
+    { hex: '#0E1430', role: 'Ground dark', ratio: '—' }
+  ] },
+{ name: 'P3 · Smalt + Hot Cyan', note: 'Speed signal. Strongest on dark; cyan darkened for light.',
+  lg: '#FFFFFF', li: '#070B1A', lchipBg: '#E0F6FC', lchipFg: '#00708C', chip: 'worker · ready',
+  dg: '#070B1A', dt: '#E8ECF8', dp: '#4FD8FF', da: '#4FD8FF',
+  swatches: [
+    { hex: '#003399', role: 'Smalt · primary', ratio: '10.9:1 on white' },
+    { hex: '#5B83FF', role: 'Smalt Lit', ratio: '5.7:1 on dark' },
+    { hex: '#4FD8FF', role: 'Hot cyan · dark accent', ratio: '11.8:1 on dark' },
+    { hex: '#00708C', role: 'Cyan · light text', ratio: '5.7:1 on white' },
+    { hex: '#8D96B3', role: 'Ash · dark muted', ratio: '6.7:1 on dark' },
+    { hex: '#FFFFFF', role: 'Ground light', ratio: '—' },
+    { hex: '#070B1A', role: 'Ground dark', ratio: '—' }
+  ] },
+{ name: 'P4 · Smalt + Kiln Orange', note: 'Complementary contrast. Orange = commit / write.',
+  lg: '#FFFFFF', li: '#161A23', lchipBg: '#FBE8E0', lchipFg: '#B3441A', chip: 'WAL commit',
+  dg: '#161A23', dt: '#E8ECF8', dp: '#9DB4F0', da: '#FF7A45',
+  swatches: [
+    { hex: '#003399', role: 'Smalt · primary', ratio: '10.9:1 on white' },
+    { hex: '#9DB4F0', role: 'Smalt pale · dark primary', ratio: '8.5:1 on dark' },
+    { hex: '#E5622F', role: 'Kiln · fill', ratio: '3.4:1 white — fill only' },
+    { hex: '#B3441A', role: 'Kiln · light text', ratio: '5.6:1 on white' },
+    { hex: '#FF7A45', role: 'Kiln · dark text', ratio: '6.7:1 on dark' },
+    { hex: '#FFFFFF', role: 'Ground light', ratio: '—' },
+    { hex: '#161A23', role: 'Ground dark', ratio: '—' }
+  ] }
+]
+};
+}
+}
+</script>
+</body>
+</html>

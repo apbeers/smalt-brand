@@ -7,36 +7,46 @@
 
 **Small. Alternative. Fast.**
 
-Brand assets and design tokens for the smalt projects, starting with [smaltdb](https://github.com/stenhoor/smaltdb), a fast alternative database for the browser, written in TypeScript. Docs: [smaltdb.dev](https://smaltdb.dev).
+Brand assets and design tokens for the smalt projects: [smaltdb](https://github.com/stenhoor/smaltdb), a fast alternative database for the browser, written in TypeScript; [smaltui](https://github.com/stenhoor/smaltui), a SQL console for smaltdb that runs entirely in the browser; and [smaltbi](https://github.com/stenhoor/smaltbi), business intelligence in the browser, powered by smaltdb. Docs: [smaltdb.dev](https://smaltdb.dev).
+
+<p>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="logos/smaltui/lockup-on-dark.svg"><img alt="smaltui" src="logos/smaltui/lockup.svg" width="200"></picture>
+  &nbsp;&nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="logos/smaltbi/lockup-on-dark.svg"><img alt="smaltbi" src="logos/smaltbi/lockup.svg" width="200"></picture>
+</p>
 
 ## What's here
 
 | Path | Contents |
 | --- | --- |
-| [`BRAND.md`](BRAND.md) | The brand book: name, voice, logo use, colour and readability rules, type. |
-| [`DECISIONS.md`](DECISIONS.md) | How the brand was chosen: the options explored, what was picked and why. |
-| [`tokens/tokens.json`](tokens/tokens.json) | Design tokens, the source of truth: colours (light and dark), type styles, spacing, radii. |
+| [`BRAND.md`](BRAND.md) | The brand book: name, voice, logo use, colour and readability rules, type, the product family, badges. |
+| [`DECISIONS.md`](DECISIONS.md) | How the brand was chosen: every round of options, what was picked and why. |
+| [`exploration/`](exploration/) | The exploration boards from every round, as rendered snapshots and as source. |
+| [`tokens/tokens.json`](tokens/tokens.json) | Design tokens, the source of truth: colours (light and dark), product colours, type styles, spacing, radii. |
 | [`tokens/tokens.css`](tokens/tokens.css) | The same tokens as CSS custom properties. Generated; don't edit by hand. |
-| [`logos/smaltdb/`](logos/smaltdb/) | Grain mark, lockup and wordmark (light and dark), app icon, favicons. |
+| [`logos/smaltdb/`](logos/smaltdb/), [`logos/smaltui/`](logos/smaltui/), [`logos/smaltbi/`](logos/smaltbi/) | Marks, lockups and wordmarks (light and dark), app icons, favicons. |
+| [`badges/`](badges/) | "Powered by" badges for each product, light and dark, with embed snippets. |
 | [`components/`](components/) | Static HTML/CSS references: Button, StatusBadge, CodeBlock, Wordmark. |
 | [`themes/vitepress/`](themes/vitepress/) | The VitePress theme and Shiki code colours used by smaltdb.dev. |
-| [`scripts/`](scripts/) | `build_tokens.py` (JSON → CSS) and `wordmark.py` (outlines the wordmark). |
+| [`scripts/`](scripts/) | `build_tokens.py` (JSON → CSS), `brand_assets.py` (logos and wordmarks), `badges.py` (badges). |
 
 ## At a glance
 
 - **Palette (Kiln):** smalt `#003399` on neutral graphite, with kiln orange for commits and focus. Every text pairing meets WCAG AA or better in both themes; ratios are in `tokens.json`.
+- **Product colours:** smaltui is deep cerulean (`#0E7FAE`), smaltbi is blue-leaning violet (`#6E4BC2`), both sibling cobalt pigments of smalt.
 - **Type:** Geist (headings, body), Martian Mono (wordmark, labels), Geist Mono (code). All Google Fonts, OFL.
-- **Voice:** describe what smaltdb is, never what it isn't; no comparisons with other databases.
+- **Voice:** describe what a product is, never what it isn't; no comparisons with other databases.
 
 ## Working on it
 
 ```sh
-python3 scripts/build_tokens.py                    # after editing tokens/tokens.json
-python3 scripts/wordmark.py MartianMono.ttf logos/smaltdb   # after changing the wordmark
+python3 scripts/build_tokens.py                                  # after editing tokens/tokens.json
+python3 scripts/brand_assets.py MartianMono.ttf                  # logos and wordmarks for all three products
+python3 scripts/badges.py Geist.ttf MartianMono.ttf              # the "Powered by" badges
 ```
 
-`wordmark.py` needs `fonttools` (`pip install fonttools`) and the Martian Mono variable font from [google/fonts](https://github.com/google/fonts/tree/main/ofl/martianmono).
+The scripts need `fonttools` (`pip install fonttools`) and the variable fonts from [google/fonts](https://github.com/google/fonts): `ofl/martianmono/MartianMono[wdth,wght].ttf` and `ofl/geist/Geist[wght].ttf`. Each script regenerates the committed files exactly.
 
 ## Fonts
 
-Geist, Geist Mono and Martian Mono are licensed under the SIL Open Font License 1.1. The wordmark and lockup SVGs contain Martian Mono glyphs converted to paths.
+Geist, Geist Mono and Martian Mono are licensed under the SIL Open Font License 1.1. The wordmark, lockup and badge SVGs contain Geist and Martian Mono glyphs converted to paths.

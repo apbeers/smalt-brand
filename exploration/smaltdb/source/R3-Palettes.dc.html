@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Readable palettes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400;500&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#10162E}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1240px; box-sizing: border-box; padding: 56px 64px; background: #F7F8FB; color: #10162E; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Readable palettes</h1>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5A6278">ratios: WCAG contrast vs ground / vs surface · all pass the rules on the brief</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; flex-grow: 1">
+<sc-for list="{{palettes}}" as="p" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div><p style="margin: 0; font-weight: 700; font-size: 20px">{{p.name}}</p><p style="margin: 4px 0 0; font-size: 15px; color: #3D4560">{{p.note}}</p></div>
+<sc-for list="{{p.modes}}" as="m" hint-placeholder-count="2">
+<div style="background: {{m.bg}}; border: 1px solid {{m.border}}; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+<div style="background: {{m.surface}}; border: 1px solid {{m.border}}; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: {{m.text3}}">{{m.label}}</p>
+<p style="margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: {{m.text}}">Open a database</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: {{m.text2}}">Queries run in a Web Worker. Read the <span style="color: {{m.link}}; text-decoration: underline">API reference</span>.</p>
+<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 4px">
+<span style="height: 32px; padding: 0 12px; border-radius: 7px; background: {{m.primary}}; color: {{m.onPrimary}}; font-size: 13px; font-weight: 500; display: flex; align-items: center; outline: 2px solid {{m.focus}}; outline-offset: 2px">Focused button</span>
+<span style="font-size: 13px; font-weight: 500; color: {{m.success}}; display: flex; align-items: center; gap: 4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" style="stroke: {{m.success}}; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"></path></svg>Committed</span>
+<span style="font-size: 13px; font-weight: 500; color: {{m.warning}}; display: flex; align-items: center; gap: 4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4l9 16H3z M12 10v4 M12 17.5v.5" style="stroke: {{m.warning}}; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round"></path></svg>Stale</span>
+<span style="font-size: 13px; font-weight: 500; color: {{m.danger}}; display: flex; align-items: center; gap: 4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12 M18 6L6 18" style="stroke: {{m.danger}}; stroke-width: 2.5; stroke-linecap: round"></path></svg>Failed</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 10px">
+<sc-for list="{{m.rows}}" as="r" hint-placeholder-count="8">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0">
+<span style="width: 22px; height: 22px; border-radius: 5px; background: {{r.hex}}; border: 1px solid {{m.border}}; flex-shrink: 0"></span>
+<div style="display: flex; flex-direction: column; min-width: 0">
+<span style="font-size: 13px; font-weight: 500; color: {{m.text}}">{{r.role}} <span style="font-family: 'Geist Mono', monospace; font-weight: 400; color: {{m.text2}}">{{r.hex}}</span></span>
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{m.text3}}">{{r.ratio}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+renderVals() {
+const rows = (list) => list.map(([role, hex, a, b]) => ({ role, hex, ratio: a + ' / ' + b }));
+return {
+palettes: [
+{ name: 'P1 · Ground Glass', note: 'Smalt grades + amber. Amber marks stale and warning, after smalt’s own decay.',
+  modes: [
+  { label: 'LIGHT', bg: '#F7F8FB', surface: '#FFFFFF', border: '#D3DAE8', text: '#10162E', text2: '#3D4560', text3: '#5A6278', link: '#003399', primary: '#003399', onPrimary: '#FFFFFF', focus: '#2F5BB7', success: '#1D6B3A', warning: '#8A5A12', danger: '#B42318',
+    rows: rows([["Text","#10162E",16.81,17.85],["Text 2","#3D4560",8.91,9.47],["Text 3","#5A6278",5.73,6.08],["Link","#003399",10.23,10.86],["Amber","#8A5A12",5.57,5.91],["Success","#1D6B3A",6.15,6.53],["Danger","#B42318",6.19,6.57],["Focus","#2F5BB7",5.99,'—']]) },
+  { label: 'DARK', bg: '#0B1024', surface: '#121937', border: '#28305A', text: '#E6EAF5', text2: '#B4BCD3', text3: '#8C95B0', link: '#9DB4F5', primary: '#9DB4F5', onPrimary: '#0B1024', focus: '#9DB4F5', success: '#6FD69A', warning: '#F2B356', danger: '#FF8A80',
+    rows: rows([["Text","#E6EAF5",15.67,14.31],["Text 2","#B4BCD3",9.94,9.08],["Text 3","#8C95B0",6.32,5.77],["Link","#9DB4F5",9.23,8.43],["Amber","#F2B356",10.2,9.31],["Success","#6FD69A",10.56,9.64],["Danger","#FF8A80",8.26,7.54],["Focus","#9DB4F5",9.23,'—']]) }
+  ] },
+{ name: 'P2 · Hot Path', note: 'Smalt + cyan. Crispest on dark; cyan deepened to stay readable on white.',
+  modes: [
+  { label: 'LIGHT', bg: '#FFFFFF', surface: '#F6F8FC', border: '#D5DBE7', text: '#0C1222', text2: '#394259', text3: '#576079', link: '#003399', primary: '#003399', onPrimary: '#FFFFFF', focus: '#00708C', success: '#1D6B3A', warning: '#8A5A12', danger: '#B42318',
+    rows: rows([["Text","#0C1222",18.66,17.55],["Text 2","#394259",10.01,9.42],["Text 3","#576079",6.26,5.89],["Link","#003399",10.86,10.22],["Cyan","#006A84",6.19,5.82],["Success","#1D6B3A",6.53,6.14],["Danger","#B42318",6.57,6.18],["Focus","#00708C",5.68,'—']]) },
+  { label: 'DARK', bg: '#080C1A', surface: '#10162B', border: '#232B4A', text: '#E8ECF6', text2: '#B6BDD2', text3: '#8E97B2', link: '#7FA0FF', primary: '#7FA0FF', onPrimary: '#080C1A', focus: '#4FD8FF', success: '#6FD69A', warning: '#F2B356', danger: '#FF8A80',
+    rows: rows([["Text","#E8ECF6",16.48,15.16],["Text 2","#B6BDD2",10.39,9.56],["Text 3","#8E97B2",6.7,6.16],["Link","#7FA0FF",7.77,7.15],["Cyan","#4FD8FF",11.69,10.75],["Success","#6FD69A",10.91,10.04],["Danger","#FF8A80",8.53,7.85],["Focus","#4FD8FF",11.69,'—']]) }
+  ] },
+{ name: 'P3 · Kiln', note: 'Smalt on neutral graphite + orange for commits and focus. Least blue overall.',
+  modes: [
+  { label: 'LIGHT', bg: '#F5F6F8', surface: '#FFFFFF', border: '#D6DBE4', text: '#151922', text2: '#3F4656', text3: '#5C6375', link: '#003399', primary: '#003399', onPrimary: '#FFFFFF', focus: '#003399', success: '#1D6B3A', warning: '#8A5A12', danger: '#A3195B',
+    rows: rows([["Text","#151922",16.26,17.59],["Text 2","#3F4656",8.74,9.45],["Text 3","#5C6375",5.55,6.01],["Link","#003399",10.04,10.86],["Orange","#A33A12",6.12,6.62],["Success","#1D6B3A",6.04,6.53],["Danger","#A3195B",6.82,7.38],["Focus","#003399",10.04,'—']]) },
+  { label: 'DARK', bg: '#14171F', surface: '#1B1F29', border: '#2C3240', text: '#E9EBF0', text2: '#B9BEC9', text3: '#9096A3', link: '#9DB4F5', primary: '#9DB4F5', onPrimary: '#14171F', focus: '#FF8A5C', success: '#6FD69A', warning: '#F2B356', danger: '#FF9EC4',
+    rows: rows([["Text","#E9EBF0",15.02,13.81],["Text 2","#B9BEC9",9.62,8.84],["Text 3","#9096A3",6.04,5.55],["Link","#9DB4F5",8.77,8.07],["Orange","#FF8A5C",7.71,7.09],["Success","#6FD69A",10.03,9.23],["Danger","#FF9EC4",9.33,8.58],["Focus","#FF8A5C",7.71,'—']]) }
+  ] }
+]
+};
+}
+}
+</script>
+</body>
+</html>

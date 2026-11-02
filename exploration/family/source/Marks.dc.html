@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltui and smaltbi marks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1080px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 32px">
+<div>
+<h1 style="margin: 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Marks: a body and a chip, three ways each</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656">Shown with the cobalt-family colours (option A2 on the colour board): smalt body, product chip in cerulean (ui) or cobalt violet (bi).</p>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 12px; padding: 12px 18px; flex-shrink: 0">
+<svg width="44" height="44" viewBox="0 0 64 64" role="img" aria-label="smaltdb Grain mark, for reference"><path d="M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z" fill="#003399"></path><rect x="38" y="8" width="16" height="16" rx="3" fill="#7B97D4"></rect></svg>
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 20px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span>db</p><p style="margin: 2px 0 0; font-size: 13px; color: #5C6375">reference: Grain</p></div>
+</div>
+</div>
+<sc-for list="{{rows}}" as="row" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 12px; flex-grow: 1">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #5C6375">{{row.label}}</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; flex-grow: 1">
+<sc-for list="{{row.marks}}" as="m" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 20px 0"><p style="margin: 0; font-weight: 700; font-size: 17px">{{m.id}} · {{m.name}}</p></div>
+<p style="margin: 4px 20px 0; font-size: 14px; color: #3F4656">{{m.desc}}</p>
+<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; gap: 18px; padding: 12px 0">
+<svg width="84" height="84" viewBox="0 0 64 64" role="img" aria-label="{{m.name}} mark"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 36px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span>{{m.suffix}}</p>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; padding: 12px 20px; background: #14171F">
+<svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 20px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0">sm<span style="color: #9DB4F5">alt</span>{{m.suffix}}</p>
+<div style="margin-left: auto; display: flex; align-items: center; gap: 12px">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const L = { body: '#003399', pale: '#7B97D4', ui: '#1C8DBF', bi: '#8E4BA8' };
+const D = { body: '#9DB4F5', pale: '#D6E0F3', ui: '#6CC4EA', bi: '#C99BE0' };
+const mk = (id, name, desc, suffix, shapes) => ({
+  id, name, desc, suffix,
+  light: shapes.map(([d, k]) => ({ d, fill: L[k] })),
+  dark: shapes.map(([d, k]) => ({ d, fill: D[k] })),
+});
+return {
+rows: [
+{ label: 'SMALTUI — THE WORKBENCH', marks: [
+  mk('U1', 'Tabs', 'The body is the editor; two chips become its tabs.', 'ui', [[rr(8, 24, 48, 34, 6), 'body'], [rr(8, 8, 18, 12, 3), 'ui'], [rr(30, 8, 18, 12, 3), 'pale']]),
+  mk('U2', 'Caret', 'The Grain body with a text caret where the chip was.', 'ui', [[GRAIN, 'body'], [rr(50, 8, 6, 50, 3), 'ui']]),
+  mk('U3', 'Panes', 'Explorer and editor: the body split into two panes.', 'ui', [[rr(8, 18, 14, 40, 4), 'ui'], [rr(26, 18, 30, 40, 6), 'body']]),
+]},
+{ label: 'SMALTBI — THE REPORTS', marks: [
+  mk('B1', 'Bars', 'Three grains rising into a bar chart.', 'bi', [[rr(8, 36, 13, 22, 3), 'pale'], [rr(25, 24, 13, 34, 3), 'body'], [rr(42, 10, 13, 48, 3), 'bi']]),
+  mk('B2', 'Slice', 'A pie with its slice pulled out, as the chip.', 'bi', [['M28 36L28 14A22 22 0 1 0 50 36Z', 'body'], ['M33 31L33 9A22 22 0 0 1 55 31Z', 'bi']]),
+  mk('B3', 'Trend', 'The body and chips stepping up, a rising trend.', 'bi', [[rr(8, 30, 26, 28, 6), 'body'], [rr(38, 22, 10, 10, 2.5), 'pale'], [rr(48, 8, 10, 10, 2.5), 'bi']]),
+]},
+]
+};
+}
+}
+</script>
+</body>
+</html>

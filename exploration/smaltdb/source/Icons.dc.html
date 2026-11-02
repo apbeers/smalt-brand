@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltdb icon set</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#001F66}
+</style>
+</helmet>
+<div style="width: 1440px; height: 820px; box-sizing: border-box; padding: 56px 64px; background: #FFFFFF; color: #161A23; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-size: 36px; font-weight: 600; letter-spacing: -0.02em">Functional icons · 24 px grid, round stroke</h1>
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #5A6070">works under A, B or C — swap stroke weight per direction</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{icons}}" as="icon" hint-placeholder-count="12">
+<div style="border: 1px solid #D5DBE8; border-radius: 12px; height: 168px; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; align-items: flex-end; gap: 16px">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="{{icon.d}}" style="{{icon.strokeStyle}}"></path></svg>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="{{icon.d}}" style="{{icon.strokeStyle}}"></path></svg>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="{{icon.d}}" style="{{icon.strokeStyle}}"></path></svg>
+</div>
+<div>
+<p style="margin: 0; font-size: 15px; font-weight: 500">{{icon.label}}</p>
+<p style="margin: 2px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5A6070">{{icon.id}}</p>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="background: #070B1A; border-radius: 12px; padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; flex-grow: 1">
+<sc-for list="{{darkIcons}}" as="icon" hint-placeholder-count="12">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" role="img" aria-label="{{icon.label}}"><path d="{{icon.d}}" style="{{icon.strokeStyle}}"></path></svg>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"stroke":{"editor":"color","default":"#003399","options":["#003399","#161A23","#2F5BB7"]},"weight":{"editor":"range","default":1.75,"min":1,"max":2.5,"step":0.25,"unit":"px"},"$preview":{"width":1440,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+const stroke = this.props.stroke ?? '#003399';
+const w = this.props.weight ?? 1.75;
+const base = [
+['engine', 'Engine / table', 'M6 4h12a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z M3 9.5h18 M3 14.5h18 M9 9.5V20'],
+['query', 'Query', 'M4 6h12 M4 11h8 M4 16h5 M14 17a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M19.2 19.2L21 21'],
+['transaction', 'Transaction', 'M20 12a8 8 0 1 1-2.34-5.66 M20 4v4h-4 M8.5 12.5l2.5 2.5 4.5-5'],
+['wal', 'Write-ahead log', 'M6 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M7.5 8h4 M7.5 12h4 M7.5 16h2 M19 7v11 M17 16l2 2 2-2'],
+['worker', 'Web Worker', 'M9 7h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z M10 3v4 M14 3v4 M10 17v4 M14 17v4 M3 10h4 M3 14h4 M17 10h4 M17 14h4'],
+['opfs', 'OPFS storage', 'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M10 14v-1.5a2 2 0 0 1 4 0V14 M9 14h6v3H9z'],
+['btree', 'B+tree index', 'M10 3h4v4h-4z M12 7v3 M6 10h12 M6 10v4 M12 10v4 M18 10v4 M4 14h4v5H4z M10 14h4v5h-4z M16 14h4v5h-4z'],
+['matview', 'Materialized view', 'M12 3l9 5-9 5-9-5z M3 12.5l9 5 9-5 M3 16.5l9 5 9-5'],
+['columnar', 'Columnar result', 'M4 4h4v16H4z M10 4h4v16h-4z M16 4h4v16h-4z M10 9h4 M10 14h4'],
+['fast', 'Fast path', 'M13 2L4 14h7l-1 8 9-12h-7z'],
+['durable', 'Crash-safe', 'M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5'],
+['multitab', 'Multi-tab (M6)', 'M8 4h11a2 2 0 0 1 2 2v9 M5 8h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z M3 11.5h15']
+];
+const style = (c) => 'stroke: ' + c + '; stroke-width: ' + w + 'px; stroke-linecap: round; stroke-linejoin: round';
+return {
+icons: base.map(([id, label, d]) => ({ id, label, d, strokeStyle: style(stroke) })),
+darkIcons: base.map(([id, label, d]) => ({ id, label, d, strokeStyle: style('#5B83FF') }))
+};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Direction B Fast Path</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#4FD8FF}a:hover{color:#E8ECF8}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1240px; box-sizing: border-box; padding: 56px 64px; background: #070B1A; color: #E8ECF8; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h1 style="margin: 0; font-size: 44px; font-weight: 700; letter-spacing: -0.03em">B · Fast Path</h1>
+<p style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 14px; color: #8D96B3">speed-first · motion · dark-first</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; height: 320px">
+<div style="grid-column: span 2; background: #101733; border: 1px solid #222B4D; border-radius: 20px; display: flex; align-items: center; justify-content: center; gap: 28px">
+<svg width="128" height="128" viewBox="0 0 64 64" role="img" aria-label="smaltdb fast-path mark"><path d="M24 8h36l-7 11H17z" fill="#5B83FF"></path><path d="M14 26.5h36l-7 11H7z" fill="#2F5BB7"></path><path d="M4 45h36l-7 11H-3z" fill="#4FD8FF"></path></svg>
+<p style="margin: 0; font-size: 116px; line-height: 1; letter-spacing: -0.05em"><span style="font-weight: 700">smalt</span><span style="font-family: 'Geist Mono', monospace; font-weight: 500; font-size: 96px; letter-spacing: -0.02em; color: #4FD8FF">db</span></p>
+</div>
+<div style="display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div style="background: #FFFFFF; border-radius: 20px; display: flex; align-items: center; justify-content: center; gap: 14px">
+<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path d="M24 8h36l-7 11H17z" fill="#003399"></path><path d="M14 26.5h36l-7 11H7z" fill="#2F5BB7"></path><path d="M4 45h36l-7 11H-3z" fill="#0091B3"></path></svg>
+<p style="margin: 0; font-size: 48px; line-height: 1; letter-spacing: -0.05em; color: #070B1A"><span style="font-weight: 700">smalt</span><span style="font-family: 'Geist Mono', monospace; font-weight: 500; font-size: 40px; color: #003399">db</span></p>
+</div>
+<div style="background: #101733; border: 1px solid #222B4D; border-radius: 20px; display: flex; align-items: center; justify-content: space-around; padding: 0 16px">
+<div style="width: 96px; height: 96px; border-radius: 22px; background: #003399; display: flex; align-items: center; justify-content: center"><svg width="62" height="62" viewBox="0 0 64 64" role="img" aria-label="App icon"><path d="M24 8h36l-7 11H17z" fill="#FFFFFF"></path><path d="M14 26.5h36l-7 11H7z" fill="#5B83FF"></path><path d="M4 45h36l-7 11H-3z" fill="#4FD8FF"></path></svg></div>
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32"><rect width="64" height="64" rx="14" fill="#003399"></rect><path d="M26 12h30l-6 10H20z" fill="#FFFFFF"></path><path d="M8 42h30l-6 10H2z" fill="#4FD8FF"></path></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16"><rect width="64" height="64" rx="14" fill="#003399"></rect><path d="M8 26h48l-6 12H2z" fill="#4FD8FF"></path></svg>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #8D96B3">Palette — kiln ground, lit smalt, hot path</p>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<div style="height: 88px; border-radius: 12px; background: #070B1A; border: 1px solid #222B4D; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px"><span>Kiln · ground</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #8D96B3">#070B1A</span></div>
+<div style="height: 88px; border-radius: 12px; background: #101733; border: 1px solid #222B4D; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px"><span>Furnace · surface</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #8D96B3">#101733</span></div>
+<div style="height: 88px; border-radius: 12px; background: #222B4D; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px"><span>Seam · rules</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9C0D6">#222B4D</span></div>
+<div style="height: 88px; border-radius: 12px; background: #003399; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px; color: #FFFFFF"><span>Smalt · fills</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px">#003399 · white on 10.9:1</span></div>
+<div style="height: 88px; border-radius: 12px; background: #5B83FF; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px; color: #070B1A"><span>Smalt Lit · primary</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px">#5B83FF · 5.7:1</span></div>
+<div style="height: 88px; border-radius: 12px; background: #4FD8FF; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px; color: #070B1A"><span>Hot path · accent</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px">#4FD8FF · 11.8:1</span></div>
+<div style="height: 88px; border-radius: 12px; background: #E8ECF8; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px; color: #070B1A"><span>Glow · text</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px">#E8ECF8 · 16.6:1</span></div>
+<div style="height: 88px; border-radius: 12px; background: #8D96B3; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; font-size: 14px; color: #070B1A"><span>Ash · muted</span><span style="font-family: 'Geist Mono', monospace; font-size: 13px">#8D96B3 · 6.7:1</span></div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+<div style="background: #101733; border: 1px solid #222B4D; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 13px; color: #8D96B3">Geist 700 · display, tight tracking</p>
+<p style="margin: 0; font-size: 50px; font-weight: 700; line-height: 1.02; letter-spacing: -0.04em">Off the main thread.<br><span style="color: #4FD8FF">On the fast path.</span></p>
+<p style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 13px; color: #8D96B3">Geist 400 · body</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #E8ECF8">Faster than crash-safe SQLite WASM on 8 of 10 benchmark workloads. Every query runs in a Web Worker, so the UI never waits on the database.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto">
+<button type="button" style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #5B83FF; color: #070B1A; font: 500 15px 'Geist', sans-serif">npm i smaltdb</button>
+<button type="button" style="height: 44px; padding: 0 20px; border: 1px solid #222B4D; border-radius: 8px; background: transparent; color: #E8ECF8; font: 500 15px 'Geist', sans-serif">See benchmarks</button>
+<span style="height: 32px; align-self: center; padding: 0 12px; border-radius: 6px; background: #0B2A3A; color: #4FD8FF; font: 500 13px 'Geist Mono', monospace; display: flex; align-items: center">worker · ready</span>
+</div>
+</div>
+<div style="background: #000000; border: 1px solid #222B4D; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 13px; color: #8D96B3">Geist Mono · code</p>
+<pre style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 16px; line-height: 1.7; color: #E8ECF8; white-space: pre-wrap"><span style="color: #5B83FF">import</span> { open } <span style="color: #5B83FF">from</span> <span style="color: #4FD8FF">'smaltdb'</span>;
+
+<span style="color: #5B83FF">const</span> db = <span style="color: #5B83FF">await</span> open(<span style="color: #4FD8FF">'app'</span>);
+<span style="color: #5B83FF">const</span> cols = <span style="color: #5B83FF">await</span> db.query(
+  <span style="color: #4FD8FF">'SELECT id FROM todo'</span>, [],
+  { rowMode: <span style="color: #4FD8FF">'columnar'</span> }
+); <span style="color: #8D96B3">// { data: { id: Float64Array } }</span></pre>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltui terminal marks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 32px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">round 2 · smaltui marks</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Keeping the terminal feel, making it fit</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 860px">U2 put a caret beside the Grain body, so the two shapes didn't connect. These make the terminal idea the mark itself: a prompt, a cursor ending a line, or both. Cerulean marks the product (colour C1).</p>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 12px; padding: 12px 18px; flex-shrink: 0">
+<svg width="40" height="40" viewBox="0 0 64 64" role="img" aria-label="Round 1 U2 Caret, for reference"><path d="M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z" fill="#003399"></path><rect x="50" y="8" width="6" height="50" rx="3" fill="#1C8DBF"></rect></svg>
+<p style="margin: 0; font-size: 13px; color: #5C6375">round 1: U2 Caret</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; flex-grow: 1">
+<sc-for list="{{marks}}" as="m" hint-placeholder-count="4">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">{{m.id}} · {{m.name}}</p>
+<p style="margin: 4px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 40px">{{m.desc}}</p>
+<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0">
+<svg width="132" height="132" viewBox="0 0 64 64" role="img" aria-label="{{m.name}} mark"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 0 18px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 26px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span>ui</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: #14171F">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 18px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0">sm<span style="color: #9DB4F5">alt</span>ui</span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const L = { body: '#003399', pale: '#7B97D4', acc: '#1C8DBF' };
+const D = { body: '#9DB4F5', pale: '#D6E0F3', acc: '#6CC4EA' };
+const mk = (id, name, desc, shapes) => ({ id, name, desc,
+  light: shapes.map(([d, k]) => ({ d, fill: L[k] })), dark: shapes.map(([d, k]) => ({ d, fill: D[k] })) });
+return {
+marks: [
+  mk('U5', 'Prompt', 'A window holding a prompt and a cursor. The grain becomes the frame.',
+    [[rr(6, 10, 52, 44, 9) + ' ' + rr(11, 15, 42, 34, 5), 'body'], ['M17 23L21 19L34 32L21 45L17 41L26 32Z', 'body'], [rr(34, 40, 13, 5, 2), 'acc']]),
+  mk('U6', 'Last line', 'Lines of output, then the line you are typing, ending in a block cursor.',
+    [[rr(8, 12, 32, 8, 3), 'pale'], [rr(8, 27, 44, 8, 3), 'body'], [rr(8, 42, 20, 8, 3), 'body'], [rr(31, 39, 9, 14, 2.5), 'acc']]),
+  mk('U7', 'Chevron', 'The prompt itself, > and _, drawn as a grain and a chip.',
+    [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'acc']]),
+  mk('U8', 'Grain cursor', "smaltdb's Grain with a block cursor at its baseline: the engine, ready for input.",
+    [[GRAIN, 'body'], [rr(50, 40, 8, 18, 2.5), 'acc']]),
+]
+};
+}
+}
+</script>
+</body>
+</html>

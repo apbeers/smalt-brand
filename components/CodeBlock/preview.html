@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CodeBlock — Geist Mono 15/1.6 on code-bg</title>
+<link rel="stylesheet" href="../../tokens/tokens.css">
+</head>
+<body>
+<div class="wrap">
+<pre class="code"><span class="c">// engine runs in a worker, data lives in OPFS</span>
+<span class="k">import</span><span class="p"> { open } </span><span class="k">from</span><span class="p"> </span><span class="s">'smaltdb'</span><span class="p">;</span>
+
+<span class="k">const</span> db <span class="p">=</span> <span class="k">await</span> <span class="f">open</span><span class="p">(</span><span class="s">'app'</span><span class="p">);</span>
+<span class="k">await</span> tx<span class="p">.</span><span class="f">exec</span><span class="p">(</span><span class="s">'UPDATE todo SET done = 1 WHERE id = ?'</span><span class="p">, [</span><span class="n">1</span><span class="p">]);</span></pre>
+</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap');
+body { margin: 0; background: var(--bg); }
+.wrap { padding: var(--space-6); }
+.code { margin: 0; padding: var(--space-4) var(--space-6); background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text); font: 400 15px/1.6 var(--font-mono); white-space: pre-wrap; }
+.k { color: var(--syn-keyword); }
+.s { color: var(--syn-string); }
+.n { color: var(--syn-number); }
+.f { color: var(--syn-function); }
+.c { color: var(--syn-comment); font-style: italic; }
+.p { color: var(--syn-punct); }
+</style>
+</body>
+</html>

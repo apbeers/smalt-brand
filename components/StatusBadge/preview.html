@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StatusBadge — Committed, stale, failed — icon + word</title>
+<link rel="stylesheet" href="../../tokens/tokens.css">
+</head>
+<body>
+<div class="row">
+  <span class="badge ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Committed</span>
+  <span class="badge warn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 16H3z M12 10v4 M12 17.5v.5"/></svg>Stale</span>
+  <span class="badge bad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12 M18 6L6 18"/></svg>Failed</span>
+</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@500&display=swap');
+body { margin: 0; background: var(--bg); }
+.row { display: flex; gap: var(--space-4); align-items: center; padding: var(--space-6); flex-wrap: wrap; }
+.badge { display: inline-flex; align-items: center; gap: var(--space-1); height: 28px; padding: 0 var(--space-3); border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border); font: 500 14px/1 var(--font-sans); }
+.badge svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.ok { color: var(--success); }
+.warn { color: var(--warning); }
+.bad { color: var(--danger); }
+</style>
+</body>
+</html>

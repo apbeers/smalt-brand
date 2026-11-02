@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Button — Primary, secondary, focused</title>
+<link rel="stylesheet" href="../../tokens/tokens.css">
+</head>
+<body>
+<div class="row">
+  <button type="button" class="btn btn-primary">Get started</button>
+  <button type="button" class="btn btn-secondary">Read the docs</button>
+  <button type="button" class="btn btn-primary is-focus">Focused</button>
+</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@500&display=swap');
+body { margin: 0; background: var(--bg); }
+.row { display: flex; gap: var(--space-3); align-items: center; padding: var(--space-6); flex-wrap: wrap; }
+.btn { height: 44px; padding: 0 var(--space-4); border-radius: var(--radius-md); font: 500 15px/1 var(--font-sans); cursor: pointer; }
+.btn-primary { background: var(--primary); color: var(--on-primary); border: 0; }
+.btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--text-3); }
+.btn:focus-visible, .is-focus { outline: 2px solid var(--focus); outline-offset: 2px; }
+</style>
+</body>
+</html>

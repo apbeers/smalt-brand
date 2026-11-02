@@ -33,7 +33,7 @@ Feedback that shaped round 3:
 
 | Category | Options | **Picked** |
 | --- | --- | --- |
-| Tagline | T1–T5 | **T3: "Small. Alternate. Fast."** |
+| Tagline | T1–T5 | **T3: "Small. Alternate. Fast."**, later changed to "Small. Alternative. Fast." (see below) |
 | Mark | Ground Glass, Grain, Alt key, Alternate route | **Grain:** a ground-glass particle and the chip it shed |
 | Type | S1 mono-forward, S2 Geist-forward | **S2:** Geist 700 headings, Martian Mono for wordmark and labels, Geist Mono for code |
 | Palette | P1 Ground Glass, P2 Hot Path, P3 Kiln | **P3 Kiln:** smalt on neutral graphite, kiln orange for commits and focus |
@@ -53,6 +53,7 @@ All ratios were computed with the WCAG 2 relative-luminance formula and are reco
 ## After the picks
 
 - **Positioning line:** "A fast alternative database for the browser, written in TypeScript." It was first "pure JavaScript", but the source is TypeScript and "pure JavaScript" undersold the first-class types. "No WASM" was rejected as framing against other engines.
+- **"Alternate" became "Alternative".** The tagline is now "Small. Alternative. Fast." and *alt* in the name reads as *alternative*. smaltdb is proposed as an alternative database; "alternative" is the word that audience uses, and it matches the positioning line.
 - **Voice rule added:** describe what smaltdb is, never what it isn't.
 - **Outlined wordmark:** GitHub strips inline styles from Markdown, so the coloured `alt` can only appear in a README as an image. The wordmark and lockup are Martian Mono 600 converted to paths (`scripts/wordmark.py`), switched for light and dark with `<picture>`.
 - **Cover simplified:** an early design-system cover scattered grain-sized squares to suggest powder. It read as noise and was replaced by the oversized mark alone.

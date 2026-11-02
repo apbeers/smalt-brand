@@ -1,6 +1,6 @@
 # smaltdb
 
-**Small. Alternate. Fast.**
+**Small. Alternative. Fast.**
 
 smaltdb is a fast alternative database for the browser, written in TypeScript. This document is its brand: the Grain mark, the Kiln palette, and a Geist-forward type system with a monospaced voice for coders.
 
@@ -9,7 +9,7 @@ smaltdb is a fast alternative database for the browser, written in TypeScript. T
 The name carries three meanings at once:
 
 - **sm** — small
-- **alt** — alternate
+- **alt** — alternative
 - **db** — database
 - **smalt** — the cobalt-glass pigment, `#003399`, ground into powder. Finer grinds read paler; the brand scale (`smalt-900` → `smalt-100`) follows those grades.
 
@@ -23,7 +23,7 @@ In the wordmark, `alt` is set in `primary`. Write the name in lowercase, as one 
 - No unsourced performance claims. A number appears only with its benchmark and method linked beside it.
 - Written for coders: show code early, keep sentences short.
 
-Tagline: **Small. Alternate. Fast.** Use it under the wordmark, in social cards, and in the docs hero.
+Tagline: **Small. Alternative. Fast.** Use it under the wordmark, in social cards, and in the docs hero.
 
 ## Logo — the Grain mark
 

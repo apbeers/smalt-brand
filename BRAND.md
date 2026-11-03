@@ -25,6 +25,25 @@ In the wordmark, `alt` is set in `primary`. Write the name in lowercase, as one 
 
 Tagline: **Small. Alternative. Fast.** Use it under the wordmark, in social cards, and in the docs hero.
 
+## The family voice — smalty
+
+**What "Stay smalty." means.** It is a nod to "salty" and a counterpoint to it. Salty is annoyed; smalty is having fun doing our own thing. It carries the family's irreverent streak: rather than stitching together separate, disconnected tools, smaltworks builds one family of its own, a database, a console, BI, dataframes and notebooks, designed as one unified approach from the start.
+
+Smalt is pronounced like salt (Merriam-Webster: ˈsmȯlt), so the family plays on salt idioms. Each one keeps `alt` visible, so it still reads small + alternative. Set the smalt part like the wordmark where you can: Martian Mono, `alt` in `primary`.
+
+| Use | Words |
+| --- | --- |
+| Family tagline, across all products | **Stay smalty.** |
+| The group that makes the smalt projects | **smaltworks** |
+| Social media handle | **smaltalk** (one word) |
+| Community members | **smalties** |
+| Community statement | **smalt of the earth.** |
+
+- Each product keeps its own "Small. Alternative. ___." tagline. "Stay smalty." is the family's line: social profiles, stickers, community pages, sign-offs.
+- "Smalty" is the opposite of salty: upbeat, a little irreverent, confident in doing things our own way. Say what the family builds and how the pieces fit together; never aim it at other projects or at someone who reports a problem. The voice rule against picking fights still applies: the unified approach is described by what it is, not by what others lack.
+- "smaltalk" is one letter from Smalltalk, the programming language. That's fine as a nod, but write it as one lowercase word and never imply a connection to Smalltalk.
+- A *smalt works* was a historical factory that made the pigment, which gives smaltworks its meaning.
+
 ## Logo — the Grain mark
 
 A ground-glass particle and the chip it shed: small, and a little apart.

@@ -41,6 +41,7 @@ Brand assets and design tokens for the smalt projects: [smaltdb](https://github.
 - **Product colours:** smaltui is deep cerulean (`#0E7FAE`), smaltbi is blue-leaning violet (`#6E4BC2`), smaltdf is aureolin ochre (`#8C6D00`), smaltnb is cobalt magenta (`#B0249F`), all sibling cobalt pigments of smalt.
 - **Type:** Geist (headings, body), Martian Mono (wordmark, labels), Geist Mono (code). All Google Fonts, OFL.
 - **Voice:** describe what a product is, never what it isn't; no comparisons with other databases.
+- **Family voice:** "Stay smalty." The group is smaltworks, the social handle smaltalk, community members are smalties, and the community statement is "smalt of the earth."
 
 ## Working on it
 

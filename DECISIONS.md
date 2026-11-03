@@ -190,9 +190,34 @@ Applied after the picks:
 - A 45° pencil resembles the common "edit" icon. The smalt body and magenta point set it apart, but avoid placing it beside edit buttons in a toolbar.
 - The magenta is at least CIELAB distance 33 from the smaltbi violet in light and 34 in dark. The badge text is at least 7.3:1 on its light surface and 7.1:1 on its dark one.
 
+## The family voice: smalty
+
+Smalt rhymes with salt (Merriam-Webster: ˈsmȯlt), so salt idioms were explored as a family-wide voice, on one board:
+
+- **Family lines:** Be smalty, Stay smalty, Take it with a grain of smalt, A pinch of smalt.
+- **Names:** smalt talk, smaltworks, smalties.
+- **Small copy:** Worth your smalt, smalt of the earth, Rub a little smalt in it.
+
+The board flagged that "salty" commonly means annoyed or bitter (Dictionary.com), and recommended "Take it with a grain of smalt" as the family line, since it ties to the Grain mark.
+
+| | **Picked** |
+| --- | --- |
+| Family tagline | **"Stay smalty."** |
+| Group name | **smaltworks:** the group that makes the smalt projects |
+| Social media handle | **smaltalk** |
+| Community members | **smalties** |
+| Community statement | **"smalt of the earth."** |
+
+Applied after the picks:
+
+- **Intent (owner):** "Stay smalty." is both a nod to "salty" and a counterpoint to it: the fun, somewhat irreverent view of doing our own thing. The smalt projects rebuild much of the infrastructure that today comes as separate, disconnected offerings, as one unified family.
+- Because "salty" commonly means annoyed or bitter, `BRAND.md` frames smalty as its opposite and keeps the no-fights rule: describe the unified approach by what it is, never by what others lack.
+- "smaltalk" is one letter from Smalltalk, the programming language. Old archives already use "SMALTALK" as an 8-character name for Smalltalk, so coders may read it that way.
+- Whether the smaltworks and smaltalk names are free on GitHub and the social networks wasn't checked: this session can't look up accounts outside the smalt repositories.
+
 ## Exploration archive
 
-[`exploration/`](exploration/) keeps all 36 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
+[`exploration/`](exploration/) keeps all 37 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 

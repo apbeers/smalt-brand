@@ -30,10 +30,10 @@ Brand assets and design tokens for the smalt projects: [smaltdb](https://github.
 | [`tokens/tokens.css`](tokens/tokens.css) | The same tokens as CSS custom properties. Generated; don't edit by hand. |
 | [`logos/smaltdb/`](logos/smaltdb/), [`logos/smaltui/`](logos/smaltui/), [`logos/smaltbi/`](logos/smaltbi/), [`logos/smaltdf/`](logos/smaltdf/), [`logos/smaltnb/`](logos/smaltnb/) | Marks, lockups and wordmarks (light and dark), app icons, favicons. |
 | [`social/`](social/) | Social preview cards (1280 × 640) for each product's repository and site. |
-| [`badges/`](badges/) | "Powered by" badges for each product, light and dark, with embed snippets. |
+| [`badges/`](badges/) | "Powered by" badges for each product, and the Official, Verified and Works with plugin badges in `badges/plugins/`, light and dark, with embed snippets. |
 | [`components/`](components/) | Static HTML/CSS references: Button, StatusBadge, CodeBlock, Wordmark. |
 | [`themes/vitepress/`](themes/vitepress/) | The VitePress theme and Shiki code colours used by smaltdb.dev. |
-| [`scripts/`](scripts/) | `build_tokens.py` (JSON → CSS), `brand_assets.py` (logos and wordmarks), `badges.py` (badges), `social_cards.py` (social preview cards). |
+| [`scripts/`](scripts/) | `build_tokens.py` (JSON → CSS), `brand_assets.py` (logos and wordmarks), `badges.py` (badges), `social_cards.py` (social preview cards), `plugin_badges.py` (plugin badges). |
 
 ## At a glance
 
@@ -50,6 +50,7 @@ python3 scripts/build_tokens.py                                  # after editing
 python3 scripts/brand_assets.py MartianMono.ttf                  # logos and wordmarks for every product
 python3 scripts/badges.py Geist.ttf MartianMono.ttf              # the "Powered by" badges
 python3 scripts/social_cards.py Geist.ttf MartianMono.ttf        # the social preview cards (after brand_assets.py)
+python3 scripts/plugin_badges.py Geist.ttf MartianMono.ttf       # the plugin badges
 ```
 
 The scripts need `fonttools` (`pip install fonttools`; `social_cards.py` also needs `cairosvg`) and the variable fonts from [google/fonts](https://github.com/google/fonts): `ofl/martianmono/MartianMono[wdth,wght].ttf` and `ofl/geist/Geist[wght].ttf`. Each script regenerates the committed files exactly.

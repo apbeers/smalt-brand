@@ -96,6 +96,7 @@ The later positioning lines (P4–P11 and the final "Dataframes for smaltdb. Sma
 | Board | Contents |
 | --- | --- |
 | [FAM-Smalty](family/png/FAM-Smalty.png) | Salt idioms as a family voice: lines, names and small copy, with the meanings of "salty". Picked: Stay smalty, smaltworks, smaltalk, smalties, smalt of the earth. |
+| [FAM-PluginBadges](family/png/FAM-PluginBadges.png) | The Official, Verified and Works with plugin badges, the smaltdb.dev/plugins list, and the smaltkit header. All approved. |
 
 ## How the snapshots were made
 

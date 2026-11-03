@@ -268,9 +268,30 @@ Applied after the picks:
 - An avatar PNG (square; GitHub and social sites round it) and an "A smaltworks project" endorsement badge were added.
 - **Correction:** `tokens.json` listed `smalt-300` (`#7B97D4`) as 3.1:1 on white. It is 2.9:1 (2.7:1 on `bg`), under the 3:1 guide for graphics. The token note is fixed. The colour is the chip in smaltdb's Grain mark, where it is decorative and logos are exempt.
 
+## The smaltworks.dev website
+
+The central site for smaltworks and its projects, at smaltworks.dev, built from this repository so the brand and the
+site can't drift apart.
+
+- **Where:** `site/` in smalt-brand, not a separate repository (owner's decision). It can move later; the domain just
+  points wherever the site lives.
+- **Tool:** VitePress with the family theme, the same as smaltdb.dev.
+- **Pages:**
+  - the family, each product with links out, plugins and kits;
+  - the architecture, why smalty, how smaltworks works with AI, status;
+  - get involved, core team, code of conduct, open source, the brand kit.
+- **Architecture graphic:** four layouts were mocked up (layer cake, engine bar, fan, stacked plates). **Engine bar**
+  was picked, for the home page and the architecture page.
+- **Small data:** "Small data deserves good tools." It is stated as what we believe, with no row counts, and the
+  "make it … again" phrasing is ruled out.
+- **Inspired by, not against:** the tools that shaped the products are credited by name (Toad, Power BI, Tableau,
+  Jupyter, marimo, Narwhals, pandas, Polars), with a plain statement that the family isn't here to replace them.
+- **Core team:** Steve TenHoor, organizing founder. His day job and personal contact details are left out; people
+  get in touch through GitHub.
+
 ## Exploration archive
 
-[`exploration/`](exploration/) keeps all 42 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
+[`exploration/`](exploration/) keeps all 43 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 

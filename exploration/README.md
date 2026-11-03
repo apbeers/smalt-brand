@@ -107,6 +107,12 @@ The later positioning lines (P4–P11 and the final "Dataframes for smaltdb. Sma
 | [WORKS-Ideas](family/png/WORKS-Ideas.png) | Round 3: eight ideas from the words used to describe smaltworks. Picked: A7 Together. |
 | [WORKS-Together](family/png/WORKS-Together.png) | Round 4: Together's colour and the line under the name. Picked: kiln orange and "Small. Alternative. Together." |
 
+## The smaltworks.dev website
+
+| Board | Contents |
+| --- | --- |
+| [SITE-Architecture](family/png/SITE-Architecture.png) | Four layouts for the architecture graphic. Picked: B, Engine bar. |
+
 ## How the snapshots were made
 
 Each `.dc.html` was rendered headless in Chromium at its board size, with the same Google Fonts files the boards load (Geist, Geist Mono, Martian Mono, IBM Plex Sans and Mono, Newsreader, Inter Tight, JetBrains Mono, Bricolage Grotesque, DM Mono).

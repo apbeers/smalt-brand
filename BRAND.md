@@ -80,9 +80,17 @@ All three are Google Fonts (OFL). Load them with:
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&family=Geist+Mono:wght@400;500&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
 ```
 
-## Iconography
+## Iconography — the Chevron style
 
-The icon style is not chosen yet. Components here use a 24px-grid outline style (1.75–2.5px round strokes) as a placeholder, and status icons are drawn in their status colour.
+Icons are drawn the way the smaltui Chevron mark is drawn (`logos/smaltui/chevron-mark.svg`): solid bars and one chip, not outlines.
+
+- **Solid shapes, no strokes.** Every line is a filled bar of constant thickness with square-cut ends. The Chevron's arms are about 15% of the icon's width thick (9.9 units on its 64-unit grid), which is about 3.5 px on a 24 px icon.
+- **Angles of 0°, 45° and 90° only**, like the Chevron's arms.
+- **One chip at most:** a rounded bar with a 3-unit radius on the 64-unit grid (about 1.1 px at 24 px), like the Chevron's cursor `_`. It marks the one detail that matters: the cursor, a dot, the current item.
+- **Two tones.** The body is `smalt-700` (`smalt-200` on dark) and the chip takes the product colour, as in the marks. Status icons are drawn entirely in their status colour (`success`, `warning`, `danger`) and still always come with a word.
+- **One drawing at every size**, like the marks: draw on a 24 px grid and keep bars at least 2 px thick at 16 px.
+
+`components/StatusBadge` shows the style: a check, an exclamation mark (a bar and a chip) and a cross.
 
 ## Tokens
 

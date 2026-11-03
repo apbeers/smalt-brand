@@ -118,12 +118,17 @@ Applied after the picks:
 - Badge colours match the lockups: the suffix takes the product colour (confirmed).
 - Badge text contrast on its surface: at least 6.0:1 in light and 7.4:1 in dark.
 
+## After the family: the icon style
+
+Round 2 offered three icon styles for UI icons (I1 Outline, I2 Duotone, I3 Pixel grain), and none was picked, so components kept the I1 outline icons as a placeholder.
+
+**Picked: the Chevron style** (owner's decision). Icons are drawn like the smaltui Chevron mark: solid bars of constant thickness with square-cut ends, angles of 0°, 45° and 90°, and at most one rounded chip in the product or status colour. The rules are in `BRAND.md` under Iconography, and `StatusBadge` was redrawn in this style.
+
 ## Exploration archive
 
 [`exploration/`](exploration/) keeps all 27 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 
-- **Icon style.** Not chosen. Components use a 24px-grid outline style as a placeholder.
 - **Social preview card** for links shared on GitHub and social sites.
 - **Research pages on smaltdb.dev** include benchmark comparisons with other engines. The no-comparisons rule covers marketing copy; whether those pages stay on the public site is undecided.

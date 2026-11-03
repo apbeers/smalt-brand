@@ -27,6 +27,8 @@ Tagline: **Small. Alternative. Fast.** Use it under the wordmark, in social card
 
 ## The family voice — smalty
 
+**What "Stay smalty." means.** It is a nod to "salty" and a counterpoint to it. Salty is annoyed; smalty is having fun doing our own thing. It carries the family's irreverent streak: rather than stitching together separate, disconnected tools, smaltworks builds one family of its own, a database, a console, BI, dataframes and notebooks, designed as one unified approach from the start.
+
 Smalt is pronounced like salt (Merriam-Webster: ˈsmȯlt), so the family plays on salt idioms. Each one keeps `alt` visible, so it still reads small + alternative. Set the smalt part like the wordmark where you can: Martian Mono, `alt` in `primary`.
 
 | Use | Words |
@@ -38,7 +40,7 @@ Smalt is pronounced like salt (Merriam-Webster: ˈsmȯlt), so the family plays o
 | Community statement | **smalt of the earth.** |
 
 - Each product keeps its own "Small. Alternative. ___." tagline. "Stay smalty." is the family's line: social profiles, stickers, community pages, sign-offs.
-- "Salty" commonly means annoyed or bitter. Use "Stay smalty." for the family's own spirit, never aimed at other projects or at someone who reports a problem. The voice rule against picking fights still applies.
+- "Smalty" is the opposite of salty: upbeat, a little irreverent, confident in doing things our own way. Say what the family builds and how the pieces fit together; never aim it at other projects or at someone who reports a problem. The voice rule against picking fights still applies: the unified approach is described by what it is, not by what others lack.
 - "smaltalk" is one letter from Smalltalk, the programming language. That's fine as a nod, but write it as one lowercase word and never imply a connection to Smalltalk.
 - A *smalt works* was a historical factory that made the pigment, which gives smaltworks its meaning.
 

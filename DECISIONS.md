@@ -210,7 +210,8 @@ The board flagged that "salty" commonly means annoyed or bitter (Dictionary.com)
 
 Applied after the picks:
 
-- "Stay smalty." keeps the "salty" double meaning, so `BRAND.md` limits it to the family's own spirit, never aimed at others.
+- **Intent (owner):** "Stay smalty." is both a nod to "salty" and a counterpoint to it: the fun, somewhat irreverent view of doing our own thing. The smalt projects rebuild much of the infrastructure that today comes as separate, disconnected offerings, as one unified family.
+- Because "salty" commonly means annoyed or bitter, `BRAND.md` frames smalty as its opposite and keeps the no-fights rule: describe the unified approach by what it is, never by what others lack.
 - "smaltalk" is one letter from Smalltalk, the programming language. Old archives already use "SMALTALK" as an 8-character name for Smalltalk, so coders may read it that way.
 - Whether the smaltworks and smaltalk names are free on GitHub and the social networks wasn't checked: this session can't look up accounts outside the smalt repositories.
 

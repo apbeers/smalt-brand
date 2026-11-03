@@ -28,7 +28,7 @@ W, H = 1280, 640
 LEFT = 96                       # left margin; content stays inside the 1.91:1 centre crop
 INK, INK_2, INK_3 = "#E9EBF0", "#B9BEC9", "#9096A3"   # text, text-2, text-3 (dark)
 GROUND = "#14171F"               # bg (dark)
-BAR = {"db": "#9DB4F5", "ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6"}  # smalt-200, product-ui/-bi/-df/-nb (dark)
+BAR = {"db": "#9DB4F5", "ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6", "works": "#FF8A5C"}  # smalt-200, product-ui/-bi/-df/-nb, kiln (dark)
 
 PRODUCTS = {
     "db": ("Small. Alternative. Fast.",
@@ -46,6 +46,9 @@ PRODUCTS = {
     "nb": ("Small. Alternative. Notebooks.",
            "TypeScript notebooks for smaltdb.",
            "github.com/stenhoor/smaltnb"),
+    "works": ("Small. Alternative. Together.",
+              "Stay smalty.",
+              "smaltdb · smaltui · smaltbi · smaltdf · smaltnb"),
 }
 
 LOCKUP_H = 132                   # rendered height of the lockup's viewBox
@@ -91,3 +94,11 @@ if __name__ == "__main__":
         cairosvg.svg2png(bytestring=svg.encode(), write_to=str(out / f"smalt{product}.png"),
                          output_width=W, output_height=H)
         print(f"social/smalt{product}.svg, .png")
+    # smaltworks' avatar for GitHub and social profiles: the app icon as a full-bleed square
+    # (the sites round or circle-crop it themselves), 512 px.
+    icon = (ROOT / "logos" / "smaltworks" / "app-icon.svg").read_text()
+    assert 'rx="15"' in icon
+    avatar = icon.replace('rx="15"', 'rx="0"', 1).replace("app icon", "avatar")
+    (out / "smaltworks-avatar.svg").write_text(avatar)
+    cairosvg.svg2png(bytestring=avatar.encode(), write_to=str(out / "smaltworks-avatar.png"), output_width=512, output_height=512)
+    print("social/smaltworks-avatar.svg, .png")

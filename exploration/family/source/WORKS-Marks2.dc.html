@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltworks marks round 2</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 820px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 32px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltworks · round 2 · marks</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Salt mining: a helmet and lamp, or a crystal</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 900px">Two directions you asked for. The helmets keep the family style: flat shapes, a smalt body and the lamp as a kiln-orange chip. The crystals are 3D, their faces in three grinds of smalt; that is new for the family, which is otherwise flat, so it would set smaltworks apart from the products. C4 draws the cube at 45° to keep the family's angles; C1 to C3 use true isometric 30°.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 12px; padding: 12px 18px; flex-shrink: 0">
+<sc-for list="{{family}}" as="f" hint-placeholder-count="3">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="{{f.name}}"><sc-for list="{{f.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</sc-for>
+<p style="margin: 0; font-size: 13px; color: #5C6375">the family:<br>db · ui · bi · df · nb</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; flex-grow: 1">
+<sc-for list="{{marks}}" as="m" hint-placeholder-count="4">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">{{m.id}} · {{m.name}}</p>
+<p style="margin: 4px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 80px">{{m.desc}}</p>
+<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0">
+<svg width="120" height="120" viewBox="0 0 64 64" role="img" aria-label="{{m.name}} mark"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 0 18px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 22px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span>works</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #14171F">
+
+<span style="font-family: 'Martian Mono', monospace; font-size: 17px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0; white-space: nowrap">sm<span style="color: #9DB4F5">alt</span>works</span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const L = { body: '#003399', chip: '#E5622F', beam: '#F6B89D', t1: '#7B97D4', t2: '#2F5BB7', t3: '#003399', c1: '#FFB08A', c2: '#E5622F', c3: '#B3441A', ui: '#0E7FAE', bi: '#6E4BC2', df: '#8C6D00', fam: '#7B97D4', nb: '#B0249F' };
+const D = { body: '#9DB4F5', chip: '#FF8A5C', beam: '#7A4433', t1: '#D6E0F3', t2: '#9DB4F5', t3: '#7B97D4', c1: '#FFC2A6', c2: '#FF8A5C', c3: '#E5622F' };
+const mk = (id, name, desc, shapes) => ({ id, name, desc,
+  light: shapes.map(([d, k]) => ({ d, fill: L[k] })), dark: shapes.map(([d, k]) => ({ d, fill: D[k] })) });
+const fam = (name, shapes) => ({ name, paths: shapes.map(([d, k]) => ({ d, fill: L[k] })) });
+return {
+family: [
+  fam('smaltdb Grain', [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'fam']]),
+  fam('smaltui Chevron', [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']]),
+  fam('smaltbi Scatter', [[rr(8, 44, 10, 10, 3), 'fam'], [rr(22, 42, 7, 7, 2), 'fam'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'fam'], [rr(46, 8, 12, 12, 3), 'bi']]),
+  fam('smaltdf Axes', [['M8 8H56V17H17V56H8Z', 'body'], [rr(27, 27, 14, 14, 3), 'df']]),
+  fam('smaltnb Pencil', [['M12 52 L19.78 52 L12 44.22Z', 'nb'], ['M21.55 50.23 L47 24.78 L39.22 17 L13.77 42.45Z', 'body'], ['M49.12 22.66 L54.07 17.71 L46.29 9.93 L41.34 14.88Z', 'body']]),
+],
+marks: [
+  mk('H1', "Helmet", "A miner\u2019s helmet from the front: dome, brim and the lamp as the chip.",
+    [["M12 40A20 20 0 0 1 52 40Z", "body"], ["M7 40h50a3 3 0 0 1 3 3v3a3 3 0 0 1 -3 3h-50a3 3 0 0 1 -3 -3v-3a3 3 0 0 1 3 -3z", "body"], ["M29 22h6a4 4 0 0 1 4 4v3a4 4 0 0 1 -4 4h-6a4 4 0 0 1 -4 -4v-3a4 4 0 0 1 4 -4z", "chip"]]),
+  mk('H2', "Helmet and beam", "The helmet in profile, its lamp throwing light forward at 45\u00b0.",
+    [["M6 44A20 20 0 0 1 46 44Z", "body"], ["M5 44h46a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-46a3 3 0 0 1 -3 -3v-2a3 3 0 0 1 3 -3z", "body"], ["M43 24h4a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3z", "chip"], ["M50 30L62 18V42Z", "beam"]]),
+  mk('C1', "Crystal", "A cube of salt in true 3D: three faces in three grinds of smalt.",
+    [["M32 6 L53.65 18.5 L32 31 L10.35 18.5Z", "t1"], ["M10.35 18.5 L32 31 L32 56 L10.35 43.5Z", "t2"], ["M32 31 L53.65 18.5 L53.65 43.5 L32 56Z", "t3"]]),
+  mk('C2', "Crystal and grain", "The cube with a small grain beside it as the chip: a crystal, and the grain it shed.",
+    [["M28 10 L47.92 21.5 L28 33 L8.08 21.5Z", "t1"], ["M8.08 21.5 L28 33 L28 56 L8.08 44.5Z", "t2"], ["M28 33 L47.92 21.5 L47.92 44.5 L28 56Z", "t3"], ["M50 36 L57.79 40.5 L50 45 L42.21 40.5Z", "c1"], ["M42.21 40.5 L50 45 L50 54 L42.21 49.5Z", "c2"], ["M50 45 L57.79 40.5 L57.79 49.5 L50 54Z", "c3"]]),
+  mk('C3', "Hopper crystal", "Salt\u2019s stepped hopper face, drawn as a cube with a sunken centre. The centre is the chip.",
+    [["M32 6 L53.65 18.5 L32 31 L10.35 18.5Z", "t1"], ["M10.35 18.5 L32 31 L32 56 L10.35 43.5Z", "t2"], ["M32 31 L53.65 18.5 L53.65 43.5 L32 56Z", "t3"], ["M32 10.75 L45.42 18.5 L32 26.25 L18.58 18.5Z", "t2"], ["M32 14.75 L38.5 18.5 L32 22.25 L25.5 18.5Z", "chip"]]),
+  mk('C4', "Oblique cube", "The cube drawn at 45\u00b0, so it keeps the family\u2019s angles: front face, top and side.",
+    [["M8 22H42V56H8Z", "t2"], ["M8 22L22 8H56L42 22Z", "t1"], ["M42 22L56 8V42L42 56Z", "t3"]]),
+],
+};
+}
+}
+</script>
+</body>
+</html>

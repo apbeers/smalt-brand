@@ -73,6 +73,22 @@ def badge(geist, mono, product, theme):
             f"{verb_svg}{word_svg}</svg>\n")
 
 
+def endorsement(geist, mono, theme):
+    """'A smaltworks project': the Together mark, "A", the wordmark, "project"."""
+    t, c = THEMES[theme], COLOURS[theme]
+    baseline = H / 2 + geist.cap / 2
+    a_svg, x = geist.paths([(t["verb"], "A")], BORDER + PAD + MARK + GAP, baseline)
+    word_svg, x = mono.paths([(c["ink"], "sm"), (c["alt"], "alt"), (c["suffix"]["works"], "works")], x + GAP * 0.6, baseline)
+    p_svg, x = geist.paths([(t["verb"], "project")], x - mono.track + GAP * 0.6, baseline)
+    width = round(x + PAD + BORDER)
+    mark = mark_paths(MARKS["works"], c, "works")
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{H}" viewBox="0 0 {width} {H}" '
+            f'role="img" aria-label="A smaltworks project">'
+            f'<rect x="0.5" y="0.5" width="{width - 1}" height="{H - 1}" rx="6.5" fill="{t["surface"]}" stroke="{t["border"]}"/>'
+            f'<g transform="translate({BORDER + PAD} {(H - MARK) / 2}) scale({MARK / 64})">{mark}</g>'
+            f"{a_svg}{word_svg}{p_svg}</svg>\n")
+
+
 if __name__ == "__main__":
     geist = Face(sys.argv[1], {"wght": 400}, 11)
     mono = Face(sys.argv[2], {"wght": 600, "wdth": 112.5}, 12.5, -0.06)
@@ -83,3 +99,7 @@ if __name__ == "__main__":
             path = out / f"powered-by-smalt{product}{suffix}.svg"
             path.write_text(badge(geist, mono, product, theme))
             print(path.relative_to(ROOT))
+    for theme, suffix in (("light", ""), ("dark", "-on-dark")):
+        path = out / f"a-smaltworks-project{suffix}.svg"
+        path.write_text(endorsement(geist, mono, theme))
+        print(path.relative_to(ROOT))

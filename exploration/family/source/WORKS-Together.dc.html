@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>smaltworks Together</title><script src="./support.js"></script></head>
+<body><x-dc><helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}.w{font-family:'Martian Mono',monospace;font-weight:600;letter-spacing:-0.06em}</style></helmet>
+<div style="width: 1440px; height: 860px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div><p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltworks · round 4 · A7 Together picked</p>
+<h1 style="margin: 8px 0 0; font-size: 40px; font-weight: 700; letter-spacing: -0.03em">Together: the second piece's colour, and the words</h1></div>
+<p style="margin: 0; max-width: 520px; font-size: 15px; line-height: 1.55; color: #3F4656">The first piece is always smalt. The second is the one smaltworks colour, so it decides how the parent sits next to the five products.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{opts}}" as="o" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">{{o.id}} · {{o.name}}</p>
+<p style="margin: 4px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 60px">{{o.desc}}</p>
+<div style="display: flex; align-items: center; justify-content: center; gap: 22px; padding: 14px 0">
+<svg width="120" height="120" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8H44V18H18V44H8Z" fill="#003399"></path><path d="M56 56H20V46H46V20H56Z" fill="{{o.l}}"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 10px; align-items: center">
+<svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8H44V18H18V44H8Z" fill="#003399"></path><path d="M56 56H20V46H46V20H56Z" fill="{{o.l}}"></path></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8H44V18H18V44H8Z" fill="#003399"></path><path d="M56 56H20V46H46V20H56Z" fill="{{o.l}}"></path></svg>
+</div></div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 0 16px">
+<svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8H44V18H18V44H8Z" fill="#003399"></path><path d="M56 56H20V46H46V20H56Z" fill="{{o.l}}"></path></svg>
+<span class="w" style="font-size: 26px">sm<span style="color: #003399">alt</span>works</span></div>
+<div style="display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: #14171F; margin-top: auto">
+<div style="width: 48px; height: 48px; border-radius: 11px; background: #003399; display: flex; align-items: center; justify-content: center"><svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8H44V18H18V44H8Z" fill="#F5F6F8"></path><path d="M56 56H20V46H46V20H56Z" fill="{{o.tile}}"></path></svg></div>
+<svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8H44V18H18V44H8Z" fill="#9DB4F5"></path><path d="M56 56H20V46H46V20H56Z" fill="{{o.d}}"></path></svg>
+<span class="w" style="font-size: 18px; color: #E9EBF0">sm<span style="color: #9DB4F5">alt</span>works</span></div>
+<p style="margin: 0; padding: 10px 20px 14px; font-size: 12.5px; color: #5C6375; background: #FFFFFF">{{o.note}}</p>
+</div>
+</sc-for>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 40px">
+<p style="margin: 0; grid-column: span 2; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">THE LINE UNDER THE NAME · FROM ROUND 1</p>
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="4">
+<div><p style="margin: 0; font-size: 18px; font-weight: 600"><span style="font-family: 'Martian Mono', monospace; font-size: 12px; font-weight: 400; color: #003399; margin-right: 10px">{{l.id}}</span>{{l.text}}</p><p style="margin: 2px 0 0 34px; font-size: 13px; color: #5C6375">{{l.note}}</p></div>
+</sc-for>
+</div>
+</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":860}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+opts: [
+  { id: 'K1', name: 'Kiln orange', l: '#E5622F', d: '#FF8A5C', tile: '#FF8A5C', desc: 'Warm against the smalt: two different pieces visibly locking together. The kiln that made smalt.', note: 'Contrast 3.4:1 on white, 7.7:1 on dark. Fill only, never text.' },
+  { id: 'K2', name: 'Pale smalt', l: '#7B97D4', d: '#D6E0F3', tile: '#9DB4F5', desc: 'Two grinds of the same pigment: one family, one colour. Calmest, and closest to smaltdb.', note: 'Contrast 2.9:1 on white, under the 3:1 guide for graphics; 13.5:1 on dark.' },
+  { id: 'K4', name: 'Five products', l: '#6E4BC2', d: '#B8A1F2', tile: '#B8A1F2', desc: 'The second piece changes colour by context: the product colour of whichever product a page is about. Shown in smaltbi violet.', note: 'Needs a default (one of the others) for pages about smaltworks itself.' },
+],
+lines: [
+  { id: 'L1', text: 'Small, alternative tools for people who create.', note: 'What smaltworks makes and who for; echoes the AI stance.' },
+  { id: 'L2', text: 'The makers of smaltdb, smaltui, smaltbi, smaltdf and smaltnb.', note: 'Plain and factual; grows with every product.' },
+  { id: 'L3', text: 'One family of browser tools, built to work together.', note: 'Says what the Together mark draws.' },
+  { id: 'L4 ✓', text: 'Small. Alternative. Together.', note: 'The product tagline pattern, and the mark\'s name.' },
+],
+};
+}
+}
+</script></body></html>

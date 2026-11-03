@@ -98,6 +98,15 @@ The later positioning lines (P4–P11 and the final "Dataframes for smaltdb. Sma
 | [FAM-Smalty](family/png/FAM-Smalty.png) | Salt idioms as a family voice: lines, names and small copy, with the meanings of "salty". Picked: Stay smalty, smaltworks, smaltalk, smalties, smalt of the earth. |
 | [FAM-PluginBadges](family/png/FAM-PluginBadges.png) | The Official, Verified and Works with plugin badges, the smaltdb.dev/plugins list, and the smaltkit header. All approved. |
 
+## smaltworks
+
+| Board | Contents |
+| --- | --- |
+| [WORKS-Brand](family/png/WORKS-Brand.png) | Round 1: five marks from the history of a smalt works, chip colours and lines. Marks not chosen. |
+| [WORKS-Marks2](family/png/WORKS-Marks2.png) | Round 2: miner's helmets and 3D salt crystals. None chosen. |
+| [WORKS-Ideas](family/png/WORKS-Ideas.png) | Round 3: eight ideas from the words used to describe smaltworks. Picked: A7 Together. |
+| [WORKS-Together](family/png/WORKS-Together.png) | Round 4: Together's colour and the line under the name. Picked: kiln orange and "Small. Alternative. Together." |
+
 ## How the snapshots were made
 
 Each `.dc.html` was rendered headless in Chromium at its board size, with the same Google Fonts files the boards load (Geist, Geist Mono, Martian Mono, IBM Plex Sans and Mono, Newsreader, Inter Tight, JetBrains Mono, Bricolage Grotesque, DM Mono).

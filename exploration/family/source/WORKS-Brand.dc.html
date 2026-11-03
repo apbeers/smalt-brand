@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltworks brand</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}.w{font-family:'Martian Mono',monospace;font-weight:600;letter-spacing:-0.06em}</style>
+</helmet>
+<div style="width: 1440px; height: 1150px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltworks · round 1</p>
+<h1 style="margin: 8px 0 0; font-size: 40px; font-weight: 700; letter-spacing: -0.03em">A mark for the people who make the smalt family</h1>
+</div>
+<p style="margin: 0; max-width: 560px; font-size: 15px; line-height: 1.55; color: #3F4656">A smalt works was a factory that made the pigment: glass melted in a kiln and ground to powder. These marks draw on that, by the family rules: a smalt body and one chip. smaltworks has no product colour, so the chip is shown in kiln orange, the brand's existing accent (kiln-500). The colour panel compares other choices.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px">
+<sc-for list="{{marks}}" as="m" hint-placeholder-count="5">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 18px 0; font-weight: 700; font-size: 17px">{{m.id}} · {{m.name}}</p>
+<p style="margin: 4px 18px 0; font-size: 13.5px; line-height: 1.45; color: #3F4656; min-height: 78px">{{m.desc}}</p>
+<div style="display: flex; align-items: center; justify-content: center; padding: 6px 0 10px">
+<svg width="128" height="128" viewBox="0 0 64 64" role="img" aria-label="{{m.name}} mark"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 0 16px">
+<svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<span class="w" style="font-size: 21px">sm<span style="color: #003399">alt</span>works</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14171F; margin-top: auto">
+<span class="w" style="font-size: 15px; color: #E9EBF0; white-space: nowrap">sm<span style="color: #9DB4F5">alt</span>works</span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 8px">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+</span>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px; flex-grow: 1">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">COLOUR · THE PARENT HAS NO PRODUCT COLOUR · SHOWN WITH W2</p>
+<sc-for list="{{colours}}" as="c" hint-placeholder-count="3">
+<div style="display: grid; grid-template-columns: 210px minmax(0, 1fr) minmax(0, 1fr); gap: 0; border: 1px solid #D6DBE4; border-radius: 10px; overflow: hidden">
+<div style="padding: 12px 14px"><p style="margin: 0; font-weight: 700; font-size: 15px">{{c.id}} · {{c.name}}</p><p style="margin: 4px 0 0; font-size: 13px; line-height: 1.45; color: #3F4656">{{c.desc}}</p></div>
+<sc-for list="{{c.themes}}" as="t" hint-placeholder-count="2">
+<div style="background: {{t.ground}}; display: flex; align-items: center; gap: 10px; padding: 12px 16px">
+<svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0"><sc-for list="{{t.paths}}" as="p" hint-placeholder-count="2"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<span class="w" style="font-size: 22px; color: {{t.ink}}">sm<span style="color: {{t.alt}}">alt</span>works</span>
+</div>
+</sc-for>
+</div>
+</sc-for>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #5C6375">Kiln orange is 3.4:1 on white, enough for a graphic but not for text, so it stays a fill, as kiln-500 already is. It is also the focus and commit accent inside the apps; on the parent mark it only ever appears as the chip.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">WORDS · WHAT SITS UNDER THE NAME</p>
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="4">
+<div><p style="margin: 0; font-size: 17px; font-weight: 600"><span style="font-family: 'Martian Mono', monospace; font-size: 12px; font-weight: 400; color: #003399; margin-right: 10px">{{l.id}}</span>{{l.text}}</p><p style="margin: 2px 0 0 34px; font-size: 13px; color: #5C6375">{{l.note}}</p></div>
+</sc-for>
+<p style="margin: 6px 0 0; font-size: 13px; line-height: 1.5; color: #3F4656">Already decided and carried over: <b>Stay smalty.</b> (family tagline), <b>smalt of the earth.</b> (community), <b>Built AI-first, by developers, for everyone who creates.</b> (on AI).</p>
+</div>
+<div style="background: #14171F; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #9096A3">IN USE · W2, KILN CHIP</p>
+<div style="display: flex; gap: 18px; align-items: center">
+<div style="width: 96px; height: 96px; border-radius: 22px; background: #003399; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Avatar"><sc-for list="{{avatar}}" as="p" hint-placeholder-count="2"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg></div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-size: 13px; color: #9096A3">GitHub organisation and @smaltalk avatar</p>
+<p style="margin: 0; font-size: 18px; color: #E9EBF0; font-weight: 600"><span class="w">sm<span style="color: #9DB4F5">alt</span>works</span></p>
+<p style="margin: 0; font-size: 14px; color: #B9BEC9">Stay smalty.</p>
+</div>
+</div>
+<div style="border: 1px solid #2C3240; border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 10px">
+<svg width="18" height="18" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{darkW2}}" as="p" hint-placeholder-count="2"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<span style="font-size: 14px; color: #B9BEC9">A <span class="w" style="color: #E9EBF0">sm<span style="color: #9DB4F5">alt</span>works</span> project</span>
+<span style="margin-left: auto; font-family: 'Martian Mono', monospace; font-size: 11px; color: #9096A3">endorsement, in product footers and READMEs</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1150}}'>
+class Component extends DCLogic {
+renderVals() {
+const L = { body: '#003399', chip: '#E5622F', ui: '#0E7FAE', bi: '#6E4BC2', df: '#8C6D00', nb: '#B0249F' };
+const D = { body: '#9DB4F5', chip: '#FF8A5C', ui: '#5CBDE8', bi: '#B8A1F2', df: '#E6C24A', nb: '#F57FE6' };
+const mk = (id, name, desc, shapes) => ({ id, name, desc,
+  light: shapes.map(([d, k]) => ({ d, fill: L[k] })), dark: shapes.map(([d, k]) => ({ d, fill: D[k] })) });
+const marks = [
+  mk('W1', "Sawtooth", "A works: the 45\u00b0 sawtooth roof of a factory, with a lit doorway as the chip.", [["M8 56V27L20 15V27L32 15V27L44 15V27H56V56Z", "body"], ["M29 40h6a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-6a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3z", "chip"]]),
+  mk('W2', "Grain works", "smaltdb\u2019s Grain with a chimney rising from its notch: the engine, made into a works.", [["M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z", "body"], ["M39 6h2a3 3 0 0 1 3 3v14a3 3 0 0 1 -3 3h-2a3 3 0 0 1 -3 -3v-14a3 3 0 0 1 3 -3z", "chip"]]),
+  mk('W3', "Mortar", "Smalt is ground glass. A pestle at 45\u00b0 in a mortar, with a ground grain as the chip.", [["M8 34H56V44L46 54H18L8 44Z", "body"], ["M29.18 33.18 L50.4 11.97 L44.03 5.6 L22.82 26.82Z", "body"], ["M15 22h4a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3v-2a3 3 0 0 1 3 -3z", "chip"]]),
+  mk('W4', "Family", "smaltdb\u2019s body with a chip for each product, in each product\u2019s colour.", [["M14 22h22a6 6 0 0 1 6 6v22a6 6 0 0 1 -6 6h-22a6 6 0 0 1 -6 -6v-22a6 6 0 0 1 6 -6z", "body"], ["M11 8h4a3 3 0 0 1 3 3v4a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3v-4a3 3 0 0 1 3 -3z", "ui"], ["M26 8h4a3 3 0 0 1 3 3v4a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3v-4a3 3 0 0 1 3 -3z", "bi"], ["M49 22h4a3 3 0 0 1 3 3v4a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3v-4a3 3 0 0 1 3 -3z", "df"], ["M49 37h4a3 3 0 0 1 3 3v4a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3v-4a3 3 0 0 1 3 -3z", "nb"]]),
+  mk('W5', "Kiln grain", "The Grain mark itself, its chip turned kiln orange: the parent shares the engine\u2019s mark.", [["M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z", "body"], ["M41 8h10a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3z", "chip"]])
+];
+const W2 = marks[1];
+const shapes = W2.light.map((p, i) => p.d);
+const tint = (body, chip) => [{ d: shapes[0], fill: body }, { d: shapes[1], fill: chip }];
+return {
+marks,
+colours: [
+  { id: 'K1', name: 'Kiln orange chip', desc: 'Warm, and new to the family marks: the kiln that made smalt. Uses the existing kiln-500.', themes: [
+    { ground: '#F5F6F8', ink: '#151922', alt: '#003399', paths: tint('#003399', '#E5622F') },
+    { ground: '#14171F', ink: '#E9EBF0', alt: '#9DB4F5', paths: tint('#9DB4F5', '#FF8A5C') }] },
+  { id: 'K2', name: 'Pale smalt chip', desc: 'Exactly like smaltdb: the parent and the engine read as one. Quietest option.', themes: [
+    { ground: '#F5F6F8', ink: '#151922', alt: '#003399', paths: tint('#003399', '#7B97D4') },
+    { ground: '#14171F', ink: '#E9EBF0', alt: '#9DB4F5', paths: tint('#9DB4F5', '#D6E0F3') }] },
+  { id: 'K3', name: 'Ink chip', desc: 'Graphite chip on light, off-white on dark: neutral, above the products rather than one of them.', themes: [
+    { ground: '#F5F6F8', ink: '#151922', alt: '#003399', paths: tint('#003399', '#151922') },
+    { ground: '#14171F', ink: '#E9EBF0', alt: '#9DB4F5', paths: tint('#9DB4F5', '#E9EBF0') }] },
+],
+lines: [
+  { id: 'L1', text: 'Small, alternative tools for people who create.', note: 'Says what smaltworks makes and who for; echoes the AI stance.' },
+  { id: 'L2', text: 'The makers of smaltdb, smaltui, smaltbi, smaltdf and smaltnb.', note: 'Plain and factual; grows with every product.' },
+  { id: 'L3', text: 'One family of browser tools, built to work together.', note: 'The unified approach behind Stay smalty.' },
+  { id: 'L4', text: 'Small. Alternative. Together.', note: 'The product tagline pattern, for the family.' },
+],
+avatar: [{ d: shapes[0], fill: '#F5F6F8' }, { d: shapes[1], fill: '#FF8A5C' }],
+darkW2: W2.dark,
+};
+}
+}
+</script>
+</body>
+</html>

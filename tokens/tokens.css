@@ -14,6 +14,8 @@
   --product-bi-text: #6141AE;
   --product-df: #8C6D00;
   --product-df-text: #7A5F00;
+  --product-nb: #B0249F;
+  --product-nb-text: #981C89;
   --bg: #F5F6F8;
   --surface: #FFFFFF;
   --code-bg: #EEF1F6;
@@ -44,6 +46,8 @@
   --product-bi-text: #B8A1F2;
   --product-df: #E6C24A;
   --product-df-text: #E6C24A;
+  --product-nb: #F57FE6;
+  --product-nb-text: #F57FE6;
   --bg: #14171F;
   --surface: #1B1F29;
   --code-bg: #11141B;
@@ -75,6 +79,8 @@
     --product-bi-text: #B8A1F2;
     --product-df: #E6C24A;
     --product-df-text: #E6C24A;
+    --product-nb: #F57FE6;
+    --product-nb-text: #F57FE6;
     --bg: #14171F;
     --surface: #1B1F29;
     --code-bg: #11141B;

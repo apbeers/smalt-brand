@@ -81,6 +81,16 @@ These are records, not current assets. Older boards use the earlier "Alternate" 
 
 The later positioning lines (P4–P11 and the final "Dataframes for smaltdb. Small and fast.") were worked out in conversation, not on a board; [`DECISIONS.md`](../DECISIONS.md) records them.
 
+## smaltnb
+
+| Board | Contents |
+| --- | --- |
+| [NB-Words](family/png/NB-Words.png) | Taglines T1–T4, positioning lines P1–P3, and the cell types the words cover. Picked: T1 "Notebooks" and P2 "TypeScript notebooks for smaltdb." |
+| [NB-Colours](family/png/NB-Colours.png) | Cobalt magenta (picked), leaf green and smalt only, with the whole family and the status colours. |
+| [NB-Marks](family/png/NB-Marks.png) | Round 1 marks H1–H4 (Cells, Cell and output, Reactive, Page). None picked. |
+| [NB-Marks2](family/png/NB-Marks2.png) | Round 2 marks J1–J6 (Open book, Spiral, Tab, Chart cell, Run, Cursor cell). Spiral came closest. |
+| [NB-Marks3](family/png/NB-Marks3.png) | Round 3, pencil to paper: P1–P5. Picked: P2 Pencil point. |
+
 ## How the snapshots were made
 
 Each `.dc.html` was rendered headless in Chromium at its board size, with the same Google Fonts files the boards load (Geist, Geist Mono, Martian Mono, IBM Plex Sans and Mono, Newsreader, Inter Tight, JetBrains Mono, Bricolage Grotesque, DM Mono).

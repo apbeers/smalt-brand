@@ -3,7 +3,7 @@
 
 Usage: python3 scripts/social_cards.py <Geist[wght].ttf> <MartianMono[wdth,wght].ttf>
 
-Writes social/smalt{db,ui,bi,df}.svg (the source) and .png (1280 x 640, for upload).
+Writes social/smalt{db,ui,bi,df,nb}.svg (the source) and .png (1280 x 640, for upload).
 Each card is the product's dark lockup, its tagline (Geist 700), its positioning
 line (Geist 400) and its address (Martian Mono 400) on the dark Kiln ground, with
 a bar in the product colour along the bottom. Text is converted to paths and the
@@ -28,7 +28,7 @@ W, H = 1280, 640
 LEFT = 96                       # left margin; content stays inside the 1.91:1 centre crop
 INK, INK_2, INK_3 = "#E9EBF0", "#B9BEC9", "#9096A3"   # text, text-2, text-3 (dark)
 GROUND = "#14171F"               # bg (dark)
-BAR = {"db": "#9DB4F5", "ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A"}  # smalt-200, product-ui/-bi/-df (dark)
+BAR = {"db": "#9DB4F5", "ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6"}  # smalt-200, product-ui/-bi/-df/-nb (dark)
 
 PRODUCTS = {
     "db": ("Small. Alternative. Fast.",
@@ -43,6 +43,9 @@ PRODUCTS = {
     "df": ("Small. Alternative. Frames.",
            "Dataframes for smaltdb. Small and fast.",
            "github.com/stenhoor/smaltdf"),
+    "nb": ("Small. Alternative. Notebooks.",
+           "TypeScript notebooks for smaltdb.",
+           "github.com/stenhoor/smaltnb"),
 }
 
 LOCKUP_H = 132                   # rendered height of the lockup's viewBox

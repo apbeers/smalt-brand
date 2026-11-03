@@ -19,7 +19,7 @@ Name a third-party plugin `<product>-plugin-<name>`, for example `smaltdb-plugin
 ## Snippet
 
 ```html
-<a href="https://smaltdb.dev/plugins">
+<a href="https://github.com/you/smaltdb-plugin-geo">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stenhoor/smalt-brand/main/badges/plugins/works-with-smaltdb-on-dark.svg">
     <img alt="Works with smaltdb" src="https://raw.githubusercontent.com/stenhoor/smalt-brand/main/badges/plugins/works-with-smaltdb.svg" height="28">
@@ -27,6 +27,6 @@ Name a third-party plugin `<product>-plugin-<name>`, for example `smaltdb-plugin
 </a>
 ```
 
-Change the file names and alt text for another tier. The badges vary in width, so set only the height.
+A Works with badge links to your own project page, as here. For Official or Verified, change the file names and alt text, and link to the plugin's entry on smaltdb.dev/plugins. The badges vary in width, so set only the height.
 
 Regenerate with `python3 scripts/plugin_badges.py <Geist[wght].ttf> <MartianMono[wdth,wght].ttf>`. Only smaltdb has a plugin API today; when another product gets one, add it to `PRODUCTS` in the script.

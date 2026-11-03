@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltnb words</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 720px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltnb · round 1 · words</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">smaltnb: notebooks for smaltdb</h1>
+</div>
+<p style="margin: 0; max-width: 560px; font-size: 15px; line-height: 1.55; color: #3F4656">smaltnb joins the family on the same system: the <span style="font-family: 'Martian Mono', monospace">sm<span style="color: #003399">alt</span>…</span> wordmark, a smalt mark body with one chip in the product colour, and a “Small. Alternative. ___.” tagline. The positioning lines follow the pattern settled for smaltdf: short, smaltdb’s own principles, “for smaltdb”.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; flex-grow: 1">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 24px 28px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 36px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span>nb</p>
+<p style="margin: 4px 0 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">TAGLINE: SMALL. ALTERNATIVE. ___.</p>
+<sc-for list="{{taglines}}" as="t" hint-placeholder-count="4">
+<p style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em"><span style="font-family: 'Martian Mono', monospace; font-size: 13px; font-weight: 400; color: #003399; margin-right: 12px">{{t.id}}</span>{{t.text}}</p>
+</sc-for>
+<p style="margin: 10px 0 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">POSITIONING LINE</p>
+<sc-for list="{{lines}}" as="t" hint-placeholder-count="3">
+<div>
+<p style="margin: 0; font-size: 16px"><span style="font-family: 'Martian Mono', monospace; font-size: 13px; color: #003399; margin-right: 12px">{{t.id}}</span>{{t.text}}</p>
+<p style="margin: 2px 0 0 40px; font-size: 13px; color: #5C6375">{{t.note}}</p>
+</div>
+</sc-for>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<div style="padding: 24px 28px 12px; display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">WHAT THE WORDS HAVE TO COVER</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4656">A notebook in the spirit of Jupyter and, more closely, marimo, scripted in TypeScript. One notebook mixes these cell kinds:</p>
+</div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px; padding: 0 28px 24px">
+<sc-for list="{{cells}}" as="c" hint-placeholder-count="4">
+<div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: 14px; border: 1px solid #D6DBE4; border-radius: 10px; overflow: hidden">
+<p style="margin: 0; padding: 12px 14px; height: 100%; box-sizing: border-box; background: #F5F6F8; font-family: 'Martian Mono', monospace; font-size: 12px; color: #3F4656; display: flex; align-items: center">{{c.kind}}</p>
+<div style="padding: 10px 14px 10px 0">
+<p style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 14px; color: #151922">{{c.code}}</p>
+<p style="margin: 3px 0 0; font-size: 13px; color: #5C6375">{{c.note}}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":720}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+taglines: [
+  { id: 'T1', text: 'Small. Alternative. Notebooks. · picked' },
+  { id: 'T2', text: 'Small. Alternative. Explore.' },
+  { id: 'T3', text: 'Small. Alternative. Reactive.' },
+  { id: 'T4', text: 'Small. Alternative. Run.' },
+],
+lines: [
+  { id: 'P1', text: 'Notebooks for smaltdb. Small and fast.', note: 'The same shape as the smaltdf line, so the two read as a pair.' },
+  { id: 'P2', text: 'TypeScript notebooks for smaltdb. · picked', note: 'Names the scripting language, the main difference from Jupyter-style tools.' },
+  { id: 'P3', text: 'Reactive notebooks for smaltdb.', note: 'Names the marimo-style behaviour: change a cell and the cells that depend on it rerun.' },
+],
+cells: [
+  { kind: 'TypeScript', code: 'const year = 2026;', note: 'The scripting language for every cell.' },
+  { kind: 'SQL', code: 'SELECT region, sum(total) FROM sales GROUP BY 1', note: 'Runs on smaltdb.' },
+  { kind: 'Dataframe', code: "df.filter(col('year').eq(year))", note: 'smaltdf, Narwhals-style.' },
+  { kind: 'Chart', code: 'chart(df, { x: "region", y: "total" })', note: 'Charts from the smalt kits (smaltkit has no charting yet).' },
+],
+};
+}
+}
+</script>
+</body>
+</html>

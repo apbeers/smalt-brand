@@ -163,9 +163,36 @@ Applied after the picks:
 - The names smaltdb and smaltdf differ by one letter, so the `df` always keeps its product colour.
 - The badge text is at least 6.1:1 on its light surface and 9.6:1 on its dark one.
 
+## smaltnb
+
+smaltnb is a notebook for smaltdb, in the spirit of Jupyter and, more closely, marimo, scripted in TypeScript. A notebook mixes TypeScript, smaltdb SQL and smaltdf dataframe cells, with charts from the smalt kits (smaltkit has no charting yet).
+
+The options were shown on the family canvas:
+
+- **Taglines:** Notebooks, Explore, Reactive, Run.
+- **Positioning:** "Notebooks for smaltdb. Small and fast.", "TypeScript notebooks for smaltdb.", "Reactive notebooks for smaltdb."
+- **Colour:** cobalt magenta, leaf green, smalt only. With the blues, the violet and the ochre taken, these were the hues furthest from every product and status colour. Cobalt teal was ruled out (too close to smaltui), as was terracotta (CIELAB distance 24 from the kiln accent).
+- **Marks:** three rounds.
+  - Round 1, cells: Cells, Cell and output, Reactive, Page. None was picked.
+  - Round 2, objects: Open book, Spiral, Tab, Chart cell, Run, Cursor cell. Spiral came closest.
+  - Round 3, pencil to paper (the owner's direction): Writing, Pencil point, Page and pencil, Spiral and pencil, Pad.
+
+| | **Picked** |
+| --- | --- |
+| Tagline | **"Small. Alternative. Notebooks."** |
+| Positioning | **"TypeScript notebooks for smaltdb."** |
+| Mark | **Pencil:** a 45° pencil, its point in the product colour |
+| Colour | **Cobalt magenta:** `#B0249F` fill, `#981C89` text (light), `#F57FE6` (dark) |
+
+Applied after the picks:
+
+- The Pencil is the same drawing at every size; at 16 px its magenta point is about two pixels (owner's decision).
+- A 45° pencil resembles the common "edit" icon. The smalt body and magenta point set it apart, but avoid placing it beside edit buttons in a toolbar.
+- The magenta is at least CIELAB distance 33 from the smaltbi violet in light and 34 in dark. The badge text is at least 7.3:1 on its light surface and 7.1:1 on its dark one.
+
 ## Exploration archive
 
-[`exploration/`](exploration/) keeps all 31 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
+[`exploration/`](exploration/) keeps all 36 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 

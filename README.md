@@ -7,12 +7,14 @@
 
 **Small. Alternative. Fast.**
 
-Brand assets and design tokens for the smalt projects: [smaltdb](https://github.com/stenhoor/smaltdb), a fast alternative database for the browser, written in TypeScript; [smaltui](https://github.com/stenhoor/smaltui), a SQL console for smaltdb that runs entirely in the browser; and [smaltbi](https://github.com/stenhoor/smaltbi), business intelligence in the browser, powered by smaltdb. Docs: [smaltdb.dev](https://smaltdb.dev).
+Brand assets and design tokens for the smalt projects: [smaltdb](https://github.com/stenhoor/smaltdb), a fast alternative database for the browser, written in TypeScript; [smaltui](https://github.com/stenhoor/smaltui), a SQL console for smaltdb that runs entirely in the browser; [smaltbi](https://github.com/stenhoor/smaltbi), business intelligence in the browser, powered by smaltdb; and [smaltdf](https://github.com/stenhoor/smaltdf), dataframes for smaltdb, small and fast. Docs: [smaltdb.dev](https://smaltdb.dev).
 
 <p>
   <picture><source media="(prefers-color-scheme: dark)" srcset="logos/smaltui/lockup-on-dark.svg"><img alt="smaltui" src="logos/smaltui/lockup.svg" width="200"></picture>
   &nbsp;&nbsp;
   <picture><source media="(prefers-color-scheme: dark)" srcset="logos/smaltbi/lockup-on-dark.svg"><img alt="smaltbi" src="logos/smaltbi/lockup.svg" width="200"></picture>
+  &nbsp;&nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="logos/smaltdf/lockup-on-dark.svg"><img alt="smaltdf" src="logos/smaltdf/lockup.svg" width="200"></picture>
 </p>
 
 ## What's here
@@ -24,7 +26,7 @@ Brand assets and design tokens for the smalt projects: [smaltdb](https://github.
 | [`exploration/`](exploration/) | The exploration boards from every round, as rendered snapshots and as source. |
 | [`tokens/tokens.json`](tokens/tokens.json) | Design tokens, the source of truth: colours (light and dark), product colours, type styles, spacing, radii. |
 | [`tokens/tokens.css`](tokens/tokens.css) | The same tokens as CSS custom properties. Generated; don't edit by hand. |
-| [`logos/smaltdb/`](logos/smaltdb/), [`logos/smaltui/`](logos/smaltui/), [`logos/smaltbi/`](logos/smaltbi/) | Marks, lockups and wordmarks (light and dark), app icons, favicons. |
+| [`logos/smaltdb/`](logos/smaltdb/), [`logos/smaltui/`](logos/smaltui/), [`logos/smaltbi/`](logos/smaltbi/), [`logos/smaltdf/`](logos/smaltdf/) | Marks, lockups and wordmarks (light and dark), app icons, favicons. |
 | [`social/`](social/) | Social preview cards (1280 × 640) for each product's repository and site. |
 | [`badges/`](badges/) | "Powered by" badges for each product, light and dark, with embed snippets. |
 | [`components/`](components/) | Static HTML/CSS references: Button, StatusBadge, CodeBlock, Wordmark. |
@@ -34,7 +36,7 @@ Brand assets and design tokens for the smalt projects: [smaltdb](https://github.
 ## At a glance
 
 - **Palette (Kiln):** smalt `#003399` on neutral graphite, with kiln orange for commits and focus. Every text pairing meets WCAG AA or better in both themes; ratios are in `tokens.json`.
-- **Product colours:** smaltui is deep cerulean (`#0E7FAE`), smaltbi is blue-leaning violet (`#6E4BC2`), both sibling cobalt pigments of smalt.
+- **Product colours:** smaltui is deep cerulean (`#0E7FAE`), smaltbi is blue-leaning violet (`#6E4BC2`), smaltdf is aureolin ochre (`#8C6D00`), all sibling cobalt pigments of smalt.
 - **Type:** Geist (headings, body), Martian Mono (wordmark, labels), Geist Mono (code). All Google Fonts, OFL.
 - **Voice:** describe what a product is, never what it isn't; no comparisons with other databases.
 
@@ -42,7 +44,7 @@ Brand assets and design tokens for the smalt projects: [smaltdb](https://github.
 
 ```sh
 python3 scripts/build_tokens.py                                  # after editing tokens/tokens.json
-python3 scripts/brand_assets.py MartianMono.ttf                  # logos and wordmarks for all three products
+python3 scripts/brand_assets.py MartianMono.ttf                  # logos and wordmarks for every product
 python3 scripts/badges.py Geist.ttf MartianMono.ttf              # the "Powered by" badges
 python3 scripts/social_cards.py Geist.ttf MartianMono.ttf        # the social preview cards (after brand_assets.py)
 ```

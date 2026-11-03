@@ -94,7 +94,7 @@ Icons are drawn the way the smaltui Chevron mark is drawn (`logos/smaltui/chevro
 
 ## Social preview cards
 
-`social/` has a card for each product: `smaltdb.png`, `smaltui.png` and `smaltbi.png`, each 1280 × 640, with SVG sources beside them.
+`social/` has a card for each product: `smaltdb.png`, `smaltui.png`, `smaltbi.png` and `smaltdf.png`, each 1280 × 640, with SVG sources beside them.
 
 - **GitHub:** in the repository, open Settings, then under "Social preview" click Edit and upload the PNG (PNG, JPG or GIF under 1 MB; 1280 × 640 displays best).
 - **Websites:** reference the PNG from `og:image` and `twitter:image`, with `twitter:card` set to `summary_large_image`.
@@ -114,24 +114,25 @@ Icons are drawn the way the smaltui Chevron mark is drawn (`logos/smaltui/chevro
 
 ## The smalt family
 
-smaltdb is the engine. Two products are built on it, and each shares smaltdb's brand: the Kiln neutrals, Geist and Martian Mono, the `sm`**`alt`**`…` wordmark, and marks drawn as a smalt body plus a chip. Each product gets its own mark and one product colour (smalt's sibling cobalt pigments).
+smaltdb is the engine. Three products are built on it, and each shares smaltdb's brand: the Kiln neutrals, Geist and Martian Mono, the `sm`**`alt`**`…` wordmark, and marks drawn as a smalt body plus a chip. Each product gets its own mark and one product colour (smalt's sibling cobalt pigments).
 
-| | smaltdb | smaltui | smaltbi |
-| --- | --- | --- | --- |
-| What it is | The engine | The SQL console | The reports |
-| Tagline | Small. Alternative. Fast. | Small. Alternative. Query. | Small. Alternative. Insight. |
-| Positioning | A fast alternative database for the browser, written in TypeScript. | A SQL console for smaltdb that runs entirely in the browser. | Business intelligence in the browser, powered by smaltdb. |
-| Mark | Grain | Chevron (`>` and `_`) | Scatter |
-| Product colour | smalt `#003399` | `product-ui`: deep cerulean `#0E7FAE` | `product-bi`: blue-leaning violet `#6E4BC2` |
-| Suffix colour | ink | `product-ui-text` `#0B6A91` / `#5CBDE8` dark | `product-bi-text` `#6141AE` / `#B8A1F2` dark |
-| Logos | `logos/smaltdb/` | `logos/smaltui/` | `logos/smaltbi/` |
+| | smaltdb | smaltui | smaltbi | smaltdf |
+| --- | --- | --- | --- | --- |
+| What it is | The engine | The SQL console | The reports | The dataframes |
+| Tagline | Small. Alternative. Fast. | Small. Alternative. Query. | Small. Alternative. Insight. | Small. Alternative. Frames. |
+| Positioning | A fast alternative database for the browser, written in TypeScript. | A SQL console for smaltdb that runs entirely in the browser. | Business intelligence in the browser, powered by smaltdb. | Dataframes for smaltdb. Small and fast. |
+| Mark | Grain | Chevron (`>` and `_`) | Scatter | Axes |
+| Product colour | smalt `#003399` | `product-ui`: deep cerulean `#0E7FAE` | `product-bi`: blue-leaning violet `#6E4BC2` | `product-df`: aureolin ochre `#8C6D00` |
+| Suffix colour | ink | `product-ui-text` `#0B6A91` / `#5CBDE8` dark | `product-bi-text` `#6141AE` / `#B8A1F2` dark | `product-df-text` `#7A5F00` / `#E6C24A` dark |
+| Logos | `logos/smaltdb/` | `logos/smaltui/` | `logos/smaltbi/` | `logos/smaltdf/` |
 
 Rules:
 
-- `alt` is always smalt (`primary`), in every product's wordmark. The suffix (`db`, `ui`, `bi`) takes the product's text colour; smaltdb's stays ink.
-- The mark body is always smalt; only the chip takes the product colour. That keeps the three reading as one family.
+- `alt` is always smalt (`primary`), in every product's wordmark. The suffix (`db`, `ui`, `bi`, `df`) takes the product's text colour; smaltdb's stays ink.
+- The mark body is always smalt; only the chip takes the product colour. That keeps the products reading as one family.
 - smaltbi's 16 px mark is a simplified three-grain version; every other mark is the same drawing at every size.
-- Product colours are for the product's own mark, wordmark and accents, not for status or links.
+- Product colours are for the product's own mark, wordmark and accents, not for status or links. This matters most for smaltdf: its ochre sits close to the `warning` amber.
+- smaltdb and smaltdf differ by one letter. Keep the `df` in its product colour wherever the wordmark appears, since the colour does most of the work of telling them apart at small sizes.
 
 ## "Powered by" badges
 

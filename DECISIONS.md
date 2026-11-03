@@ -245,9 +245,32 @@ Edited for publication, with these changes:
 
 Approved by the owner. The full text is in `BRAND.md`.
 
+## smaltworks
+
+The parent brand took four rounds of marks.
+
+- **Round 1, the works:** Sawtooth, Grain works, Mortar, Family, Kiln grain. None was picked.
+- **Round 2, the owner's directions:** a miner's helmet with a lamp (salt mining) and a 3D salt crystal. Two helmets and four crystals; none was picked.
+- **Round 3, starting from the words used to describe smaltworks:** Maker's mark, Heap, Out of line, Alt key, Tilt, Hand and spark, Together, Spark. Picked: **Together**.
+- **Round 4, colour and words for Together:**
+  - colour: kiln orange, pale smalt, or the product colour by context;
+  - words: four lines from round 1.
+
+| | **Picked** |
+| --- | --- |
+| Mark | **Together:** two L-shaped pieces that lock into one frame |
+| Second piece | **Kiln orange:** `kiln-500` `#E5622F`, `#FF8A5C` on dark |
+| Line under the name | **"Small. Alternative. Together."** |
+
+Applied after the picks:
+
+- The wordmark keeps `alt` in smalt and the rest in ink, like smaltdb.
+- An avatar PNG (square; GitHub and social sites round it) and an "A smaltworks project" endorsement badge were added.
+- **Correction:** `tokens.json` listed `smalt-300` (`#7B97D4`) as 3.1:1 on white. It is 2.9:1 (2.7:1 on `bg`), under the 3:1 guide for graphics. The token note is fixed. The colour is the chip in smaltdb's Grain mark, where it is decorative and logos are exempt.
+
 ## Exploration archive
 
-[`exploration/`](exploration/) keeps all 38 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
+[`exploration/`](exploration/) keeps all 42 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 

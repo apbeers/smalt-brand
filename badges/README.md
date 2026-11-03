@@ -43,6 +43,14 @@ For smaltui, smaltbi, smaltdf or smaltnb, replace `smaltdb` in the three file na
 
 Copy the two SVG files into your site and point the snippet at your copies. Raw GitHub files work, but they aren't served from a CDN.
 
+## "A smaltworks project"
+
+| Light | Dark |
+| --- | --- |
+| ![A smaltworks project](a-smaltworks-project.svg) | ![A smaltworks project](a-smaltworks-project-on-dark.svg) |
+
+For smaltworks' own products: an endorsement under the product's own brand, in a footer or at the end of a README. It is not for third-party projects; they use the "Powered by" badges.
+
 ## Rules
 
 - Show the badge at 28 px tall, or scale it evenly; keep at least 8 px of space around it.

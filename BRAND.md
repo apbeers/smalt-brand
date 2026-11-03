@@ -44,6 +44,24 @@ Smalt is pronounced like salt (Merriam-Webster: ˈsmȯlt), so the family plays o
 - "smaltalk" is one letter from Smalltalk, the programming language. That's fine as a nod, but write it as one lowercase word and never imply a connection to Smalltalk.
 - A *smalt works* was a historical factory that made the pigment, which gives smaltworks its meaning.
 
+## smaltworks
+
+smaltworks is the group that makes the smalt family. It has its own mark, but no product colour and no product tagline.
+
+| | |
+| --- | --- |
+| Mark | **Together:** two L-shaped pieces that lock into one frame. Separate tools, built to fit. |
+| Colours | First piece smalt (`primary`); second piece kiln orange (`kiln-500`, `#E5622F`; `#FF8A5C` on dark) |
+| Wordmark | `sm`**`alt`**`works`: `alt` in smalt, the rest in ink |
+| Line under the name | **Small. Alternative. Together.** |
+| Family tagline | Stay smalty. (see below) |
+| Logos | `logos/smaltworks/` |
+| Avatar | `social/smaltworks-avatar.png`, for the GitHub organisation and @smaltalk |
+| Endorsement | `badges/a-smaltworks-project.svg`, light and dark: "A smaltworks project", for product footers and READMEs |
+
+- Kiln orange belongs to smaltworks' mark and to the apps' commit and focus accents. It is a fill only, never text (3.4:1 on white).
+- The endorsement goes under a product's own brand, never in place of it: a product page leads with its own lockup.
+
 ## How smaltworks works with AI
 
 Most developers don't love code for its own sake. They love to create, and code has been how they do it.

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltworks marks round 3</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1260px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 32px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltworks · round 3 · words first</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Eight ideas from the words you use</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 900px">Each idea starts from words used to describe smaltworks: small, alternative, our own thing, rebuild, unified, create, by hand or AI-first, Stay smalty. The tags on each card name its words. Drawn in the family style, with the chip in kiln orange as a placeholder; A4 is 3D, like the crystals in round 2.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 12px; padding: 12px 18px; flex-shrink: 0">
+<sc-for list="{{family}}" as="f" hint-placeholder-count="3">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="{{f.name}}"><sc-for list="{{f.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</sc-for>
+<p style="margin: 0; font-size: 13px; color: #5C6375">the family:<br>db · ui · bi · df · nb</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; flex-grow: 1">
+<sc-for list="{{marks}}" as="m" hint-placeholder-count="4">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">{{m.id}} · {{m.name}}</p>
+<div style="margin: 8px 20px 0; display: flex; gap: 6px; flex-wrap: wrap"><sc-for list="{{m.words}}" as="w" hint-placeholder-count="2"><span style="font-family: 'Martian Mono', monospace; font-size: 11px; padding: 3px 7px; border-radius: 5px; background: #D6E0F3; color: #001F66">{{w.t}}</span></sc-for></div>
+<p style="margin: 8px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 40px">{{m.desc}}</p>
+<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0">
+<svg width="132" height="132" viewBox="0 0 64 64" role="img" aria-label="{{m.name}} mark"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 0 18px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 22px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span>works</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #14171F">
+
+<span style="font-family: 'Martian Mono', monospace; font-size: 17px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0; white-space: nowrap">sm<span style="color: #9DB4F5">alt</span>works</span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1260}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const L = { legend: '#FFFFFF', body: '#003399', chip: '#E5622F', beam: '#F6B89D', t1: '#7B97D4', t2: '#2F5BB7', t3: '#001F66', c1: '#FFB08A', c2: '#E5622F', c3: '#B3441A', ui: '#0E7FAE', bi: '#6E4BC2', df: '#8C6D00', fam: '#7B97D4', nb: '#B0249F' };
+const D = { legend: '#14171F', body: '#9DB4F5', chip: '#FF8A5C', beam: '#7A4433', t1: '#D6E0F3', t2: '#9DB4F5', t3: '#7B97D4', c1: '#FFC2A6', c2: '#FF8A5C', c3: '#E5622F' };
+const mk = (id, name, words, desc, shapes) => ({ id, name, desc, words: words.map((t) => ({ t })),
+  light: shapes.map(([d, k]) => ({ d, fill: L[k] })), dark: shapes.map(([d, k]) => ({ d, fill: D[k] })) });
+const fam = (name, shapes) => ({ name, paths: shapes.map(([d, k]) => ({ d, fill: L[k] })) });
+return {
+family: [
+  fam('smaltdb Grain', [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'fam']]),
+  fam('smaltui Chevron', [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']]),
+  fam('smaltbi Scatter', [[rr(8, 44, 10, 10, 3), 'fam'], [rr(22, 42, 7, 7, 2), 'fam'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'fam'], [rr(46, 8, 12, 12, 3), 'bi']]),
+  fam('smaltdf Axes', [['M8 8H56V17H17V56H8Z', 'body'], [rr(27, 27, 14, 14, 3), 'df']]),
+  fam('smaltnb Pencil', [['M12 52 L19.78 52 L12 44.22Z', 'nb'], ['M21.55 50.23 L47 24.78 L39.22 17 L13.77 42.45Z', 'body'], ['M49.12 22.66 L54.07 17.71 L46.29 9.93 L41.34 14.88Z', 'body']]),
+],
+marks: [
+  mk('A1', "Maker\u2019s mark", ["create", "works"], "A stamp pressing its mark: glass makers stamped their work. The imprint is the chip.",
+    [["M29 6h6a5 5 0 0 1 5 5v1a5 5 0 0 1 -5 5h-6a5 5 0 0 1 -5 -5v-1a5 5 0 0 1 5 -5z", "body"], ["M28 17H36V28H28Z", "body"], ["M15 27h34a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3h-34a3 3 0 0 1 -3 -3v-5a3 3 0 0 1 3 -3z", "body"], ["M21 46h22a3 3 0 0 1 3 3v3a3 3 0 0 1 -3 3h-22a3 3 0 0 1 -3 -3v-3a3 3 0 0 1 3 -3z", "chip"]]),
+  mk('A2', "Heap", ["small", "rebuild"], "Small grains stacked into something bigger. The top grain is the chip.",
+    [["M9 42h9a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3h-9a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3z", "body"], ["M27.5 42h9a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3h-9a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3z", "body"], ["M46 42h9a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3h-9a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3z", "body"], ["M18 24h9a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3h-9a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3z", "body"], ["M37 24h9a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3h-9a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3z", "body"], ["M27.5 6h9a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3h-9a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3z", "chip"]]),
+  mk('A3', "Out of line", ["our own thing", "alternative"], "A neat grid with one grain gone its own way: the chip, stepped out at 45\u00b0.",
+    [["M9 22h10a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3z", "body"], ["M28 22h10a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3z", "body"], ["M9 41h10a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3z", "body"], ["M28 41h10a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3z", "body"], ["M47 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3z", "chip"]]),
+  mk('A4', "Alt key", ["alternative", "for coders"], "The Alt key in 3D: the key every alternative starts from, and the alt in every smalt name.",
+    [["M8 22L22 8H56L42 22Z", "t1"], ["M42 22L56 8V42L42 56Z", "t3"], ["M8 22H42V56H8Z", "t2"], ["M17.880455261230466 39.38108471679687V40.85045764160156L15.439429138183591 41.209628662109374Q14.975144104003906 41.28168566894531 14.727772766113281 41.523299682617186Q14.480401428222656 41.764913696289064 14.480401428222656 42.13114172363281Q14.480401428222656 42.515570068359374 14.77178662109375 42.75086975097656Q15.063171813964843 42.98616943359375 15.584285827636718 42.98616943359375Q16.190828186035155 42.98616943359375 16.676842041015625 42.73768408203125Q17.162855895996092 42.48919873046875 17.449969909667967 42.070785034179686Q17.737083923339842 41.65237133789062 17.737083923339842 41.13571496582031V39.455371337890625Q17.737083923339842 38.69320031738281 17.302513061523435 38.295029296875Q16.86794219970703 37.89685827636718 16.01439984130859 37.89685827636718Q15.440543151855469 37.89685827636718 15.000214965820312 38.06641528320312Q14.559886779785156 38.23597229003906 14.292087097167968 38.55224346923828Q14.02428741455078 38.8685146484375 13.938859069824218 39.32537133789062H12.118855895996093Q12.209484558105467 38.36485668945312 12.71592755126953 37.67362786865234Q13.222370544433593 36.98239904785156 14.073127868652342 36.60911322021484Q14.923885192871094 36.23582739257812 16.041142517089842 36.23582739257812Q17.740800476074217 36.23582739257812 18.655629455566405 37.02177038574219Q19.57045843505859 37.80771337890625 19.57045843505859 39.27559936523437V44.39537133789062H17.737083923339842V43.5774853515625H17.283940612792968Q16.976769592285155 44.07742834472656 16.448969909667966 44.340399841308596Q15.92117022705078 44.60337133789062 15.134113220214843 44.60337133789062Q14.341484558105467 44.60337133789062 13.757041564941405 44.30789984130859Q13.172598571777343 44.01242834472656 12.854469909667968 43.4799853515625Q12.536341247558592 42.94754235839844 12.536341247558592 42.239599365234376Q12.536341247558592 41.239713378906245 13.208070068359374 40.606427551269526Q13.879798889160156 39.97314172363281 15.119627868652342 39.79151306152343ZM21.83096990966797 33.37137133789062H26.271401428222656V42.689768798828126H28.83982977294922V44.39537133789062H21.83096990966797V42.689768798828126H24.399398254394534V35.076973876953126H21.83096990966797ZM33.79245843505859 34.41582739257812V36.46908471679687H37.57657244873047V38.174687255859375H33.79245843505859V41.60594140625Q33.79245843505859 42.25272407967704 34.0671294555664 42.58787510136196Q34.34180047607422 42.923026123046874 34.87777117919922 42.923026123046874Q35.4172562866211 42.923026123046874 35.73195593261719 42.56125494384766Q36.04665557861328 42.199483764648434 36.21565557861328 41.412798095703124H37.88114410400391Q37.797781247491706 42.963796023748614 37.0058341106258 43.796212342928996Q36.2138869737599 44.62862866210937 34.83839984130859 44.62862866210937Q33.4360866693293 44.62862866210937 32.678270965279886 43.84045684814453Q31.92045526123047 43.05228503417968 31.92045526123047 41.60594140625V38.174687255859375H30.186627868652344V36.46908471679687H31.92045526123047V34.41582739257812Z", "legend"]]),
+  mk('A5', "Tilt", ["Stay smalty", "irreverent"], "The Grain with its chip knocked to 45\u00b0: the same family, at a jaunty angle.",
+    [["M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z", "body"], ["M46 4 L57 15 L46 26 L35 15Z", "chip"]]),
+  mk('A6', "Hand and spark", ["by hand", "AI-first", "create"], "A pencil and a spark together: making by hand and making with AI. Reads close to a magic wand.",
+    [["M10 54 L17.07 54 L10 46.93Z", "body"], ["M18.84 52.23 L40.05 31.02 L32.98 23.95 L11.77 45.16Z", "body"], ["M42.17 28.9 L46.42 24.66 L39.34 17.58 L35.1 21.83Z", "body"], ["M46 4 L49.18 14.82 L60 18 L49.18 21.18 L46 32 L42.82 21.18 L32 18 L42.82 14.82Z", "chip"]]),
+  mk('A7', "Together · picked", ["unified", "one family"], "Two pieces that lock into one frame: separate tools, built to fit.",
+    [["M8 8H44V18H18V44H8Z", "body"], ["M56 56H20V46H46V20H56Z", "chip"]]),
+  mk('A8', "Spark", ["create", "fast"], "The moment of making: a four-point spark, its centre a smalt grain. Close to the generic AI sparkle.",
+    [["M32 6 L37.66 26.34 L58 32 L37.66 37.66 L32 58 L26.34 37.66 L6 32 L26.34 26.34Z", "body"], ["M30 27h4a3 3 0 0 1 3 3v4a3 3 0 0 1 -3 3h-4a3 3 0 0 1 -3 -3v-4a3 3 0 0 1 3 -3z", "chip"]]),
+],
+};
+}
+}
+</script>
+</body>
+</html>

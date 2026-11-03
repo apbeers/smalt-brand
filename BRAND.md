@@ -160,3 +160,26 @@ Rules:
 - Wording is always "Powered by", for every product.
 - Badge colours match the lockups: `alt` in smalt, the suffix in the product colour.
 - Every text colour on the badge is at least 6:1 against its surface in both themes.
+
+## Plugins
+
+A plugin gets a product brand of its own only when people choose it and use it directly, as with smaltdf (`@smaltdb/df`). Infrastructure plugins (`@smaltdb/parquet`, `@smaltdb/io`, `@smaltdb/external`) use smaltdb's brand and a plain name, such as "smaltdb Parquet", with no mark or colour of their own.
+
+Three badges, in `badges/plugins/`, say how a plugin relates to smaltdb:
+
+| Tier | Meaning | Badge |
+| --- | --- | --- |
+| **Official** | Made and maintained by smaltworks, in the `@smaltdb` npm scope | The product's mark, the wordmark, "official plugin" |
+| **Verified** | Made by someone else; passes the smaltworks compatibility tests for a stated plugin API version | A check, "Verified for", the wordmark, an "API v1" tag |
+| **Works with** | The author says it works; smaltworks hasn't checked | "Works with" and the wordmark in grey, with a dashed border and no mark |
+
+- Product marks appear only on what smaltworks makes. Brand colours appear only on what smaltworks makes or has tested.
+- Official and Verified badges link to the plugin's entry on smaltdb.dev/plugins, the list smaltworks controls. A badge image alone proves nothing, since anyone can copy it.
+- Verified means the compatibility tests pass for that API version. It is not a security review, and the list page says so.
+- The `@smaltdb` npm scope and names that start with `smalt` are reserved for smaltworks. Third-party plugins are named `<product>-plugin-<name>`, for example `smaltdb-plugin-geo`.
+
+## smaltkit
+
+smaltkit is shared UI code inside the smalt apps, not a product people choose, so it has no mark, product colour or badge. Its README header is the name in the wordmark style (`sm`**`alt`**`kit`, ink and smalt) with the line "Shared UI code for the smalt apps. Part of smaltworks."
+
+Its brand job is to carry the brand into the apps: its components should take their colours, type and icons from `tokens/`. Revisit this if smaltkit gains charts that users see (the brand has no chart palette yet), or if outside developers start building on it.

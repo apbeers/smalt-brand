@@ -215,9 +215,27 @@ Applied after the picks:
 - "smaltalk" is one letter from Smalltalk, the programming language. Old archives already use "SMALTALK" as an 8-character name for Smalltalk, so coders may read it that way.
 - Whether the smaltworks and smaltalk names are free on GitHub and the social networks wasn't checked: this session can't look up accounts outside the smalt repositories.
 
+## Plugins and smaltkit
+
+Reasoned through in conversation, then mocked up on one board.
+
+- **smaltkit gets no brand:** it is shared code inside the apps, not a product people choose. It gets only a README header in the wordmark style.
+- **Product brands for plugins:** only when people use the plugin directly (smaltdf); infrastructure plugins use smaltdb's brand.
+- **Three tiers:**
+  - **Official:** from smaltworks, in the `@smaltdb` scope.
+  - **Verified:** smaltworks-approved, after passing compatibility tests.
+  - **Works with:** self-attested by the author.
+- **On the words:**
+  - "Compatible" was proposed for the approved tier; "Verified" was chosen because readers can't tell "Compatible" from "Works with".
+  - "Reviewed" and "Certified" were ruled out because they imply a security or formal review.
+- **Badges:** Official carries the product's own mark, so an official smaltnb plugin would show the Pencil, not the Grain. Verified swaps the mark for a check and adds the API version. Works with has no mark, no brand colour and a dashed border.
+- **Proof:** Official and Verified badges link to a list on smaltdb.dev/plugins that smaltworks controls.
+
+All approved by the owner. Still to build before Verified can be granted: the compatibility test suite and the smaltdb.dev/plugins page.
+
 ## Exploration archive
 
-[`exploration/`](exploration/) keeps all 37 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
+[`exploration/`](exploration/) keeps all 38 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 

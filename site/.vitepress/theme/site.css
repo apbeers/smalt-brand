@@ -1,0 +1,79 @@
+/* smaltworks site additions on top of the family theme. Colours are the tokens in tokens/tokens.json. */
+:root {
+  --sw-ui: #0B6A91; --sw-bi: #6141AE; --sw-df: #7A5F00; --sw-nb: #981C89; --sw-ink: #151922;
+  --sw-kiln: #E5622F;
+  --sw-border: #D6DBE4; --sw-surface: #FFFFFF; --sw-muted: #5C6375; --sw-tint: #F5F6F8;
+}
+.dark {
+  --sw-ui: #5CBDE8; --sw-bi: #B8A1F2; --sw-df: #E6C24A; --sw-nb: #F57FE6; --sw-ink: #E9EBF0;
+  --sw-kiln: #FF8A5C;
+  --sw-border: #2C3240; --sw-surface: #1B1F29; --sw-muted: #9096A3; --sw-tint: #14171F;
+}
+
+/* light/dark image pairs */
+.sw-mark { display: inline-block; flex-shrink: 0; position: relative; vertical-align: middle; }
+.sw-mark img { position: absolute; inset: 0; margin: 0; }
+.sw-dark { display: none; }
+.dark .sw-light { display: none; }
+.dark .sw-dark { display: inline-block; }
+
+img.sw-light, img.sw-dark { vertical-align: middle; margin: 2px 4px 2px 0; }
+
+/* wordmark as text */
+.sw-word { font-family: var(--smalt-brand-font); font-weight: 600; letter-spacing: -0.06em; color: var(--sw-ink); }
+.sw-alt { color: var(--vp-c-brand-1); }
+.sw-sfx-ui { color: var(--sw-ui); } .sw-sfx-bi { color: var(--sw-bi); } .sw-sfx-df { color: var(--sw-df); }
+.sw-sfx-nb { color: var(--sw-nb); } .sw-sfx-db, .sw-sfx-works { color: var(--sw-ink); }
+.sw-name { display: inline-flex; align-items: center; gap: 8px; font-size: 17px; }
+
+/* the engine bar */
+.sw-stack { display: flex; flex-direction: column; gap: 10px; margin: 32px 0; }
+.sw-row { display: grid; gap: 10px; }
+.sw-apps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sw-langs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sw-sources { grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: center; }
+.sw-box, .sw-kits {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 12px;
+  background: var(--sw-surface); border: 1px solid var(--sw-border); border-radius: 10px; text-decoration: none !important;
+}
+.sw-kits { flex-direction: row; justify-content: center; flex-wrap: wrap; gap: 8px; border-style: dashed; background: var(--sw-tint); padding: 10px 14px; }
+.sw-kits b { color: var(--sw-ink); } .sw-kits span { color: var(--sw-muted); font-size: 14px; }
+.sw-what { font-size: 13px; color: var(--sw-muted); }
+.sw-sql { font-family: var(--smalt-brand-font); font-weight: 600; color: var(--sw-ink); }
+a.sw-box:hover, a.sw-kits:hover, a.sw-card:hover { border-color: var(--vp-c-brand-1); }
+.sw-engine {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 18px 22px; border-radius: 12px; background: #003399; text-decoration: none !important;
+}
+.sw-engine .sw-name { font-size: 26px; gap: 12px; }
+.sw-engine img { margin: 0; }
+.sw-on-smalt { color: #FFFFFF; } .sw-on-smalt .sw-alt { color: #9DB4F5; }
+.sw-engine-line { color: #D6E0F3; font-weight: 500; font-size: 16px; }
+.sw-src {
+  font-family: var(--smalt-brand-font); font-size: 12px; color: var(--vp-c-text-2);
+  border: 1px solid var(--sw-border); border-radius: 6px; padding: 6px 8px; position: relative; background: var(--sw-tint);
+}
+.sw-src::before { content: ''; position: absolute; left: 50%; top: -11px; width: 2px; height: 10px; background: #9DB4F5; }
+@media (max-width: 640px) {
+  .sw-apps, .sw-sources { grid-template-columns: 1fr; }
+  .sw-src::before { display: none; }
+}
+
+/* product cards */
+.sw-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 24px 0; }
+.sw-card {
+  display: flex; flex-direction: column; gap: 8px; padding: 20px; border: 1px solid var(--sw-border);
+  border-radius: 14px; background: var(--sw-surface); text-decoration: none !important;
+}
+.sw-big { font-size: 24px; gap: 10px; }
+.sw-tag { font-weight: 700; color: var(--sw-ink); font-size: 16px; }
+.sw-line { color: var(--vp-c-text-2); font-size: 15px; line-height: 1.5; }
+.sw-status { margin-top: auto; font-family: var(--smalt-brand-font); font-size: 12px; color: var(--sw-muted); }
+
+/* the founder card */
+.sw-person { display: flex; gap: 20px; align-items: flex-start; margin: 24px 0; }
+.sw-person img { width: 96px; height: 96px; border-radius: 50%; margin: 0; flex-shrink: 0; }
+@media (max-width: 640px) { .sw-person { flex-direction: column; } }
+
+/* badges keep their real size in tables */
+.vp-doc td img.sw-light, .vp-doc td img.sw-dark { max-width: none; }

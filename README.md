@@ -23,6 +23,7 @@ Brand assets and design tokens for smaltworks and the smalt projects: [smaltdb](
 
 | Path | Contents |
 | --- | --- |
+| [`site/`](site/) | The smaltworks.dev website: the family, the architecture, why smalty, status, community and the brand kit. VitePress, built and deployed by `.github/workflows/site.yml`. |
 | [`BRAND.md`](BRAND.md) | The brand book: name, voice, logo use, colour and readability rules, type, the product family, badges. |
 | [`DECISIONS.md`](DECISIONS.md) | How the brand was chosen: every round of options, what was picked and why. |
 | [`exploration/`](exploration/) | The exploration boards from every round, as rendered snapshots and as source. |
@@ -56,6 +57,17 @@ python3 scripts/plugin_badges.py Geist.ttf MartianMono.ttf       # the plugin ba
 ```
 
 The scripts need `fonttools` (`pip install fonttools`; `social_cards.py` also needs `cairosvg`) and the variable fonts from [google/fonts](https://github.com/google/fonts): `ofl/martianmono/MartianMono[wdth,wght].ttf` and `ofl/geist/Geist[wght].ttf`. Each script regenerates the committed files exactly.
+
+## The website
+
+```sh
+cd site
+npm ci
+npm run dev      # copies logos, badges and social cards into public/media, then serves on localhost
+npm run build    # the same, into site/.vitepress/dist
+```
+
+The site uses the family theme in `themes/vitepress/` directly, so it always matches smaltdb.dev.
 
 ## Fonts
 

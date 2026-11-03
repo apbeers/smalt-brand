@@ -44,6 +44,20 @@ Smalt is pronounced like salt (Merriam-Webster: ˈsmȯlt), so the family plays o
 - "smaltalk" is one letter from Smalltalk, the programming language. That's fine as a nod, but write it as one lowercase word and never imply a connection to Smalltalk.
 - A *smalt works* was a historical factory that made the pigment, which gives smaltworks its meaning.
 
+## How smaltworks works with AI
+
+Most developers don't love code for its own sake. They love to create, and code has been how they do it.
+
+We are developers, and we love to create. AI lets us build at scale and test ideas faster and better than we ever could by hand, so smaltworks works AI-first.
+
+We build tools and libraries that help other people create, whether they write every line by hand or work AI-first. We love developers and the work they do, and everything we make is meant to help them make more.
+
+One line, for profiles and footers: **Built AI-first, by developers, for everyone who creates.**
+
+- Say it as a stance, plainly. Lead with what smaltworks does and loves, not with a defence.
+- "Faster and better than we ever could by hand" is smaltworks' own experience. Don't turn it into a general claim about hand-written code, or about developers who work that way.
+- Both ways of working are welcome: the tools and docs serve people who code by hand and people who work AI-first.
+
 ## Logo — the Grain mark
 
 A ground-glass particle and the chip it shed: small, and a little apart.

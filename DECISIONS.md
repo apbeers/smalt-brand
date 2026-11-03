@@ -233,6 +233,18 @@ Reasoned through in conversation, then mocked up on one board.
 
 All approved by the owner. Still to build before Verified can be granted: the compatibility test suite and the smaltdb.dev/plugins page.
 
+## How smaltworks works with AI
+
+The owner set out the stance: developers love to create, and code has been how they do it. smaltworks is AI-first because AI lets it create at scale and iterate faster and better than by hand. It builds tools for everyone who creates, whether they code by hand or work AI-first.
+
+Edited for publication, with these changes:
+
+- **Removed:** "not because we have anything against developers". The voice rule says to describe what something is, not what it isn't, so "We are developers" now leads.
+- **Scoped:** "faster and better than by hand" is stated as smaltworks' own experience, not as a general claim.
+- **Added:** a one-line form, "Built AI-first, by developers, for everyone who creates."
+
+Approved by the owner. The full text is in `BRAND.md`.
+
 ## Exploration archive
 
 [`exploration/`](exploration/) keeps all 38 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.

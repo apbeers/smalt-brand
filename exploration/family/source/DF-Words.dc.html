@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltdf words</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 720px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltdf · round 1 · words</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">smaltdf: a dataframe plugin for smaltdb</h1>
+</div>
+<p style="margin: 0; max-width: 560px; font-size: 15px; line-height: 1.55; color: #3F4656">smaltdf joins the smalt family, so it inherits the family system already used by smaltui and smaltbi: the <span style="font-family: 'Martian Mono', monospace">sm<span style="color: #003399">alt</span>…</span> wordmark, a smalt mark body with one chip in the product's colour, and a "Small. Alternative. ___." tagline. The API reference is Narwhals.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; flex-grow: 1">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 24px 28px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 36px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span>df</p>
+<p style="margin: 4px 0 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">TAGLINE: SMALL. ALTERNATIVE. ___.</p>
+<sc-for list="{{taglines}}" as="t" hint-placeholder-count="4">
+<p style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em"><span style="font-family: 'Martian Mono', monospace; font-size: 13px; font-weight: 400; color: #003399; margin-right: 12px">{{t.id}}</span>{{t.text}}</p>
+</sc-for>
+<p style="margin: 10px 0 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">POSITIONING LINE</p>
+<sc-for list="{{lines}}" as="t" hint-placeholder-count="3">
+<div>
+<p style="margin: 0; font-size: 16px"><span style="font-family: 'Martian Mono', monospace; font-size: 13px; color: #003399; margin-right: 12px">{{t.id}}</span>{{t.text}}</p>
+<p style="margin: 2px 0 0 40px; font-size: 13px; color: #5C6375">{{t.note}}</p>
+</div>
+</sc-for>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<div style="padding: 24px 28px 8px; display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">NAME CHECK: SMALTDB AND SMALTDF</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F4656">The two names differ only in the last letter. The suffix colour does most of the work of telling them apart, so the product colour matters more here than for ui and bi. Shown at wordmark, nav and badge sizes, with the chosen ochre (K3).</p>
+</div>
+<div style="flex-grow: 1; display: grid; grid-template-rows: repeat(2, minmax(0, 1fr))">
+<sc-for list="{{checks}}" as="c" hint-placeholder-count="2">
+<div style="background: {{c.ground}}; padding: 16px 28px; display: flex; flex-direction: column; justify-content: center; gap: 10px">
+<sc-for list="{{c.sizes}}" as="s" hint-placeholder-count="3">
+<div style="display: flex; align-items: baseline; gap: 28px">
+<span style="width: 56px; font-family: 'Martian Mono', monospace; font-size: 11px; color: {{c.note}}">{{s.label}}</span>
+<span style="font-family: 'Martian Mono', monospace; font-weight: 600; letter-spacing: -0.06em; font-size: {{s.px}}px; color: {{c.ink}}">sm<span style="color: {{c.alt}}">alt</span>db</span>
+<span style="font-family: 'Martian Mono', monospace; font-weight: 600; letter-spacing: -0.06em; font-size: {{s.px}}px; color: {{c.ink}}">sm<span style="color: {{c.alt}}">alt</span><span style="color: {{c.df}}">df</span></span>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":720}}'>
+class Component extends DCLogic {
+renderVals() {
+const sizes = [{ label: '36 px', px: 36 }, { label: '18 px', px: 18 }, { label: '12.5 px', px: 12.5 }];
+return {
+taglines: [
+  { id: 'T1', text: 'Small. Alternative. Frames.' },
+  { id: 'T2', text: 'Small. Alternative. Transform.' },
+  { id: 'T3', text: 'Small. Alternative. Columns.' },
+  { id: 'T4', text: 'Small. Alternative. Shape.' },
+],
+lines: [
+  { id: 'P1', text: 'Dataframes in the browser, powered by smaltdb.', note: 'Parallel to smaltbi\'s line; the two products read as a pair.' },
+  { id: 'P2', text: 'A dataframe API for smaltdb, written in TypeScript.', note: 'Parallel to smaltdb\'s line; says what it is and what it is written in.' },
+  { id: 'P3', text: 'Narwhals-style dataframes for smaltdb, in the browser.', note: 'Names the reference. Narwhals is not a database, but the voice rule prefers saying what a product is over pointing at another project.' },
+],
+checks: [
+  { ground: '#F5F6F8', ink: '#151922', alt: '#003399', df: '#7A5F00', note: '#5C6375', sizes },
+  { ground: '#14171F', ink: '#E9EBF0', alt: '#9DB4F5', df: '#E6C24A', note: '#9096A3', sizes },
+],
+};
+}
+}
+</script>
+</body>
+</html>

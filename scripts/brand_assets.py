@@ -3,9 +3,9 @@
 
 Usage: python3 scripts/brand_assets.py <MartianMono[wdth,wght].ttf>
 
-For every product (smaltdb, smaltui, smaltbi) writes, under logos/<product>/:
+For every product (smaltdb, smaltui, smaltbi, smaltdf) writes, under logos/<product>/:
   wordmark.svg, wordmark-on-dark.svg, lockup.svg, lockup-on-dark.svg
-For smaltui and smaltbi it also writes the mark, app icon and favicons:
+For smaltui, smaltbi and smaltdf it also writes the mark, app icon and favicons:
   <mark>-mark.svg, <mark>-mark-on-dark.svg, app-icon.svg, favicon-32.svg, favicon-16.svg
 (smaltdb's mark, app icon and favicons were drawn by hand and are left untouched.)
 
@@ -41,20 +41,23 @@ MARKS = {
     "ui": [("M8 17L15 10L37 32L15 54L8 47L23 32Z", "body"), (rr(38, 46, 20, 8, 3), "accent")],
     "bi": [(rr(8, 44, 10, 10, 3), "chip"), (rr(22, 42, 7, 7, 2), "chip"), (rr(24, 28, 12, 12, 3), "body"),
            (rr(40, 30, 7, 7, 2), "chip"), (rr(46, 8, 12, 12, 3), "accent")],
+    "df": [("M8 8H56V17H17V56H8Z", "body"), (rr(27, 27, 14, 14, 3), "accent")],
 }
 # smaltbi's 16 px mark: three larger grains, because the full scatter breaks into specks.
 MARK_16 = {"bi": [(rr(6, 40, 16, 16, 4), "chip"), (rr(22, 22, 20, 20, 5), "body"), (rr(44, 4, 16, 16, 4), "accent")]}
 # Horizontal extent of each mark's artwork on the 64 grid, used to space the lockup.
-ART_X = {"db": (8, 54), "ui": (8, 58), "bi": (8, 58)}
-MARK_NAME = {"ui": "chevron", "bi": "scatter"}
+ART_X = {"db": (8, 54), "ui": (8, 58), "bi": (8, 58), "df": (8, 56)}
+MARK_NAME = {"ui": "chevron", "bi": "scatter", "df": "axes"}
 
 COLOURS = {
     "light": {"ink": "#151922", "alt": "#003399", "body": "#003399", "chip": "#7B97D4",
-              "accent": {"ui": "#0E7FAE", "bi": "#6E4BC2"}, "suffix": {"db": "#151922", "ui": "#0B6A91", "bi": "#6141AE"}},
+              "accent": {"ui": "#0E7FAE", "bi": "#6E4BC2", "df": "#8C6D00"},
+              "suffix": {"db": "#151922", "ui": "#0B6A91", "bi": "#6141AE", "df": "#7A5F00"}},
     "dark": {"ink": "#E9EBF0", "alt": "#9DB4F5", "body": "#9DB4F5", "chip": "#D6E0F3",
-             "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2"}, "suffix": {"db": "#E9EBF0", "ui": "#5CBDE8", "bi": "#B8A1F2"}},
+             "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A"},
+             "suffix": {"db": "#E9EBF0", "ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A"}},
     # App icon: the mark knocked out of a smalt tile.
-    "tile": {"body": "#F5F6F8", "chip": "#9DB4F5", "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2"}},
+    "tile": {"body": "#F5F6F8", "chip": "#9DB4F5", "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A"}},
 }
 
 
@@ -151,7 +154,7 @@ def build_wordmarks(font_path, product):
 
 if __name__ == "__main__":
     font = sys.argv[1]
-    for p in ("ui", "bi"):
+    for p in ("ui", "bi", "df"):
         build_marks(p)
-    for p in ("db", "ui", "bi"):
+    for p in ("db", "ui", "bi", "df"):
         build_wordmarks(font, p)

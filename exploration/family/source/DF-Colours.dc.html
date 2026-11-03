@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltdf colour</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1080px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltdf · colour · K3 picked</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">A fourth product colour</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 1240px">The blues and blue-greens read as smaltdb and smaltui, and violet as smaltbi, so smaltdf has to leave the cool side. The options below are chosen by hue distance from every product and status colour. ΔE is the CIELAB distance to the nearest colour already in use; as a rough guide, below about 20 the two are easy to confuse. Each row shows the whole family with smaltdf's F2 mark as a placeholder.</p>
+</div>
+<sc-for list="{{options}}" as="o" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; display: grid; grid-template-columns: 360px minmax(0, 1fr) minmax(0, 1fr); overflow: hidden; flex-grow: 1">
+<div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; border-right: 1px solid #D6DBE4">
+<p style="margin: 0; font-weight: 700; font-size: 19px">{{o.id}} · {{o.name}}</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F4656">{{o.desc}}</p>
+<div style="display: flex; flex-direction: column; gap: 6px; margin-top: auto">
+<sc-for list="{{o.swatches}}" as="s" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 8px">
+<span style="width: 22px; height: 22px; border-radius: 5px; background: {{s.hex}}; flex-shrink: 0"></span>
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #3F4656">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<sc-for list="{{o.themes}}" as="th" hint-placeholder-count="2">
+<div style="padding: 16px 24px; display: flex; flex-direction: column; justify-content: center; gap: 10px; background: {{th.ground}}">
+<sc-for list="{{th.rows}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{r.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 21px; font-weight: 600; letter-spacing: -0.06em; color: {{th.ink}}">sm<span style="color: {{th.alt}}">alt</span><span style="color: {{r.suffix}}">{{r.name}}</span></span>
+<span style="margin-left: auto; font-size: 13px; color: {{th.note}}">{{r.note}}</span>
+</div>
+</sc-for>
+<div style="display: flex; gap: 14px; padding-top: 6px; border-top: 1px dashed {{th.rule}}; font-size: 12px; font-weight: 500">
+<span style="color: {{th.success}}">✓ Committed</span><span style="color: {{th.warning}}">▲ Stale</span><span style="color: {{th.danger}}">✕ Failed</span>
+<span style="margin-left: auto; color: {{th.note}}">status colours, for comparison</span>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+<p style="margin: 0; font-size: 14px; color: #3F4656">Also shown in round 1: cobalt teal (K1), which read too close to smaltui's cerulean, and smalt only (K5). Dropped before round 1: cobalt green (ΔE 15 from <span style="font-family: 'Geist Mono', monospace">success</span>) and cobalt rose (ΔE 12 from <span style="font-family: 'Geist Mono', monospace">danger</span>).</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const SH = {
+  db: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'chip']],
+  ui: [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']],
+  bi: [[rr(8, 44, 10, 10, 3), 'chip'], [rr(22, 42, 7, 7, 2), 'chip'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'chip'], [rr(46, 8, 12, 12, 3), 'bi']],
+  df: [['M8 8H24V18H18V46H24V56H8Z', 'body'], ['M56 8H40V18H46V46H40V56H56Z', 'body'], [rr(26, 40, 12, 8, 3), 'df']],
+};
+const BASE = {
+  light: { ground: '#F5F6F8', ink: '#151922', alt: '#003399', note: '#5C6375', rule: '#D6DBE4', success: '#1D6B3A', warning: '#8A5A12', danger: '#A3195B',
+    body: '#003399', chip: '#7B97D4', ui: '#0E7FAE', bi: '#6E4BC2', text: { db: '#151922', ui: '#0B6A91', bi: '#6141AE' } },
+  dark: { ground: '#14171F', ink: '#E9EBF0', alt: '#9DB4F5', note: '#9096A3', rule: '#2C3240', success: '#6FD69A', warning: '#F2B356', danger: '#FF9EC4',
+    body: '#9DB4F5', chip: '#D6E0F3', ui: '#5CBDE8', bi: '#B8A1F2', text: { db: '#E9EBF0', ui: '#5CBDE8', bi: '#B8A1F2' } },
+};
+const NOTES = { db: 'the engine', ui: 'the console', bi: 'the reports', df: 'the dataframes' };
+const theme = (t, df, dfText) => {
+  const c = { ...BASE[t], df };
+  return { ...c, rows: ['db', 'ui', 'bi', 'df'].map((k) => ({
+    name: k, note: NOTES[k],
+    suffix: k === 'df' ? dfText : c.text[k],
+    paths: SH[k].map(([d, role]) => ({ d, fill: c[role] })),
+  })) };
+};
+const opt = (id, name, desc, l, d, swatches) => ({ id, name, desc, swatches,
+  themes: [theme('light', l[0], l[1]), theme('dark', d[0], d[1])] });
+return {
+options: [
+  opt('K3', 'Aureolin ochre · picked', 'Cobalt yellow, darkened until it passes as text. The warmest option and the most different from the blues. It sits close to the warning amber, so status keeps its icon-plus-word rule and smaltdf\'s colour is never used for status.',
+    ['#8C6D00', '#7A5F00'], ['#E6C24A', '#E6C24A'],
+    [{ hex: '#8C6D00', label: 'fill #8C6D00 · 4.9:1 white · 4.5:1 bg' }, { hex: '#7A5F00', label: 'text #7A5F00 · 5.6:1 bg' }, { hex: '#E6C24A', label: 'dark #E6C24A · 10.4:1 bg · ΔE 15 warning / 16 dark' }]),
+  opt('K6', 'Olive', 'A yellow-green, the hue no product or status colour uses. The best-separated option: ΔE 75 from smaltui\'s cerulean, and at least 29 from every colour in use.',
+    ['#6B7322', '#5A611C'], ['#BCC45E', '#BCC45E'],
+    [{ hex: '#6B7322', label: 'fill #6B7322 · 5.1:1 white · 4.7:1 bg' }, { hex: '#5A611C', label: 'text #5A611C · 6.1:1 bg' }, { hex: '#BCC45E', label: 'dark #BCC45E · 9.6:1 bg · ΔE 29 warning / 31 dark' }]),
+  opt('K7', 'Magenta', 'A red-violet, between smaltbi\'s blue-violet and the danger crimson. Warm and distinct, but it makes smaltbi and smaltdf a pair of purples.',
+    ['#A3329A', '#8E2A86'], ['#EE8FE4', '#EE8FE4'],
+    [{ hex: '#A3329A', label: 'fill #A3329A · 6.0:1 white · 5.6:1 bg' }, { hex: '#8E2A86', label: 'text #8E2A86 · 6.9:1 bg' }, { hex: '#EE8FE4', label: 'dark #EE8FE4 · 8.3:1 bg · ΔE 29 smaltbi / 25 dark' }]),
+],
+};
+}
+}
+</script>
+</body>
+</html>

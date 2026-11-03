@@ -124,11 +124,49 @@ Round 2 offered three icon styles for UI icons (I1 Outline, I2 Duotone, I3 Pixel
 
 **Picked: the Chevron style** (owner's decision). Icons are drawn like the smaltui Chevron mark: solid bars of constant thickness with square-cut ends, angles of 0°, 45° and 90°, and at most one rounded chip in the product or status colour. The rules are in `BRAND.md` under Iconography, and `StatusBadge` was redrawn in this style.
 
+## After the family: the social preview card
+
+One card per product, 1280 × 640 (GitHub's recommended size, 2:1), in `social/`. Built from decisions already made, so no options round:
+
+- The dark Kiln ground (`#14171F`), so the card reads as one piece in both light and dark feeds.
+- The product's dark lockup, its tagline (Geist 700), its positioning line (Geist 400, `text-2`) and its address (Martian Mono, `text-3`).
+- A 12 px bar along the bottom in the product colour: smalt for smaltdb, `product-ui` for smaltui, `product-bi` for smaltbi.
+- Content sits on a 96 px left margin and away from the top and bottom edges, so the 1.91:1 crop used by some sites cuts nothing.
+
+## smaltdf
+
+smaltdf is a dataframe plugin for smaltdb, with its own product brand in the family. Narwhals is the reference for its API; the brand doesn't name it.
+
+The options were shown on the family canvas, in two rounds for the mark and several for the positioning line:
+
+- **Tagline:** Frames, Transform, Columns, Shape.
+- **Marks, round 1:** Columns, Brackets, Filter, Tusk. None was picked.
+- **Marks, round 2,** built around frames because of the tagline: Frame, Axes, Join, Stack.
+- **Colour:** every remaining cobalt pigment lands near a status colour. Measured by CIELAB distance from every colour in use:
+  - cobalt teal: distance 38 from smaltui's cerulean, but judged too close by eye;
+  - aureolin ochre: distance 15 from `warning`;
+  - cobalt green: distance 15 from `success`; cobalt rose: 12 from `danger`;
+  - olive and magenta were added as better-separated alternatives;
+  - smalt only, with no new colour.
+- **Positioning:** the first lines were too long or leaned on TypeScript or Narwhals. The owner set the direction: go back to smaltdb's core principles (small, fast) and end with "for smaltdb".
+
+| | **Picked** |
+| --- | --- |
+| Tagline | **"Small. Alternative. Frames."** |
+| Positioning | **"Dataframes for smaltdb. Small and fast."** |
+| Mark | **Axes:** the header row and index column that make a table a dataframe, with one value as the chip |
+| Colour | **Aureolin ochre:** `#8C6D00` fill, `#7A5F00` text (light), `#E6C24A` (dark) |
+
+Applied after the picks:
+
+- The ochre's closeness to `warning` is handled by the existing rules: status always carries an icon and a word, and product colours are never used for status.
+- The names smaltdb and smaltdf differ by one letter, so the `df` always keeps its product colour.
+- The badge text is at least 6.1:1 on its light surface and 9.6:1 on its dark one.
+
 ## Exploration archive
 
-[`exploration/`](exploration/) keeps all 27 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
+[`exploration/`](exploration/) keeps all 31 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 
-- **Social preview card** for links shared on GitHub and social sites.
 - **Research pages on smaltdb.dev** include benchmark comparisons with other engines. The no-comparisons rule covers marketing copy; whether those pages stay on the public site is undecided.

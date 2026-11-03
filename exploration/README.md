@@ -70,6 +70,17 @@ These are records, not current assets. Older boards use the earlier "Alternate" 
 | [R3-Family](family/png/R3-Family.png) | All three products with the chosen marks, colour and words. |
 | [R3-Badge](family/png/R3-Badge.png) | The P1 pill with the real marks, and its spec. |
 
+## smaltdf
+
+| Board | Contents |
+| --- | --- |
+| [DF-Words](family/png/DF-Words.png) | Taglines T1–T4, positioning lines P1–P3, and the smaltdb / smaltdf name check. Picked: T1 "Frames". |
+| [DF-Marks](family/png/DF-Marks.png) | Round 1 marks F1–F4 (Columns, Brackets, Filter, Tusk). None picked. |
+| [DF-Marks2](family/png/DF-Marks2.png) | Round 2 marks G1–G4, built around frames. Picked: G2 Axes. |
+| [DF-Colours](family/png/DF-Colours.png) | Aureolin ochre (picked), olive and magenta, with the whole family and the status colours for comparison. |
+
+The later positioning lines (P4–P11 and the final "Dataframes for smaltdb. Small and fast.") were worked out in conversation, not on a board; [`DECISIONS.md`](../DECISIONS.md) records them.
+
 ## How the snapshots were made
 
 Each `.dc.html` was rendered headless in Chromium at its board size, with the same Google Fonts files the boards load (Geist, Geist Mono, Martian Mono, IBM Plex Sans and Mono, Newsreader, Inter Tight, JetBrains Mono, Bricolage Grotesque, DM Mono).

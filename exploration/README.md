@@ -91,6 +91,12 @@ The later positioning lines (P4–P11 and the final "Dataframes for smaltdb. Sma
 | [NB-Marks2](family/png/NB-Marks2.png) | Round 2 marks J1–J6 (Open book, Spiral, Tab, Chart cell, Run, Cursor cell). Spiral came closest. |
 | [NB-Marks3](family/png/NB-Marks3.png) | Round 3, pencil to paper: P1–P5. Picked: P2 Pencil point. |
 
+## The family voice
+
+| Board | Contents |
+| --- | --- |
+| [FAM-Smalty](family/png/FAM-Smalty.png) | Salt idioms as a family voice: lines, names and small copy, with the meanings of "salty". Picked: Stay smalty, smaltworks, smaltalk, smalties, smalt of the earth. |
+
 ## How the snapshots were made
 
 Each `.dc.html` was rendered headless in Chromium at its board size, with the same Google Fonts files the boards load (Geist, Geist Mono, Martian Mono, IBM Plex Sans and Mono, Newsreader, Inter Tight, JetBrains Mono, Bricolage Grotesque, DM Mono).

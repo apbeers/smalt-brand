@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Smalty</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.w{font-family:'Martian Mono',monospace;font-weight:600;letter-spacing:-0.06em}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1180px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smalt family · brand idea · picks marked ✓</p>
+<h1 style="margin: 8px 0 0; font-size: 40px; font-weight: 700; letter-spacing: -0.03em">Smalt rhymes with salt</h1>
+</div>
+<p style="margin: 0; max-width: 600px; font-size: 15px; line-height: 1.55; color: #3F4656">Merriam-Webster gives smalt as <span style="font-family: 'Martian Mono', monospace">ˈsmȯlt</span>, the same vowel as salt, so salt idioms carry over by swapping one letter. In each line below, <span class="w">alt</span> is picked out in smalt, as in the wordmarks, so every pun still spells <b>small + alternative</b>.</p>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 20px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">{{g.label}}</p>
+<sc-for list="{{g.items}}" as="i" hint-placeholder-count="4">
+<div style="display: grid; grid-template-columns: 52px minmax(0, 1fr) minmax(0, 1.05fr); gap: 14px; align-items: baseline">
+<span style="font-family: 'Martian Mono', monospace; font-size: 13px; color: #003399; white-space: nowrap">{{i.id}}</span>
+<p style="margin: 0; font-size: 23px; font-weight: 700; letter-spacing: -0.02em">{{i.pre}}<span class="w">sm<span style="color: #003399">alt</span>{{i.suf}}</span>{{i.post}}</p>
+<div>
+<p style="margin: 0; font-size: 14px; line-height: 1.45; color: #3F4656">{{i.reads}}</p>
+<p style="margin: 2px 0 0; font-size: 13px; line-height: 1.45; color: {{i.flagColor}}">{{i.flag}}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #5C6375">WHAT "SALTY" CAN MEAN</p>
+<sc-for list="{{senses}}" as="s" hint-placeholder-count="5">
+<div style="display: flex; gap: 10px; align-items: baseline">
+<span style="width: 10px; height: 10px; border-radius: 3px; background: {{s.dot}}; flex-shrink: 0"></span>
+<p style="margin: 0; font-size: 14px; line-height: 1.45"><b>{{s.term}}</b> <span style="color: #3F4656">{{s.text}}</span></p>
+</div>
+</sc-for>
+<p style="margin: 4px 0 0; font-size: 13px; line-height: 1.5; color: #5C6375">Source: Dictionary.com. The brand voice rules out picking fights, so the "annoyed" sense is the one to weigh. "Be smalty" is an instruction to the reader, which leans on that sense more than a noun phrase like "a grain of smalt" does.</p>
+</div>
+<div style="background: #14171F; border-radius: 14px; padding: 22px 24px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #9096A3">IN USE</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{stickers}}" as="t" hint-placeholder-count="3">
+<span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 20px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700; letter-spacing: -0.01em">{{t.pre}}<span class="w" style="margin: 0 2px">sm<span style="color: {{t.alt}}">alt</span>{{t.suf}}</span>{{t.post}}</span>
+</sc-for>
+</div>
+<sc-for list="{{uses}}" as="u" hint-placeholder-count="6">
+<div style="border: 1px solid #2C3240; border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 11px; color: #9096A3">{{u.where}}</p>
+<p style="margin: 0; font-size: 16px; color: #E9EBF0">{{u.pre}}<span class="w">sm<span style="color: #9DB4F5">alt</span>{{u.suf}}</span>{{u.post}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+const ok = '#1D6B3A', warn = '#8A5A12', note = '#5C6375';
+const it = (id, pre, suf, post, reads, flag, kind) => ({ id, pre, suf, post, reads, flag, flagColor: kind === 'warn' ? warn : (kind === 'ok' ? ok : note) });
+return {
+groups: [
+  { label: 'A FAMILY LINE · USED ACROSS ALL FIVE PRODUCTS', items: [
+    it('S1', 'Be ', 'y', '.', 'Have some edge: sharp, a little irreverent, unbothered.', 'Also reads "be bitter". As a command, that sense is close to the surface.', 'warn'),
+    it('S2 ✓', 'Stay ', 'y', '.', 'Picked: the family tagline. Keep your edge; a nod to "stay hungry".', 'Same double meaning as S1, slightly softer.', 'warn'),
+    it('S3', 'Take it with a grain of ', '', '.', 'Ties to the Grain mark, and to the voice rule against unsourced claims.', 'Long for a sticker; strongest fit with the brand as written.', 'ok'),
+    it('S4', 'A pinch of ', '', '.', 'Small, and just enough. Echoes "Small." in every tagline.', 'Calm; could read as cute.', 'note'),
+  ]},
+  { label: 'NAMES FOR PLACES AND PEOPLE', items: [
+    it('N1 ✓', '', '', 'alk', 'Picked as a social handle: smaltalk, one word.', 'One letter from Smalltalk, the programming language; coders will read it that way.', 'warn'),
+    it('N2 ✓', '', '', 'works', 'Picked: the name for the group that makes the smalt projects.', 'A smalt works was a historical factory that made the pigment.', 'ok'),
+    it('N3 ✓', '', 'ies', '', 'Picked: the name for community members.', 'Playful; some people dislike being named.', 'note'),
+  ]},
+  { label: 'SMALL COPY · 404 PAGES, EMPTY STATES, MERCH', items: [
+    it('M1', 'Worth your ', '', '.', 'A contributor badge or a "thanks" page.', 'Says "competent"; avoid near benchmarks.', 'note'),
+    it('M2 ✓', '', '', ' of the earth.', 'Picked: the community statement.', 'Dependable, down to earth.', 'ok'),
+    it('M3', 'Rub a little ', '', ' in it.', 'A 404 or error page.', 'Too close to "rub salt in the wound" for an error.', 'warn'),
+  ]},
+],
+senses: [
+  { term: 'Sharp or witty:', text: 'zesty, pointed, clever humour.', dot: ok },
+  { term: 'Down-to-earth or tough:', text: 'blunt, provocative, exciting.', dot: ok },
+  { term: 'Of the sea:', text: 'an experienced, hardened sailor.', dot: ok },
+  { term: 'Racy or coarse:', text: 'crude or bawdy, as in "salty humour".', dot: warn },
+  { term: 'Annoyed or hostile:', text: 'irritated or resentful, especially after losing. The common current slang sense.', dot: warn },
+],
+stickers: [
+  { pre: 'Stay ', suf: 'y', post: '.', bg: '#003399', fg: '#FFFFFF', alt: '#9DB4F5' },
+  { pre: 'A pinch of ', suf: '', post: '.', bg: '#E9EBF0', fg: '#151922', alt: '#003399' },
+  { pre: 'Grain of ', suf: '', post: '', bg: '#B0249F', fg: '#FFFFFF', alt: '#FFE3FA' },
+],
+uses: [
+  { where: 'README footer', pre: 'Take it with a grain of ', suf: '', post: ': every benchmark links its method.' },
+  { where: 'Social profile', pre: '@', suf: '', post: 'alk · Stay smalty.' },
+  { where: 'Empty notebook in smaltnb', pre: 'Nothing here yet. Add a pinch of ', suf: '', post: '.' },
+  { where: 'Organisation name', pre: '', suf: '', post: 'works · makers of smaltdb, smaltui, smaltbi, smaltdf and smaltnb' },
+  { where: 'Contributors page', pre: 'Worth your ', suf: '', post: '. Thanks to everyone who sent a fix.' },
+  { where: 'Community page', pre: 'Welcome, ', suf: 'ies', post: '. We are the smalt of the earth.' },
+],
+};
+}
+}
+</script>
+</body>
+</html>

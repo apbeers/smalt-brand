@@ -25,6 +25,23 @@ In the wordmark, `alt` is set in `primary`. Write the name in lowercase, as one 
 
 Tagline: **Small. Alternative. Fast.** Use it under the wordmark, in social cards, and in the docs hero.
 
+## The family voice — smalty
+
+Smalt is pronounced like salt (Merriam-Webster: ˈsmȯlt), so the family plays on salt idioms. Each one keeps `alt` visible, so it still reads small + alternative. Set the smalt part like the wordmark where you can: Martian Mono, `alt` in `primary`.
+
+| Use | Words |
+| --- | --- |
+| Family tagline, across all products | **Stay smalty.** |
+| The group that makes the smalt projects | **smaltworks** |
+| Social media handle | **smaltalk** (one word) |
+| Community members | **smalties** |
+| Community statement | **smalt of the earth.** |
+
+- Each product keeps its own "Small. Alternative. ___." tagline. "Stay smalty." is the family's line: social profiles, stickers, community pages, sign-offs.
+- "Salty" commonly means annoyed or bitter. Use "Stay smalty." for the family's own spirit, never aimed at other projects or at someone who reports a problem. The voice rule against picking fights still applies.
+- "smaltalk" is one letter from Smalltalk, the programming language. That's fine as a nod, but write it as one lowercase word and never imply a connection to Smalltalk.
+- A *smalt works* was a historical factory that made the pigment, which gives smaltworks its meaning.
+
 ## Logo — the Grain mark
 
 A ground-glass particle and the chip it shed: small, and a little apart.

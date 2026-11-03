@@ -92,6 +92,14 @@ Icons are drawn the way the smaltui Chevron mark is drawn (`logos/smaltui/chevro
 
 `components/StatusBadge` shows the style: a check, an exclamation mark (a bar and a chip) and a cross.
 
+## Social preview cards
+
+`social/` has a card for each product: `smaltdb.png`, `smaltui.png` and `smaltbi.png`, each 1280 × 640, with SVG sources beside them.
+
+- **GitHub:** in the repository, open Settings, then under "Social preview" click Edit and upload the PNG (PNG, JPG or GIF under 1 MB; 1280 × 640 displays best).
+- **Websites:** reference the PNG from `og:image` and `twitter:image`, with `twitter:card` set to `summary_large_image`.
+- Each card is the product's dark lockup, tagline, positioning line and address, on the dark ground, with a bar in the product colour. Regenerate them with `scripts/social_cards.py` after any change to a lockup, tagline or positioning line; don't edit the PNGs by hand.
+
 ## Tokens
 
 `tokens/tokens.json` is the source of truth. `tokens/tokens.css` is generated from it (`python3 scripts/build_tokens.py`) and exposes every token as a CSS custom property: light theme on `:root`, dark under `prefers-color-scheme: dark` or `data-theme="dark"`, plus a class per type style (`.h1`, `.body`, `.code` and so on).

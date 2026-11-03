@@ -25,10 +25,11 @@ Brand assets and design tokens for the smalt projects: [smaltdb](https://github.
 | [`tokens/tokens.json`](tokens/tokens.json) | Design tokens, the source of truth: colours (light and dark), product colours, type styles, spacing, radii. |
 | [`tokens/tokens.css`](tokens/tokens.css) | The same tokens as CSS custom properties. Generated; don't edit by hand. |
 | [`logos/smaltdb/`](logos/smaltdb/), [`logos/smaltui/`](logos/smaltui/), [`logos/smaltbi/`](logos/smaltbi/) | Marks, lockups and wordmarks (light and dark), app icons, favicons. |
+| [`social/`](social/) | Social preview cards (1280 × 640) for each product's repository and site. |
 | [`badges/`](badges/) | "Powered by" badges for each product, light and dark, with embed snippets. |
 | [`components/`](components/) | Static HTML/CSS references: Button, StatusBadge, CodeBlock, Wordmark. |
 | [`themes/vitepress/`](themes/vitepress/) | The VitePress theme and Shiki code colours used by smaltdb.dev. |
-| [`scripts/`](scripts/) | `build_tokens.py` (JSON → CSS), `brand_assets.py` (logos and wordmarks), `badges.py` (badges). |
+| [`scripts/`](scripts/) | `build_tokens.py` (JSON → CSS), `brand_assets.py` (logos and wordmarks), `badges.py` (badges), `social_cards.py` (social preview cards). |
 
 ## At a glance
 
@@ -43,10 +44,11 @@ Brand assets and design tokens for the smalt projects: [smaltdb](https://github.
 python3 scripts/build_tokens.py                                  # after editing tokens/tokens.json
 python3 scripts/brand_assets.py MartianMono.ttf                  # logos and wordmarks for all three products
 python3 scripts/badges.py Geist.ttf MartianMono.ttf              # the "Powered by" badges
+python3 scripts/social_cards.py Geist.ttf MartianMono.ttf        # the social preview cards (after brand_assets.py)
 ```
 
-The scripts need `fonttools` (`pip install fonttools`) and the variable fonts from [google/fonts](https://github.com/google/fonts): `ofl/martianmono/MartianMono[wdth,wght].ttf` and `ofl/geist/Geist[wght].ttf`. Each script regenerates the committed files exactly.
+The scripts need `fonttools` (`pip install fonttools`; `social_cards.py` also needs `cairosvg`) and the variable fonts from [google/fonts](https://github.com/google/fonts): `ofl/martianmono/MartianMono[wdth,wght].ttf` and `ofl/geist/Geist[wght].ttf`. Each script regenerates the committed files exactly.
 
 ## Fonts
 
-Geist, Geist Mono and Martian Mono are licensed under the SIL Open Font License 1.1. The wordmark, lockup and badge SVGs contain Geist and Martian Mono glyphs converted to paths.
+Geist, Geist Mono and Martian Mono are licensed under the SIL Open Font License 1.1. The wordmark, lockup, badge and social card SVGs contain Geist and Martian Mono glyphs converted to paths.

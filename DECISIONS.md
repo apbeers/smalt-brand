@@ -124,11 +124,19 @@ Round 2 offered three icon styles for UI icons (I1 Outline, I2 Duotone, I3 Pixel
 
 **Picked: the Chevron style** (owner's decision). Icons are drawn like the smaltui Chevron mark: solid bars of constant thickness with square-cut ends, angles of 0°, 45° and 90°, and at most one rounded chip in the product or status colour. The rules are in `BRAND.md` under Iconography, and `StatusBadge` was redrawn in this style.
 
+## After the family: the social preview card
+
+One card per product, 1280 × 640 (GitHub's recommended size, 2:1), in `social/`. Built from decisions already made, so no options round:
+
+- The dark Kiln ground (`#14171F`), so the card reads as one piece in both light and dark feeds.
+- The product's dark lockup, its tagline (Geist 700), its positioning line (Geist 400, `text-2`) and its address (Martian Mono, `text-3`).
+- A 12 px bar along the bottom in the product colour: smalt for smaltdb, `product-ui` for smaltui, `product-bi` for smaltbi.
+- Content sits on a 96 px left margin and away from the top and bottom edges, so the 1.91:1 crop used by some sites cuts nothing.
+
 ## Exploration archive
 
 [`exploration/`](exploration/) keeps all 27 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
 
-- **Social preview card** for links shared on GitHub and social sites.
 - **Research pages on smaltdb.dev** include benchmark comparisons with other engines. The no-comparisons rule covers marketing copy; whether those pages stay on the public site is undecided.

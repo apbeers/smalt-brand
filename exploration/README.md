@@ -91,6 +91,16 @@ The later positioning lines (P4–P11 and the final "Dataframes for smaltdb. Sma
 | [NB-Marks2](family/png/NB-Marks2.png) | Round 2 marks J1–J6 (Open book, Spiral, Tab, Chart cell, Run, Cursor cell). Spiral came closest. |
 | [NB-Marks3](family/png/NB-Marks3.png) | Round 3, pencil to paper: P1–P5. Picked: P2 Pencil point. |
 
+## smaltql
+
+| Board | Contents |
+| --- | --- |
+| [QL-Words](family/png/QL-Words.png) | Taglines T1–T4, positioning lines P1–P3, how to say the name, and smaltdb's line once SQL moves out. Picked: T2 "Familiar" and P2 "The SQL you know, for smaltdb." |
+| [QL-Marks](family/png/QL-Marks.png) | Round 1 marks Q1–Q6 (Rows, Semicolon, Q, Star, Clauses, Question). Star taken forward. |
+| [QL-Colours](family/png/QL-Colours.png) | Leaf green (picked), jade and smalt only, with the whole family and the status colours. |
+| [QL-Stars](family/png/QL-Stars.png) | Round 2: stars with joined arms, S1–S4. None picked. |
+| [QL-Stars2](family/png/QL-Stars2.png) | Round 3: separate arms around a centre chip, T1–T4. Picked: T2. |
+
 ## The family voice
 
 | Board | Contents |

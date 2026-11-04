@@ -11,7 +11,7 @@ const apps = [
 </script>
 
 <template>
-  <figure class="sw-stack" aria-label="The smalt family architecture: sources feed one engine, smaltdb; SQL and smaltdf are languages on that engine; kits sit above them; smaltui, smaltbi and smaltnb are built on the kits.">
+  <figure class="sw-stack" aria-label="The smalt family architecture: sources feed one engine, smaltdb; smaltql (SQL) and smaltdf are languages on that engine; kits sit above them; smaltui, smaltbi and smaltnb are built on the kits.">
     <div class="sw-row sw-apps">
       <a v-for="a in apps" :key="a.p" :href="a.href" class="sw-box">
         <span class="sw-name"><Mark :product="a.p" :size="22" /><Word :product="a.p" /></span>
@@ -20,7 +20,7 @@ const apps = [
     </div>
     <a href="/products/kits" class="sw-kits"><b>Kits</b> <span>small, focused libraries: fewer choices for AI agents, one consistent interface</span></a>
     <div class="sw-row sw-langs">
-      <span class="sw-box"><span class="sw-name sw-sql">SQL</span><span class="sw-what">language</span></span>
+      <a href="/products/smaltql" class="sw-box"><span class="sw-name"><Mark product="ql" :size="22" /><Word product="ql" /></span><span class="sw-what">SQL</span></a>
       <a href="/products/smaltdf" class="sw-box"><span class="sw-name"><Mark product="df" :size="22" /><Word product="df" /></span><span class="sw-what">dataframe language</span></a>
     </div>
     <a href="/products/smaltdb" class="sw-engine">

@@ -32,6 +32,7 @@ export default defineConfig({
         items: [
           { text: 'Overview', link: '/products/' },
           { text: 'smaltdb · the engine', link: '/products/smaltdb' },
+          { text: 'smaltql · SQL', link: '/products/smaltql' },
           { text: 'smaltdf · dataframes', link: '/products/smaltdf' },
           { text: 'smaltui · SQL console', link: '/products/smaltui' },
           { text: 'smaltbi · reports', link: '/products/smaltbi' },
@@ -63,6 +64,7 @@ export default defineConfig({
       { text: 'Products', items: [
         { text: 'Overview', link: '/products/' },
         { text: 'smaltdb', link: '/products/smaltdb' },
+        { text: 'smaltql', link: '/products/smaltql' },
         { text: 'smaltdf', link: '/products/smaltdf' },
         { text: 'smaltui', link: '/products/smaltui' },
         { text: 'smaltbi', link: '/products/smaltbi' },

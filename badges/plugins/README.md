@@ -10,11 +10,11 @@ Three badges say how a plugin relates to smaltdb. They share the "Powered by" pi
 
 ## Which badge you may use
 
-- **Official** is only for packages in the `@smaltdb` npm scope, which only smaltworks can publish to.
+- **Official** is only for packages in the `@smaltworks` npm scope, which only smaltworks can publish to.
 - **Verified** is only for plugins listed as verified on smaltdb.dev/plugins, for the API version on the badge. Link the badge to that entry. Verified means the compatibility tests pass; it is not a security review.
 - **Works with** is open to any plugin author. Link it to your own project page.
 
-Name a third-party plugin `<product>-plugin-<name>`, for example `smaltdb-plugin-geo`. The `@smaltdb` scope and names that start with `smalt` are reserved for smaltworks.
+Name a third-party plugin `<product>-plugin-<name>`, for example `smaltdb-plugin-geo`. The `@smaltworks` scope and names that start with `smalt` are reserved for smaltworks.
 
 ## Snippet
 

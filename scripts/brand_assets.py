@@ -3,9 +3,9 @@
 
 Usage: python3 scripts/brand_assets.py <MartianMono[wdth,wght].ttf>
 
-For every product (smaltdb, smaltui, smaltbi, smaltdf, smaltnb, and the parent, smaltworks) writes, under logos/<product>/:
+For every product (smaltdb, smaltui, smaltbi, smaltdf, smaltnb, smaltql, and the parent, smaltworks) writes, under logos/<product>/:
   wordmark.svg, wordmark-on-dark.svg, lockup.svg, lockup-on-dark.svg
-For smaltui, smaltbi, smaltdf, smaltnb and smaltworks it also writes the mark, app icon and favicons:
+For smaltui, smaltbi, smaltdf, smaltnb, smaltql and smaltworks it also writes the mark, app icon and favicons:
   <mark>-mark.svg, <mark>-mark-on-dark.svg, app-icon.svg, favicon-32.svg, favicon-16.svg
 (smaltdb's mark, app icon and favicons were drawn by hand and are left untouched.)
 
@@ -45,24 +45,30 @@ MARKS = {
     # smaltnb's pencil: a 45-degree body and cap, and a right-angled point set apart by a gap.
     "nb": [("M12 52 L19.78 52 L12 44.22Z", "accent"), ("M21.55 50.23 L47 24.78 L39.22 17 L13.77 42.45Z", "body"),
            ("M49.12 22.66 L54.07 17.71 L46.29 9.93 L41.34 14.88Z", "body")],
+    # smaltql's star: the * of SELECT *, six separate arms 60 degrees apart around the chip.
+    # The family's one exception to the 0/45/90-degree rule: a * needs evenly spaced arms.
+    "ql": [("M27.5 21.5L27.5 5L36.5 5L36.5 21.5Z", "body"), ("M38.84 22.85L53.13 14.6L57.63 22.4L43.34 30.65Z", "body"),
+           ("M43.34 33.35L57.63 41.6L53.13 49.4L38.84 41.15Z", "body"), ("M36.5 42.5L36.5 59L27.5 59L27.5 42.5Z", "body"),
+           ("M25.16 41.15L10.87 49.4L6.37 41.6L20.66 33.35Z", "body"), ("M20.66 30.65L6.37 22.4L10.87 14.6L25.16 22.85Z", "body"),
+           (rr(25.5, 25.5, 13, 13, 3), "accent")],
     # smaltworks' Together: two L-shaped pieces that lock into one frame.
     "works": [("M8 8H44V18H18V44H8Z", "body"), ("M56 56H20V46H46V20H56Z", "accent")],
 }
 # smaltbi's 16 px mark: three larger grains, because the full scatter breaks into specks.
 MARK_16 = {"bi": [(rr(6, 40, 16, 16, 4), "chip"), (rr(22, 22, 20, 20, 5), "body"), (rr(44, 4, 16, 16, 4), "accent")]}
 # Horizontal extent of each mark's artwork on the 64 grid, used to space the lockup.
-ART_X = {"db": (8, 54), "ui": (8, 58), "bi": (8, 58), "df": (8, 56), "nb": (10, 54), "works": (8, 56)}
-MARK_NAME = {"ui": "chevron", "bi": "scatter", "df": "axes", "nb": "pencil", "works": "together"}
+ART_X = {"db": (8, 54), "ui": (8, 58), "bi": (8, 58), "df": (8, 56), "nb": (10, 54), "ql": (6.37, 57.63), "works": (8, 56)}
+MARK_NAME = {"ui": "chevron", "bi": "scatter", "df": "axes", "nb": "pencil", "ql": "star", "works": "together"}
 
 COLOURS = {
     "light": {"ink": "#151922", "alt": "#003399", "body": "#003399", "chip": "#7B97D4",
-              "accent": {"ui": "#0E7FAE", "bi": "#6E4BC2", "df": "#8C6D00", "nb": "#B0249F", "works": "#E5622F"},
-              "suffix": {"db": "#151922", "ui": "#0B6A91", "bi": "#6141AE", "df": "#7A5F00", "nb": "#981C89", "works": "#151922"}},
+              "accent": {"ui": "#0E7FAE", "bi": "#6E4BC2", "df": "#8C6D00", "nb": "#B0249F", "ql": "#527A10", "works": "#E5622F"},
+              "suffix": {"db": "#151922", "ui": "#0B6A91", "bi": "#6141AE", "df": "#7A5F00", "nb": "#981C89", "ql": "#456810", "works": "#151922"}},
     "dark": {"ink": "#E9EBF0", "alt": "#9DB4F5", "body": "#9DB4F5", "chip": "#D6E0F3",
-             "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6", "works": "#FF8A5C"},
-             "suffix": {"db": "#E9EBF0", "ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6", "works": "#E9EBF0"}},
+             "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6", "ql": "#9ACD4A", "works": "#FF8A5C"},
+             "suffix": {"db": "#E9EBF0", "ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6", "ql": "#9ACD4A", "works": "#E9EBF0"}},
     # App icon: the mark knocked out of a smalt tile.
-    "tile": {"body": "#F5F6F8", "chip": "#9DB4F5", "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6", "works": "#FF8A5C"}},
+    "tile": {"body": "#F5F6F8", "chip": "#9DB4F5", "accent": {"ui": "#5CBDE8", "bi": "#B8A1F2", "df": "#E6C24A", "nb": "#F57FE6", "ql": "#9ACD4A", "works": "#FF8A5C"}},
 }
 
 
@@ -159,7 +165,7 @@ def build_wordmarks(font_path, product):
 
 if __name__ == "__main__":
     font = sys.argv[1]
-    for p in ("ui", "bi", "df", "nb", "works"):
+    for p in ("ui", "bi", "df", "nb", "ql", "works"):
         build_marks(p)
-    for p in ("db", "ui", "bi", "df", "nb", "works"):
+    for p in ("db", "ui", "bi", "df", "nb", "ql", "works"):
         build_wordmarks(font, p)

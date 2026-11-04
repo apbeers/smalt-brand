@@ -190,6 +190,39 @@ Applied after the picks:
 - A 45° pencil resembles the common "edit" icon. The smalt body and magenta point set it apart, but avoid placing it beside edit buttons in a toolbar.
 - The magenta is at least CIELAB distance 33 from the smaltbi violet in light and 34 in dark. The badge text is at least 7.3:1 on its light surface and 7.1:1 on its dark one.
 
+## smaltql
+
+SQL moves out of smaltdb into its own product, smaltql. smaltdb's work since ADR 0014 put a shared plan layer under the engine, with SQL and smaltdf as two languages on it; splitting SQL out gives the engine one job (execution performance) and lets the query language grow its own identity. smaltdb still ships with smaltql by default (the owner's proposal), so existing users and the "install smaltdb, run a query" start don't change. The technical record is [smaltdb ADR 0015](https://github.com/stenhoor/smaltdb/blob/main/docs/adr/0015-smaltql.md).
+
+Considered and dropped along the way:
+
+- **SQL as a language inside smaltdb's brand, with no colour of its own.** The owner chose full peers: smaltql and smaltdf each get a product brand.
+- **A DAX-compatible language.** Dropped (the owner isn't a fan of the language). Microsoft holds an active patent, US9275031B2 "Data analysis expressions", which would also have needed legal review.
+
+The options were shown on the family canvas:
+
+- **Taglines:** Select, Familiar, Ask, Declare. "Query" was out: it is smaltui's tagline word.
+- **Positioning:** "SQL for smaltdb. Small and fast.", "The SQL you know, for smaltdb." (the superset promise), "SQL for smaltdb, with a smalty flavour."
+- **Colour:** leaf green, jade, smalt only. Green is the only open part of the wheel, and the `success` colour is green, so both coloured options sit nearer a status colour than earlier picks. A pure green (reads as "success") and vermilion (CIELAB distance 22 from kiln) were dropped.
+- **Marks:** three rounds.
+  - Round 1: Rows, Semicolon, Q, Star, Clauses, Question. Two overlapping squares (a join) were left out because they read as the smaltworks Together mark. The owner liked Star, but it didn't read as `*`: its arms were spaced at 90° and 45°.
+  - Round 2: four stars with the arms joined (six arms at 60°, or eight at 0/45/90°), the chip below or in the centre. Not picked: the owner's direction was Round 1's layout, separate arms with the chip in the centre.
+  - Round 3: separate arms around a centre chip, spaced evenly. Six arms at 60° in three weights, and eight arms at 0/45/90°. Long, slim arms were needed; short ones read as a sun.
+
+| | **Picked** |
+| --- | --- |
+| Tagline | **"Small. Alternative. Familiar."** |
+| Positioning | **"The SQL you know, for smaltdb."** |
+| Mark | **Star (T2):** six separate arms 60° apart around the chip, the `*` of `SELECT *` |
+| Colour | **Leaf green:** `#527A10` fill, `#456810` text (light), `#9ACD4A` (dark) |
+
+Applied after the picks:
+
+- The Star is the family's one exception to the 0/45/90° angle rule; icons still follow it.
+- Leaf green is CIELAB distance 28 from `success` in light and 38 in dark. It is never used to mean success. Fill 5.1:1 on white, text 6.0:1 on `bg`, dark 9.6:1 on `bg`.
+- The Star is the same drawing at every size; at 16 px the chip is about three pixels.
+- **npm names (owner's decision):** packages publish under the smaltworks npm organisation, named after their repositories: `@smaltworks/smaltdb`, `@smaltworks/smaltql`, `@smaltworks/smaltdf`, `@smaltworks/smaltdb-parquet` and so on. This replaces the `@smaltdb` scope for plugins; nothing had been published under it.
+
 ## The family voice: smalty
 
 Smalt rhymes with salt (Merriam-Webster: ˈsmȯlt), so salt idioms were explored as a family-wide voice, on one board:
@@ -291,8 +324,11 @@ site can't drift apart.
 
 ## Exploration archive
 
-[`exploration/`](exploration/) keeps all 43 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
+[`exploration/`](exploration/) keeps all 48 boards from every round: a rendered snapshot (PNG) for viewing, and its source (`.dc.html`, the Claude design-canvas format) for reference. Its README lists each board in the order it was shown, with what was picked from it.
 
 ## Still open
+
+- **Saying smaltql:** smalt-Q-L (letter by letter, like smalt-D-B) or smalt-quel.
+- **smaltql distributions:** the engine alone, the engine with smaltdf, and the engine with both languages. The idea is agreed; names and packaging are not.
 
 - **Research pages on smaltdb.dev** include benchmark comparisons with other engines. The no-comparisons rule covers marketing copy; whether those pages stay on the public site is undecided.

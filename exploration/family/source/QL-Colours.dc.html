@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltql colour</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Geist+Mono:wght@400&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1220px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltql · round 1 · colour</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">A sixth product colour</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 1240px">Most of the wheel is taken: smalt, cerulean and violet on the cool side, ochre and kiln on the warm side, magenta for smaltnb. What is left is green, which the success colour also uses, so every coloured option sits nearer a status colour than earlier picks did. ΔE is the CIELAB distance to the nearest colour already in use; as a rough guide, below about 20 two colours are easy to confuse. Each row shows the whole family, with smaltql's Q1 mark as a placeholder.</p>
+</div>
+<sc-for list="{{options}}" as="o" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; display: grid; grid-template-columns: 360px minmax(0, 1fr) minmax(0, 1fr); overflow: hidden; flex-grow: 1">
+<div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; border-right: 1px solid #D6DBE4">
+<p style="margin: 0; font-weight: 700; font-size: 19px">{{o.id}} · {{o.name}}</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3F4656">{{o.desc}}</p>
+<div style="display: flex; flex-direction: column; gap: 6px; margin-top: auto">
+<sc-for list="{{o.swatches}}" as="s" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 8px">
+<span style="width: 22px; height: 22px; border-radius: 5px; background: {{s.hex}}; flex-shrink: 0"></span>
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #3F4656">{{s.label}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<sc-for list="{{o.themes}}" as="th" hint-placeholder-count="2">
+<div style="padding: 16px 24px; display: flex; flex-direction: column; justify-content: center; gap: 10px; background: {{th.ground}}">
+<sc-for list="{{th.rows}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{r.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 21px; font-weight: 600; letter-spacing: -0.06em; color: {{th.ink}}">sm<span style="color: {{th.alt}}">alt</span><span style="color: {{r.suffix}}">{{r.name}}</span></span>
+<span style="margin-left: auto; font-size: 13px; color: {{th.note}}">{{r.note}}</span>
+</div>
+</sc-for>
+<div style="display: flex; gap: 14px; padding-top: 6px; border-top: 1px dashed {{th.rule}}; font-size: 12px; font-weight: 500">
+<span style="color: {{th.success}}">✓ Committed</span><span style="color: {{th.warning}}">▲ Stale</span><span style="color: {{th.danger}}">✕ Failed</span>
+<span style="margin-left: auto; color: {{th.note}}">status colours, for comparison</span>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+<p style="margin: 0; font-size: 14px; color: #3F4656">Dropped: a pure green (ΔE 32 from success on paper, but it reads as “success”), and vermilion red (ΔE 22 from the kiln orange).</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1220}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const SH = {
+  db: [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'chip']],
+  ui: [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']],
+  bi: [[rr(8, 44, 10, 10, 3), 'chip'], [rr(22, 42, 7, 7, 2), 'chip'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'chip'], [rr(46, 8, 12, 12, 3), 'bi']],
+  df: [['M8 8H56V17H17V56H8Z', 'body'], [rr(27, 27, 14, 14, 3), 'dfc']],
+  nb: [['M12 52 L19.78 52 L12 44.22Z', 'nbc'], ['M21.55 50.23 L47 24.78 L39.22 17 L13.77 42.45Z', 'body'], ['M49.12 22.66 L54.07 17.71 L46.29 9.93 L41.34 14.88Z', 'body']],
+  ql: [['M8 8H56V18H8Z', 'body'], [rr(8, 27, 48, 10, 3), 'ql'], ['M8 46H56V56H8Z', 'body']],
+};
+const BASE = {
+  light: { ground: '#F5F6F8', ink: '#151922', alt: '#003399', note: '#5C6375', rule: '#D6DBE4', success: '#1D6B3A', warning: '#8A5A12', danger: '#A3195B',
+    body: '#003399', chip: '#7B97D4', ui: '#0E7FAE', bi: '#6E4BC2', dfc: '#8C6D00', text: { db: '#151922', ui: '#0B6A91', bi: '#6141AE', df: '#7A5F00', nb: '#981C89' }, nbc: '#B0249F' },
+  dark: { ground: '#14171F', ink: '#E9EBF0', alt: '#9DB4F5', note: '#9096A3', rule: '#2C3240', success: '#6FD69A', warning: '#F2B356', danger: '#FF9EC4',
+    body: '#9DB4F5', chip: '#D6E0F3', ui: '#5CBDE8', bi: '#B8A1F2', dfc: '#E6C24A', text: { db: '#E9EBF0', ui: '#5CBDE8', bi: '#B8A1F2', df: '#E6C24A', nb: '#F57FE6' }, nbc: '#F57FE6' },
+};
+const NOTES = { db: 'the engine', ui: 'the console', bi: 'the reports', df: 'the dataframes', nb: 'the notebooks', ql: 'the SQL' };
+const theme = (t, ql, qlText) => {
+  const c = { ...BASE[t], ql };
+  return { ...c, rows: ['db', 'ui', 'bi', 'df', 'nb', 'ql'].map((k) => ({
+    name: k, note: NOTES[k],
+    suffix: k === 'ql' ? qlText : c.text[k],
+    paths: SH[k].map(([d, role]) => ({ d, fill: c[role] })),
+  })) };
+};
+const opt = (id, name, desc, l, d, swatches) => ({ id, name, desc, swatches,
+  themes: [theme('light', l[0], l[1]), theme('dark', d[0], d[1])] });
+return {
+options: [
+  opt('V1', 'Leaf green · picked', 'A yellow-green between the smaltdf ochre and the success green, retuned from the leaf green offered for smaltnb. Fresh and clearly apart from the blues and the ochre.',
+    ['#527A10', '#456810'], ['#9ACD4A', '#9ACD4A'],
+    [{ hex: '#527A10', label: 'fill #527A10 · 5.1:1 white · 4.7:1 bg' }, { hex: '#456810', label: 'text #456810 · 6.0:1 bg' }, { hex: '#9ACD4A', label: 'dark #9ACD4A · 9.6:1 bg · ΔE 28 success / 37 smaltdf' }]),
+  opt('V2', 'Jade', 'A blue-green between the success green and the smaltui cerulean. Cooler and calmer, but the closest of the three to a status colour on dark grounds.',
+    ['#127C75', '#0E6A64'], ['#3CCFBF', '#3CCFBF'],
+    [{ hex: '#127C75', label: 'fill #127C75 · 5.0:1 white · 4.7:1 bg' }, { hex: '#0E6A64', label: 'text #0E6A64 · 5.9:1 bg' }, { hex: '#3CCFBF', label: 'dark #3CCFBF · 9.3:1 bg · ΔE 27 success / 24 dark' }]),
+  opt('V3', 'Smalt only', 'No new colour: the chip takes the pale smalt grade and the suffix stays ink, as in smaltdb. smaltql reads as the engine’s own language, and only the mark sets it apart from smaltdb.',
+    ['#7B97D4', '#151922'], ['#D6E0F3', '#E9EBF0'],
+    [{ hex: '#7B97D4', label: 'chip #7B97D4 · suffix in ink, like smaltdb' }, { hex: '#D6E0F3', label: 'dark chip #D6E0F3 · no status conflicts' }]),
+],
+};
+}
+}
+</script>
+</body>
+</html>

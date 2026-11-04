@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltql stars round 3</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 820px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 32px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltql · round 3 · the star</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Making the star read as *</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 900px">Q4's layout, kept: separate arms around a chip in the centre. What changes is the spacing: Q4 had arms at 90° and 45°, so the gaps were uneven and it didn't read as *. T1–T3 space six arms 60° apart, as the family fonts draw the * (left); they differ in weight, gap and chip size. T4 keeps the 0/45/90° rule with eight arms. Shown in leaf green (V1) as a placeholder.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 12px; padding: 12px 18px; flex-shrink: 0">
+<sc-for list="{{family}}" as="f" hint-placeholder-count="3">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="{{f.name}}"><sc-for list="{{f.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</sc-for>
+<p style="margin: 0; font-size: 13px; color: #5C6375">the family:<br>db · ui · bi · df · nb</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; flex-grow: 1">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">Reference · the * itself</p>
+<p style="margin: 4px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 80px">The asterisk in the family's two main fonts, at the same size. Six arms, evenly spaced, 60° apart.</p>
+<div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+<div style="display: flex; gap: 28px; align-items: center; height: 120px">
+<span style="font-family: 'Martian Mono', monospace; font-weight: 600; font-size: 120px; line-height: 1; padding-top: 44px; color: #003399">*</span>
+<span style="font-family: 'Geist', sans-serif; font-weight: 700; font-size: 120px; line-height: 1; padding-top: 44px; color: #003399">*</span>
+</div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5C6375">Martian Mono · Geist</p>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 0 18px">
+<span style="font-family: 'Martian Mono', monospace; font-size: 22px; font-weight: 600; color: #151922">SELECT * FROM t</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #14171F; min-height: 32px">
+<span style="font-family: 'Martian Mono', monospace; font-size: 13px; color: #9096A3">round 1 · Q4</span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+<svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><path d="M27.5 8H36.5V20H27.5Z" fill="#9DB4F5"></path><path d="M27.5 44H36.5V56H27.5Z" fill="#9DB4F5"></path><path d="M37.30 43.67L47.20 53.57L53.57 47.20L43.67 37.30Z" fill="#9DB4F5"></path><path d="M20.33 37.30L10.43 47.20L16.80 53.57L26.70 43.67Z" fill="#9DB4F5"></path><path d="M43.67 26.70L53.57 16.80L47.20 10.43L37.30 20.33Z" fill="#9DB4F5"></path><path d="M26.70 20.33L16.80 10.43L10.43 16.80L20.33 26.70Z" fill="#9DB4F5"></path><path d="M29 26h6a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-6a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3z" fill="#9ACD4A"></path></svg>
+</span>
+</div>
+</div>
+<sc-for list="{{marks}}" as="m" hint-placeholder-count="4">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">{{m.id}} · {{m.name}}</p>
+<p style="margin: 4px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 80px">{{m.desc}}</p>
+<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0">
+<svg width="120" height="120" viewBox="0 0 64 64" role="img" aria-label="{{m.name}} mark"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 0 18px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 26px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span><span style="color: #456810">ql</span></span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #14171F">
+
+<span style="font-family: 'Martian Mono', monospace; font-size: 17px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0; white-space: nowrap">sm<span style="color: #9DB4F5">alt</span><span style="color: #9ACD4A">ql</span></span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const L = { body: '#003399', chip: '#7B97D4', ui: '#0E7FAE', bi: '#6E4BC2', df: '#8C6D00', nb: '#B0249F', acc: '#527A10' };
+const D = { body: '#9DB4F5', chip: '#D6E0F3', ui: '#5CBDE8', bi: '#B8A1F2', df: '#E6C24A', nb: '#F57FE6', acc: '#9ACD4A' };
+const mk = (id, name, desc, shapes) => ({ id, name, desc,
+  light: shapes.map(([d, k]) => ({ d, fill: L[k] })), dark: shapes.map(([d, k]) => ({ d, fill: D[k] })) });
+const fam = (name, shapes) => ({ name, paths: shapes.map(([d, k]) => ({ d, fill: L[k] })) });
+return {
+family: [
+  fam('smaltdb Grain', [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'chip']]),
+  fam('smaltui Chevron', [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']]),
+  fam('smaltbi Scatter', [[rr(8, 44, 10, 10, 3), 'chip'], [rr(22, 42, 7, 7, 2), 'chip'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'chip'], [rr(46, 8, 12, 12, 3), 'bi']]),
+  fam('smaltdf Axes', [['M8 8H56V17H17V56H8Z', 'body'], [rr(27, 27, 14, 14, 3), 'df']]),
+  fam('smaltnb Pencil', [['M12 52 L19.78 52 L12 44.22Z', 'nb'], ['M21.55 50.23 L47 24.78 L39.22 17 L13.77 42.45Z', 'body'], ['M49.12 22.66 L54.07 17.71 L46.29 9.93 L41.34 14.88Z', 'body']]),
+],
+marks: [
+  mk('T1', 'Six arms', 'Q4 respaced: six long, slim arms 60° apart around the chip.',
+    [['M28.5 22L28.5 5L35.5 5L35.5 22Z', 'body'], ['M38.91 23.97L53.63 15.47L57.13 21.53L42.41 30.03Z', 'body'], ['M42.41 33.97L57.13 42.47L53.63 48.53L38.91 40.03Z', 'body'], ['M35.5 42L35.5 59L28.5 59L28.5 42Z', 'body'], ['M25.09 40.03L10.37 48.53L6.87 42.47L21.59 33.97Z', 'body'], ['M21.59 30.03L6.87 21.53L10.37 15.47L25.09 23.97Z', 'body'], [rr(26.5, 26.5, 11, 11, 3), 'acc']]),
+  mk('T2', 'Six arms, heavier · picked', 'Heavier arms and a larger chip. Holds up better at favicon size.',
+    [['M27.5 21.5L27.5 5L36.5 5L36.5 21.5Z', 'body'], ['M38.84 22.85L53.13 14.6L57.63 22.4L43.34 30.65Z', 'body'], ['M43.34 33.35L57.63 41.6L53.13 49.4L38.84 41.15Z', 'body'], ['M36.5 42.5L36.5 59L27.5 59L27.5 42.5Z', 'body'], ['M25.16 41.15L10.87 49.4L6.37 41.6L20.66 33.35Z', 'body'], ['M20.66 30.65L6.37 22.4L10.87 14.6L25.16 22.85Z', 'body'], [rr(25.5, 25.5, 13, 13, 3), 'acc']]),
+  mk('T3', 'Six arms, big chip', 'The arms start further out, around a larger chip: the chip leads.',
+    [['M28.5 19L28.5 5L35.5 5L35.5 19Z', 'body'], ['M41.51 22.47L53.63 15.47L57.13 21.53L45.01 28.53Z', 'body'], ['M45.01 35.47L57.13 42.47L53.63 48.53L41.51 41.53Z', 'body'], ['M35.5 45L35.5 59L28.5 59L28.5 45Z', 'body'], ['M22.49 41.53L10.37 48.53L6.87 42.47L18.99 35.47Z', 'body'], ['M18.99 28.53L6.87 21.53L10.37 15.47L22.49 22.47Z', 'body'], [rr(24, 24, 16, 16, 3), 'acc']]),
+  mk('T4', 'Eight arms', 'Keeps the 0/45/90° rule: eight slim arms, evenly spaced, around the chip.',
+    [['M29 21L29 5L35 5L35 21Z', 'body'], ['M37.66 22.1L48.97 10.79L53.21 15.03L41.9 26.34Z', 'body'], ['M43 29L59 29L59 35L43 35Z', 'body'], ['M41.9 37.66L53.21 48.97L48.97 53.21L37.66 41.9Z', 'body'], ['M35 43L35 59L29 59L29 43Z', 'body'], ['M26.34 41.9L15.03 53.21L10.79 48.97L22.1 37.66Z', 'body'], ['M21 35L5 35L5 29L21 29Z', 'body'], ['M22.1 26.34L10.79 15.03L15.03 10.79L26.34 22.1Z', 'body'], [rr(26.5, 26.5, 11, 11, 3), 'acc']]),
+],
+};
+}
+}
+</script>
+</body>
+</html>

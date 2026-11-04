@@ -12,8 +12,8 @@ Where the data lives.
 - **OPFS, in your browser.** smaltdb keeps its databases in the browser's Origin Private File System, so data persists
   on the visitor's own machine.
 - **External data.** Files on the web, Amazon S3 and Azure Blob Storage, read in place as external tables, through the
-  [`@smaltdb/external`](/products/plugins) plugin.
-- **Plugins.** Formats and sources are plugins: CSV, TSV and JSON in `@smaltdb/io`, Parquet in `@smaltdb/parquet`.
+  [`@smaltworks/smaltdb-external`](/products/plugins) plugin.
+- **Plugins.** Formats and sources are plugins: CSV, TSV and JSON in `@smaltworks/smaltdb-io`, Parquet in `@smaltworks/smaltdb-parquet`.
   Other people can write their own. [Plugins →](/products/plugins)
 
 ## The engine: smaltdb
@@ -21,13 +21,13 @@ Where the data lives.
 One engine powers everything. smaltdb runs in a Web Worker, so the page never waits on it, and commits through a
 write-ahead log, so data survives a crash. Every tool above it uses this same engine. [smaltdb →](/products/smaltdb)
 
-## Languages: SQL and smaltdf
+## Languages: smaltql and smaltdf
 
 Two ways to tell the engine what you want, over the same tables.
 
-- **SQL**, in a dialect that follows SQLite.
+- **smaltql**, the SQL you know, in a dialect that follows SQLite. It ships with smaltdb. [smaltql →](/products/smaltql)
 - **smaltdf**, a dataframe language in TypeScript: frames, expressions and method chains. It builds plans for the
-  same engine as SQL, so a dataframe gets the same optimizer and the same storage. [smaltdf →](/products/smaltdf)
+  same engine as smaltql, so a dataframe gets the same optimizer and the same storage. [smaltdf →](/products/smaltdf)
 
 You don't need one engine for SQL tables and another for dataframes. There is one way to process your data.
 

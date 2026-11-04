@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>smaltql stars</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&amp;family=Martian+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#003399}a:hover{color:#151922}
+</style>
+</helmet>
+<div style="width: 1440px; height: 820px; box-sizing: border-box; padding: 56px 64px; background: #F5F6F8; color: #151922; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 32px">
+<div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 13px; color: #5C6375">smaltql · round 2 · the star</p>
+<h1 style="margin: 8px 0 0; font-size: 36px; font-weight: 700; letter-spacing: -0.03em">Making the star read as *</h1>
+<p style="margin: 8px 0 0; font-size: 15px; color: #3F4656; max-width: 900px">Q4 didn't read as an asterisk: its arms didn't meet and weren't evenly spaced. A * has six arms 60° apart (left, as the family fonts draw it), and the family's 0/45/90° rule can only space arms evenly in fours or eights. S1 and S2 bend the rule to 60° for this mark; S3 and S4 keep it with eight arms. The chip is either the lower arm or the centre. Shown in leaf green (V1) as a placeholder.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 12px; padding: 12px 18px; flex-shrink: 0">
+<sc-for list="{{family}}" as="f" hint-placeholder-count="3">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="{{f.name}}"><sc-for list="{{f.paths}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</sc-for>
+<p style="margin: 0; font-size: 13px; color: #5C6375">the family:<br>db · ui · bi · df · nb</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; flex-grow: 1">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">Reference · the * itself</p>
+<p style="margin: 4px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 80px">The asterisk in the family's two main fonts, at the same size. Six arms, evenly spaced, meeting in the middle.</p>
+<div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+<div style="display: flex; gap: 28px; align-items: center; height: 120px">
+<span style="font-family: 'Martian Mono', monospace; font-weight: 600; font-size: 120px; line-height: 1; padding-top: 44px; color: #003399">*</span>
+<span style="font-family: 'Geist', sans-serif; font-weight: 700; font-size: 120px; line-height: 1; padding-top: 44px; color: #003399">*</span>
+</div>
+<p style="margin: 0; font-family: 'Martian Mono', monospace; font-size: 12px; color: #5C6375">Martian Mono · Geist</p>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 0 18px">
+<span style="font-family: 'Martian Mono', monospace; font-size: 22px; font-weight: 600; color: #151922">SELECT * FROM t</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #14171F; min-height: 32px">
+<span style="font-family: 'Martian Mono', monospace; font-size: 13px; color: #9096A3">round 1 · Q4</span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+<svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><path d="M27.5 8H36.5V20H27.5Z" fill="#9DB4F5"></path><path d="M27.5 44H36.5V56H27.5Z" fill="#9DB4F5"></path><path d="M37.30 43.67L47.20 53.57L53.57 47.20L43.67 37.30Z" fill="#9DB4F5"></path><path d="M20.33 37.30L10.43 47.20L16.80 53.57L26.70 43.67Z" fill="#9DB4F5"></path><path d="M43.67 26.70L53.57 16.80L47.20 10.43L37.30 20.33Z" fill="#9DB4F5"></path><path d="M26.70 20.33L16.80 10.43L10.43 16.80L20.33 26.70Z" fill="#9DB4F5"></path><path d="M29 26h6a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-6a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3z" fill="#9ACD4A"></path></svg>
+</span>
+</div>
+</div>
+<sc-for list="{{marks}}" as="m" hint-placeholder-count="4">
+<div style="background: #FFFFFF; border: 1px solid #D6DBE4; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+<p style="margin: 16px 20px 0; font-weight: 700; font-size: 17px">{{m.id}} · {{m.name}}</p>
+<p style="margin: 4px 20px 0; font-size: 14px; line-height: 1.45; color: #3F4656; min-height: 80px">{{m.desc}}</p>
+<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0">
+<svg width="120" height="120" viewBox="0 0 64 64" role="img" aria-label="{{m.name}} mark"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 0 18px">
+<svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><sc-for list="{{m.light}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<span style="font-family: 'Martian Mono', monospace; font-size: 26px; font-weight: 600; letter-spacing: -0.06em">sm<span style="color: #003399">alt</span><span style="color: #456810">ql</span></span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #14171F">
+
+<span style="font-family: 'Martian Mono', monospace; font-size: 17px; font-weight: 600; letter-spacing: -0.06em; color: #E9EBF0; white-space: nowrap">sm<span style="color: #9DB4F5">alt</span><span style="color: #9ACD4A">ql</span></span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+<svg width="32" height="32" viewBox="0 0 64 64" role="img" aria-label="Favicon 32" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+<svg width="16" height="16" viewBox="0 0 64 64" role="img" aria-label="Favicon 16" style="flex-shrink: 0"><sc-for list="{{m.dark}}" as="p" hint-placeholder-count="3"><path d="{{p.d}}" fill="{{p.fill}}" fill-rule="evenodd"></path></sc-for></svg>
+</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":820}}'>
+class Component extends DCLogic {
+renderVals() {
+const rr = (x, y, w, h, r) => `M${x + r} ${y}h${w - 2 * r}a${r} ${r} 0 0 1 ${r} ${r}v${h - 2 * r}a${r} ${r} 0 0 1 -${r} ${r}h-${w - 2 * r}a${r} ${r} 0 0 1 -${r} -${r}v-${h - 2 * r}a${r} ${r} 0 0 1 ${r} -${r}z`;
+const GRAIN = 'M14 18h18v10h14v24a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z';
+const L = { body: '#003399', chip: '#7B97D4', ui: '#0E7FAE', bi: '#6E4BC2', df: '#8C6D00', nb: '#B0249F', acc: '#527A10' };
+const D = { body: '#9DB4F5', chip: '#D6E0F3', ui: '#5CBDE8', bi: '#B8A1F2', df: '#E6C24A', nb: '#F57FE6', acc: '#9ACD4A' };
+const mk = (id, name, desc, shapes) => ({ id, name, desc,
+  light: shapes.map(([d, k]) => ({ d, fill: L[k] })), dark: shapes.map(([d, k]) => ({ d, fill: D[k] })) });
+const fam = (name, shapes) => ({ name, paths: shapes.map(([d, k]) => ({ d, fill: L[k] })) });
+return {
+family: [
+  fam('smaltdb Grain', [[GRAIN, 'body'], [rr(38, 8, 16, 16, 3), 'chip']]),
+  fam('smaltui Chevron', [['M8 17L15 10L37 32L15 54L8 47L23 32Z', 'body'], [rr(38, 46, 20, 8, 3), 'ui']]),
+  fam('smaltbi Scatter', [[rr(8, 44, 10, 10, 3), 'chip'], [rr(22, 42, 7, 7, 2), 'chip'], [rr(24, 28, 12, 12, 3), 'body'], [rr(40, 30, 7, 7, 2), 'chip'], [rr(46, 8, 12, 12, 3), 'bi']]),
+  fam('smaltdf Axes', [['M8 8H56V17H17V56H8Z', 'body'], [rr(27, 27, 14, 14, 3), 'df']]),
+  fam('smaltnb Pencil', [['M12 52 L19.78 52 L12 44.22Z', 'nb'], ['M21.55 50.23 L47 24.78 L39.22 17 L13.77 42.45Z', 'body'], ['M49.12 22.66 L54.07 17.71 L46.29 9.93 L41.34 14.88Z', 'body']]),
+],
+marks: [
+  mk('S1', 'Six arms, chip below', 'A true six-armed *, arms at 60°. The lower arm is the chip, split off like the Grain chip on smaltdb.',
+    [['M27 8L37 8L37 23.34L50.28 15.67L55.28 24.33L42 32L55.28 39.67L50.28 48.33L37 40.66L37 42L27 42L27 40.66L13.72 48.33L8.72 39.67L22 32L8.72 24.33L13.72 15.67L27 23.34Z', 'body'], [rr(27, 45, 10, 11, 3), 'acc']]),
+  mk('S2', 'Six arms, chip centre', 'The same * with heavier arms, and the chip set into its middle.',
+    [['M26 8L38 8L38 21.61L49.78 14.8L55.78 25.2L44 32L55.78 38.8L49.78 49.2L38 42.39L38 56L26 56L26 42.39L14.22 49.2L8.22 38.8L20 32L8.22 25.2L14.22 14.8L26 21.61Z M24.5 24.5V39.5H39.5V24.5Z', 'body'], [rr(26.5, 26.5, 11, 11, 3), 'acc']]),
+  mk('S3', 'Eight arms, chip below', 'Keeps the 0/45/90° rule: eight arms, evenly spaced. The lower arm is the chip.',
+    [['M27.5 8L36.5 8L36.5 21.14L45.79 11.85L52.15 18.21L42.86 27.5L56 27.5L56 36.5L42.86 36.5L52.15 45.79L45.79 52.15L36.5 42.86L36.5 43L27.5 43L27.5 42.86L18.21 52.15L11.85 45.79L21.14 36.5L8 36.5L8 27.5L21.14 27.5L11.85 18.21L18.21 11.85L27.5 21.14Z', 'body'], [rr(27.5, 46, 9, 10, 3), 'acc']]),
+  mk('S4', 'Eight arms, chip centre', 'Eight arms with the chip set into the middle. Reads as * or as a spark.',
+    [['M27 8L37 8L37 19.93L45.44 11.49L52.51 18.56L44.07 27L56 27L56 37L44.07 37L52.51 45.44L45.44 52.51L37 44.07L37 56L27 56L27 44.07L18.56 52.51L11.49 45.44L19.93 37L8 37L8 27L19.93 27L11.49 18.56L18.56 11.49L27 19.93Z M23 23V41H41V23Z', 'body'], [rr(25.5, 25.5, 13, 13, 3), 'acc']]),
+],
+};
+}
+}
+</script>
+</body>
+</html>

@@ -25,8 +25,8 @@ hero:
 
 ## One engine, many ways to use it
 
-Every smalt tool runs on the same engine, **smaltdb**, in the browser you already have. Query it in SQL or with the
-smaltdf dataframe language; explore it in smaltui, report on it in smaltbi, and work through it in smaltnb notebooks.
+Every smalt tool runs on the same engine, **smaltdb**, in the browser you already have. Query it with smaltql, the SQL you know, or with
+the smaltdf dataframe language; explore it in smaltui, report on it in smaltbi, and work through it in smaltnb notebooks.
 There is no second engine for dataframes and no server to set up.
 
 <EngineBar />
@@ -35,6 +35,7 @@ There is no second engine for dataframes and no server to set up.
 
 <div class="sw-cards">
 <ProductCard product="db" tagline="Small. Alternative. Fast." line="A fast alternative database for the browser, written in TypeScript." status="0.9.0 · preview" href="/products/smaltdb" />
+<ProductCard product="ql" tagline="Small. Alternative. Familiar." line="The SQL you know, for smaltdb." status="Planned · SQL is in smaltdb today" href="/products/smaltql" />
 <ProductCard product="df" tagline="Small. Alternative. Frames." line="Dataframes for smaltdb. Small and fast." status="In development" href="/products/smaltdf" />
 <ProductCard product="ui" tagline="Small. Alternative. Query." line="A SQL console for smaltdb that runs entirely in the browser." status="0.1.0 · live demo" href="/products/smaltui" />
 <ProductCard product="bi" tagline="Small. Alternative. Insight." line="Business intelligence in the browser, powered by smaltdb." status="0.1.0 · live demo" href="/products/smaltbi" />

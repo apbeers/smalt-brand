@@ -19,3 +19,16 @@ and in the browser, on the machine you already have. Stay smalty.
 
 </div>
 </div>
+
+<div class="sw-person">
+<img src="https://github.com/apbeers.png?size=192" alt="Andrew Beers">
+<div>
+
+### Andrew Beers
+
+**Core team** · [@apbeers on GitHub](https://github.com/apbeers)
+
+With 13 years across IT, software development, and cybersecurity, Andrew brings a builder’s perspective to smalt. His ideas helped shape two of the project’s principles: replacing third-party libraries with purpose-built implementations, and organizing reusable UI into Kits tailored to smalt’s needs—without unnecessary bloat.
+
+</div>
+</div>

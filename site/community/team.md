@@ -28,7 +28,7 @@ and in the browser, on the machine you already have. Stay smalty.
 
 **Core team** · [@apbeers on GitHub](https://github.com/apbeers)
 
-Andrew Beers has spent 13 years in IT, software development, and cybersecurity, building everything from apps to the systems that keep them safe. He has a soft spot for software that does exactly what it needs to—and no more. That idea helped shape smalt: build the functionality ourselves instead of leaning on third-party libraries, and gather reusable UI into Kits made for the job, without the extra bloat. For Andrew, the right abstractions make powerful tools feel simple and leave room for what comes next.
+Andrew Beers has spent 13 years in IT, software development, and cybersecurity, building everything from apps to the systems that keep them safe. He has a soft spot for software that does exactly what it needs to—and no more. That instinct helped shape smalt: build the functionality ourselves instead of leaning on third-party libraries, and turn reusable UI into Kits built for the job without the extra bloat. For Andrew, the right abstractions make powerful tools feel simple and leave room for what comes next.
 
 </div>
 </div>
